@@ -1,0 +1,393 @@
+<mujoco model="LSRX_V0.0.13.SLDASM">
+  <compiler angle="radian" meshdir="../../../ref/realman_robot/LSRX_V0.0.13.SLDASM/meshes" />
+  <asset>
+    <mesh name="base_link" file="base_link.STL" />
+    <mesh name="wr_link" file="wr_link.STL" />
+    <mesh name="wl_link" file="wl_link.STL" />
+    <mesh name="xt_link_1" file="xt_link_1.STL" />
+    <mesh name="xt_link_2" file="xt_link_2.STL" />
+    <mesh name="dt_link" file="dt_link.STL" />
+    <mesh name="yb_link" file="yb_link.STL" />
+    <mesh name="xb_link" file="xb_link.STL" />
+    <mesh name="jb_link" file="jb_link.STL" />
+    <mesh name="tb_link" file="tb_link.STL" />
+    <mesh name="tb_camera_link" file="tb_camera_link.STL" />
+    <mesh name="xb_camera_link_1" file="xb_camera_link_1.STL" />
+    <mesh name="xb_camera_link_2" file="xb_camera_link_2.STL" />
+    <mesh name="xb_camera_link_3" file="xb_camera_link_3.STL" />
+    <mesh name="left_arm_base_link" file="left_arm_base_link.STL" />
+    <mesh name="right_arm_base_link" file="right_arm_base_link.STL" />
+    <mesh name="base_camera_link_1" file="base_camera_link_1.STL" />
+    <mesh name="base_camera_link_2" file="base_camera_link_2.STL" />
+    <mesh name="base_link_2" file="base_link_2.STL" />
+    <mesh name="wc_front_left_link" file="wc_front_left_link.STL" />
+    <mesh name="wc_rear_left_link" file="wc_rear_left_link.STL" />
+    <mesh name="wc_rear_right_link" file="wc_rear_right_link.STL" />
+    <mesh name="wc_front_right_link" file="wc_front_right_link.STL" />
+    <mesh name="l_link_1" file="l_link_1.STL" />
+    <mesh name="l_link_2" file="l_link_2.STL" />
+    <mesh name="l_link_3" file="l_link_3.STL" />
+    <mesh name="l_link_4" file="l_link_4.STL" />
+    <mesh name="l_link_5" file="l_link_5.STL" />
+    <mesh name="l_link_6" file="l_link_6.STL" />
+    <mesh name="l_link_7" file="l_link_7.STL" />
+    <mesh name="l_camera_rolink" file="l_camera_rolink.STL" />
+    <mesh name="l_camera_link" file="l_camera_link.STL" />
+    <mesh name="l_link_8" file="l_link_8.STL" />
+    <mesh name="r_link_1" file="r_link_1.STL" />
+    <mesh name="r_link_2" file="r_link_2.STL" />
+    <mesh name="r_link_3" file="r_link_3.STL" />
+    <mesh name="r_link_4" file="r_link_4.STL" />
+    <mesh name="r_link_5" file="r_link_5.STL" />
+    <mesh name="r_link_6" file="r_link_6.STL" />
+    <mesh name="r_link_7" file="r_link_7.STL" />
+    <mesh name="r_camera_rolink" file="r_camera_rolink.STL" />
+    <mesh name="r_camera_link" file="r_camera_link.STL" />
+    <mesh name="r_link_8" file="r_link_8.STL" />
+    <mesh name="ltool_base_link" file="ltool_base_link.STL" />
+    <mesh name="ltool_Left_1_Link" file="ltool_Left_1_Link.STL" />
+    <mesh name="ltool_Left_Support_Link" file="ltool_Left_Support_Link.STL" />
+    <mesh name="ltool_Left_2_Link" file="ltool_Left_2_Link.STL" />
+    <mesh name="ltool_Right_2_Link" file="ltool_Right_2_Link.STL" />
+    <mesh name="ltool_Right_1_Link" file="ltool_Right_1_Link.STL" />
+    <mesh name="ltool_Right_Support_Link" file="ltool_Right_Support_Link.STL" />
+    <mesh name="rtool_base_link" file="rtool_base_link.STL" />
+    <mesh name="rtool_Left_1_Link" file="rtool_Left_1_Link.STL" />
+    <mesh name="rtool_Left_Support_Link" file="rtool_Left_Support_Link.STL" />
+    <mesh name="rtool_Left_2_Link" file="rtool_Left_2_Link.STL" />
+    <mesh name="rtool_Right_2_Link" file="rtool_Right_2_Link.STL" />
+    <mesh name="rtool_Right_1_Link" file="rtool_Right_1_Link.STL" />
+    <mesh name="rtool_Right_Support_Link" file="rtool_Right_Support_Link.STL" />
+  </asset>
+  <worldbody>
+    <body name="base_link">
+      <inertial pos="0.00287771 -0.00988385 0.115728" quat="-0.0418825 0.713167 0.0296242 0.699114" mass="44.9629" diaginertia="1.72389 1.41636 0.825606" />
+      <geom name="base_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.776471 0.756863 0.737255 1" mesh="base_link" />
+      <geom name="base_link_collision_0" size="0.0025 0.2375 0.0925" pos="-0.305 0 0.12" type="box" rgba="0.776471 0.756863 0.737255 1" />
+      <geom name="base_link_collision_1" size="0.0025 0.2375 0.0925" pos="0.285 0 0.12" type="box" rgba="0.776471 0.756863 0.737255 1" />
+      <geom name="base_link_collision_2" size="0.2925 0.0025 0.0925" pos="-0.01 -0.235 0.12" type="box" rgba="0.776471 0.756863 0.737255 1" />
+      <geom name="base_link_collision_3" size="0.2925 0.0025 0.0925" pos="-0.01 0.235 0.12" type="box" rgba="0.776471 0.756863 0.737255 1" />
+      <geom name="base_link_collision_4" size="0.2925 0.2325 0.0025" pos="-0.01 0 0.21" type="box" rgba="0.776471 0.756863 0.737255 1" />
+      <geom name="base_link_collision_5" size="0.025 0.025 0.015" pos="0.24 0 0.235" type="box" rgba="0.776471 0.756863 0.737255 1" />
+      <body name="wr_link" pos="0 -0.183 0.085">
+        <inertial pos="0 0.00074722 -1.481e-05" quat="0.499905 0.500081 0.499919 0.500095" mass="1.152" diaginertia="0.00502918 0.00292349 0.00290734" />
+        <joint name="wr_joint" pos="0 0 0" axis="0 -1 0" actuatorfrcrange="-50 50" />
+        <geom name="wr_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="wr_link" />
+        <geom name="wr_link_collision_0" size="0.085 0.02325" quat="0.707105 0.707108 0 0" type="cylinder" rgba="1 1 1 1" />
+      </body>
+      <body name="wl_link" pos="0 0.183 0.085">
+        <inertial pos="0 -0.00126517 -2.522e-05" quat="0.500198 0.499796 0.500203 0.499803" mass="1.152" diaginertia="0.00422288 0.00266392 0.002654" />
+        <joint name="wl_joint" pos="0 0 0" axis="0 -1 0" actuatorfrcrange="-50 50" />
+        <geom name="wl_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="wl_link" />
+        <geom name="wl_link_collision_0" size="0.085 0.02325" quat="0.707105 0.707108 0 0" type="cylinder" rgba="1 1 1 1" />
+      </body>
+      <body name="xt_link_1" pos="-0.0969998 0 0.3428">
+        <inertial pos="-1.375e-05 -0.00185301 0.124272" quat="0.999991 -0.00409654 0.000584707 0.000272572" mass="7.98874" diaginertia="0.133984 0.131915 0.0296846" />
+        <joint name="xt_joint_1" pos="0 0 0" axis="0 -1 0" range="-1.62 0.05" actuatorfrcrange="-120 120" />
+        <geom name="xt_link_1_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="xt_link_1" />
+        <geom name="xt_link_1_collision_0" size="0.0675 0.072 0.1275" pos="0 0 0.12" type="box" rgba="1 1 1 1" />
+        <body name="xt_link_2" pos="0 0 0.255">
+          <inertial pos="-0.00578171 0.00593489 0.145156" quat="0.999366 -0.031795 0.00265393 -0.0157782" mass="3.99673" diaginertia="0.0641689 0.0457733 0.0317323" />
+          <joint name="xt_joint_2" pos="0 0 0" axis="0 -1 0" range="-0.35 2.44" actuatorfrcrange="-120 120" />
+          <geom name="xt_link_2_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.866667 0.909804 1 1" mesh="xt_link_2" />
+          <geom name="xt_link_2_collision_0" size="0.065 0.0115 0.15" pos="0 0.1 0.145" type="box" rgba="0.866667 0.909804 1 1" />
+          <geom name="xt_link_2_collision_1" size="0.065 0.0115 0.15" pos="0 -0.1 0.145" type="box" rgba="0.866667 0.909804 1 1" />
+          <geom name="xt_link_2_collision_2" size="0.045 0.07 0.04" pos="0 0 0.12" type="box" rgba="0.866667 0.909804 1 1" />
+          <body name="dt_link" pos="0 0 0.255">
+            <inertial pos="-0.00225599 -0.00343555 0.0631718" quat="0.989852 0.0246959 0.00110803 0.139934" mass="5.491" diaginertia="0.0368698 0.0333668 0.0198915" />
+            <joint name="dt_joint" pos="0 0 0" axis="0 -1 0" range="-1.4 0.17" actuatorfrcrange="-120 120" />
+            <geom name="dt_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.866667 0.909804 1 1" mesh="dt_link" />
+            <geom name="dt_link_collision_0" type="mesh" rgba="0.866667 0.909804 1 1" mesh="dt_link" />
+            <body name="yb_link" pos="0 0 0.121001">
+              <inertial pos="0.00020855 0.00474088 0.0535491" quat="0.729563 0.683909 -0.00185003 -0.00169787" mass="3.40089" diaginertia="0.0249447 0.0201537 0.0177357" />
+              <joint name="yb_joint" pos="0 0 0" axis="1 0 0" range="-0.35 0.35" actuatorfrcrange="-120 120" />
+              <geom name="yb_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.866667 0.909804 1 1" mesh="yb_link" />
+              <geom name="yb_link_collision_0" type="mesh" rgba="0.866667 0.909804 1 1" mesh="yb_link" />
+              <body name="xb_link" pos="0 0 0.128999">
+                <inertial pos="-0.00856758 0.00010563 0.20358" quat="0.705982 -0.0479167 -0.0466745 0.705064" mass="1.899" diaginertia="0.12954 0.12366 0.0500022" />
+                <joint name="xb_joint" pos="0 0 0" axis="0 0 1" range="-0.84 0.84" actuatorfrcrange="-120 120" />
+                <geom name="xb_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0 0.737255 0.968627 1" mesh="xb_link" />
+                <geom name="xb_link_collision_0" type="mesh" rgba="0 0.737255 0.968627 1" mesh="xb_link" />
+                <body name="jb_link" pos="0.0005922 0 0.360501">
+                  <inertial pos="-0.00021831 0.00151794 0.102761" quat="0.519666 0.854105 0.00938644 -0.0190447" mass="0.527183" diaginertia="0.00041831 0.000340921 0.000338978" />
+                  <joint name="jb_joint" pos="0 0 0" axis="0.00439865 0 -0.99999" range="-0.4 0.4" actuatorfrcrange="-10 10" />
+                  <geom name="jb_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="jb_link" />
+                  <geom name="jb_link_collision_0" type="mesh" rgba="1 1 1 1" mesh="jb_link" />
+                  <body name="tb_link" pos="-0.000480567 0 0.1087">
+                    <inertial pos="0.0134277 0.00385725 0.0926927" quat="0.418149 0.0911022 0.410663 0.805113" mass="0.971856" diaginertia="0.0032351 0.00243804 0.00226123" />
+                    <joint name="tb_joint" pos="0 0 0" axis="-7.91473e-05 1 0" range="-0.26 0.7" actuatorfrcrange="-10 10" />
+                    <geom name="tb_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.686275 0.313726 0 1" mesh="tb_link" />
+                    <geom name="tb_link_collision_0" type="mesh" rgba="0.686275 0.313726 0 1" mesh="tb_link" />
+                    <body name="tb_camera_link" pos="0.0837723 0.0237583 0.0742826" quat="0.501079 0.498879 0.498919 0.501118">
+                      <inertial pos="-0.025122 -0.00021526 -0.0167832" quat="0.510488 0.489639 0.499323 0.500333" mass="0.1" diaginertia="0.000132791 0.000129231 2.0338e-05" />
+                      <geom name="tb_camera_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.792157 0.819608 0.933333 1" mesh="tb_camera_link" />
+                    </body>
+                  </body>
+                </body>
+                <body name="xb_camera_link_1" pos="0.12309 0.0237511 0.198882" quat="0.413628 0.573509 0.573509 0.413628">
+                  <inertial pos="-0.0251239 -0.00014142 -0.0167863" quat="0.509155 0.491011 0.497924 0.501738" mass="0.1" diaginertia="0.000132741 0.000129192 2.03375e-05" />
+                  <geom name="xb_camera_link_1_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.792157 0.819608 0.933333 1" mesh="xb_camera_link_1" />
+                </body>
+                <body name="xb_camera_link_2" pos="0.1177 0 0.253401" quat="0.5 0.5 0.5 0.5">
+                  <inertial pos="0 -0.0003587 -0.0162475" quat="0.706592 -0.0269783 0.0269783 0.706592" mass="0.005" diaginertia="5.11529e-07 5e-07 2.48471e-07" />
+                  <geom name="xb_camera_link_2_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.498039 0.498039 0.498039 1" mesh="xb_camera_link_2" />
+                </body>
+                <body name="xb_camera_link_3" pos="-0.1203 0 0.133401" quat="0.5 0.5 -0.5 -0.5">
+                  <inertial pos="0 -0.0003587 -0.0162475" quat="0.707105 -0.00145792 0.00145792 0.707105" mass="0.005" diaginertia="1.95e-06 1.95e-06 1.95e-06" />
+                  <geom name="xb_camera_link_3_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.498039 0.498039 0.498039 1" mesh="xb_camera_link_3" />
+                </body>
+                <body name="left_arm_base_link" pos="0 -0.000299995 0.303401" quat="-0.5 0.5 0.5 0.5">
+                  <inertial pos="-2.78e-06 0 0.0639045" quat="0 0.707143 0 0.707071" mass="0.16595" diaginertia="0.00025355 0.00015591 0.00015548" />
+                  <geom name="left_arm_base_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.792157 0.819608 0.933333 1" mesh="left_arm_base_link" />
+                  <body name="l_link_1" pos="0 0 0.1915">
+                    <inertial pos="0.000241 -0.013273 -0.00995" quat="0.99968 -0.0189047 0.00181236 0.0167158" mass="1.574" diaginertia="0.00292117 0.00247752 0.00172684" />
+                    <joint name="l_joint_1" pos="0 0 0" axis="0 0 1" range="-3.10669 3.10669" actuatorfrcrange="-60 60" />
+                    <geom name="l_link_1_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="l_link_1" />
+                    <geom name="l_link_1_collision_0" type="mesh" rgba="1 1 1 1" mesh="l_link_1" />
+                    <body name="l_link_2" quat="0.707107 -0.707107 0 0">
+                      <inertial pos="-0.000357 -0.106798 0.005329" quat="0.709262 0.704621 0.014095 -0.0160596" mass="1.217" diaginertia="0.0174045 0.0173203 0.000926595" />
+                      <joint name="l_joint_2" pos="0 0 0" axis="0 0 1" range="-2.26893 2.26893" actuatorfrcrange="-60 60" />
+                      <geom name="l_link_2_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="l_link_2" />
+                      <geom name="l_link_2_collision_0" type="mesh" rgba="1 1 1 1" mesh="l_link_2" />
+                      <body name="l_link_3" pos="0 -0.256 0" quat="0.707107 0.707107 0 0">
+                        <inertial pos="3e-06 -0.010398 -0.011324" quat="0.995311 -0.0966488 0.00228521 0.00326843" mass="1.11" diaginertia="0.00209907 0.00165956 0.0011642" />
+                        <joint name="l_joint_3" pos="0 0 0" axis="0 0 1" range="-3.10669 3.10669" actuatorfrcrange="-30 30" />
+                        <geom name="l_link_3_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="l_link_3" />
+                        <geom name="l_link_3_collision_0" type="mesh" rgba="1 1 1 1" mesh="l_link_3" />
+                        <body name="l_link_4" quat="0.707107 -0.707107 0 0">
+                          <inertial pos="-5e-06 -0.084658 0.004747" quat="0.709717 0.704447 0.00523623 -0.00537479" mass="0.685" diaginertia="0.00620459 0.00616319 0.00038812" />
+                          <joint name="l_joint_4" pos="0 0 0" axis="0 0 1" range="-2.35619 2.35619" actuatorfrcrange="-30 30" />
+                          <geom name="l_link_4_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="l_link_4" />
+                          <geom name="l_link_4_collision_0" type="mesh" rgba="1 1 1 1" mesh="l_link_4" />
+                          <body name="l_link_5" pos="0 -0.21 0" quat="0.707107 0.707107 0 0">
+                            <inertial pos="7.8e-05 -0.012937 -0.008781" quat="0.990681 -0.13603 0.00136057 0.00666726" mass="0.619" diaginertia="0.000778648 0.000600024 0.000463975" />
+                            <joint name="l_joint_5" pos="0 0 0" axis="0 0 1" range="-3.10669 3.10669" actuatorfrcrange="-10 10" />
+                            <geom name="l_link_5_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="l_link_5" />
+                            <geom name="l_link_5_collision_0" type="mesh" rgba="1 1 1 1" mesh="l_link_5" />
+                            <body name="l_link_6" quat="0.707107 -0.707107 0 0">
+                              <inertial pos="-1.4e-05 -0.078524 0.002819" quat="0.708152 0.705985 0.00723602 -0.00739307" mass="0.602" diaginertia="0.00449988 0.00447829 0.00029472" />
+                              <joint name="l_joint_6" pos="0 0 0" axis="0 0 1" range="-2.23402 2.23402" actuatorfrcrange="-10 10" />
+                              <geom name="l_link_6_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="l_link_6" />
+                              <geom name="l_link_6_collision_0" type="mesh" rgba="1 1 1 1" mesh="l_link_6" />
+                              <body name="l_link_7" pos="0 -0.18448 0" quat="0.707107 0.707107 0 0">
+                                <inertial pos="-0.00214488 -0.00022405 -0.0307112" quat="0.737163 -0.179807 -0.214494 0.615022" mass="0.199617" diaginertia="0.000153126 0.000140759 0.000115645" />
+                                <joint name="l_joint_7" pos="0 0 0" axis="0 0 -1" range="-6.28318 6.28318" actuatorfrcrange="-10 10" />
+                                <geom name="l_link_7_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="l_link_7" />
+                                <geom name="l_link_7_collision_0" type="mesh" rgba="1 1 1 1" mesh="l_link_7" />
+                                <body name="l_camera_rolink" pos="-0.045 -0.00809999 -0.0535" quat="-0.00286069 -0.00286069 0.707101 -0.707101">
+                                  <inertial pos="0.0334204 -0.0012832 -0.00990498" quat="0.68177 0.00921717 -0.000552911 0.731508" mass="0.127288" diaginertia="0.000183309 0.000160588 3.66731e-05" />
+                                  <joint name="l_camera_rojoint" pos="0 0 0" axis="0 0 -1" range="0 0.78" />
+                                  <geom name="l_camera_rolink_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.898039 0.917647 0.929412 1" mesh="l_camera_rolink" />
+                                  <geom name="l_camera_rolink_collision_0" type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="l_camera_rolink" />
+                                  <body name="l_camera_link" pos="0.039496 -0.0410701 -0.0318511" quat="0.5 0.5 -0.5 0.5">
+                                    <inertial pos="0.0251239 0.00014451 -0.0167862" quat="0.509218 0.490608 0.49829 0.501704" mass="0.164" diaginertia="0.000217701 0.000211865 3.33534e-05" />
+                                    <geom name="l_camera_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.0627451 0.00392157 0.592157 1" mesh="l_camera_link" />
+                                    <geom name="l_camera_link_collision_0" type="mesh" rgba="0.0627451 0.00392157 0.592157 1" mesh="l_camera_link" />
+                                  </body>
+                                </body>
+                                <body name="l_link_8" pos="0 0 0.0085">
+                                  <inertial pos="-9.75e-06 -3.639e-05 -0.00240898" quat="-0.000702211 0.707106 0.000919582 0.707106" mass="0.121369" diaginertia="8.418e-05 5.16501e-05 3.85699e-05" />
+                                  <geom name="l_link_8_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.866667 0.866667 0.890196 1" mesh="l_link_8" />
+                                  <geom name="l_link_8_collision_0" type="mesh" rgba="0.866667 0.866667 0.890196 1" mesh="l_link_8" />
+                                  <body name="ltool_base_link" quat="0.707105 0 0 0.707108">
+                                    <inertial pos="3.84872e-06 -4.41448e-05 0.0553868" quat="0.707104 -0.000129103 0.00015269 0.70711" mass="0.953456" diaginertia="0.00187418 0.00177629 0.000875449" />
+                                    <geom name="ltool_base_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_base_link" />
+                                    <geom name="ltool_base_link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_base_link" />
+                                    <body name="ltool_Left_1_Link" pos="0.030141 0 0.10415" quat="0.707105 0.707108 0 0">
+                                      <inertial pos="0.0202604 0.0187578 0" quat="-0.257975 0.658368 0.257975 0.658368" mass="0.0309053" diaginertia="9.19223e-06 8.92299e-06 3.59913e-07" />
+                                      <joint name="ltool_Left_1_Joint" pos="0 0 0" axis="0 0 -1" range="-0.91 0" actuatorfrcrange="-10 10" />
+                                      <geom name="ltool_Left_1_Link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_Left_1_Link" />
+                                      <geom name="ltool_Left_1_Link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_Left_1_Link" />
+                                      <body name="ltool_Left_Support_Link" pos="0.040359 0.037365 0">
+                                        <inertial pos="-0.0177926 0.0354309 -3.45319e-05" quat="0.699435 0.699435 0.10388 0.10388" mass="0.0828693" diaginertia="2.95349e-05 2.83129e-05 4.20884e-06" />
+                                        <joint name="ltool_Left_Support_Joint" pos="0 0 0" axis="0 0 -1" range="0 0.91" actuatorfrcrange="-10 10" />
+                                        <geom name="ltool_Left_Support_Link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_Left_Support_Link" />
+                                        <geom name="ltool_Left_Support_Link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_Left_Support_Link" />
+                                        <body name="ltool_Left_Pad_Link" pos="-0.0255002 0.042 0" />
+                                      </body>
+                                    </body>
+                                    <body name="ltool_Left_2_Link" pos="0.016 0 0.121" quat="0.707105 0.707108 0 0">
+                                      <inertial pos="0.0202604 0.0187578 0" quat="-0.257975 0.658368 0.257975 0.658368" mass="0.0309053" diaginertia="9.19223e-06 8.92299e-06 3.59913e-07" />
+                                      <joint name="ltool_Left_2_Joint" pos="0 0 0" axis="0 0 -1" range="-0.91 0" actuatorfrcrange="-10 10" />
+                                      <geom name="ltool_Left_2_Link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_Left_2_Link" />
+                                      <geom name="ltool_Left_2_Link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_Left_2_Link" />
+                                    </body>
+                                    <body name="ltool_Right_2_Link" pos="-0.016 0 0.121" quat="-2.59734e-06 -2.59735e-06 0.707108 0.707105">
+                                      <inertial pos="0.0202604 0.0187578 0" quat="-0.257975 0.658368 0.257975 0.658368" mass="0.0309053" diaginertia="9.19223e-06 8.92299e-06 3.59913e-07" />
+                                      <joint name="ltool_Right_2_Joint" pos="0 0 0" axis="0 0 1" range="0 0.91" actuatorfrcrange="-10 10" />
+                                      <geom name="ltool_Right_2_Link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_Right_2_Link" />
+                                      <geom name="ltool_Right_2_Link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_Right_2_Link" />
+                                    </body>
+                                    <body name="ltool_Right_1_Link" pos="-0.030141 0 0.10415" quat="-2.59734e-06 -2.59735e-06 0.707108 0.707105">
+                                      <inertial pos="0.0202604 0.0187578 0" quat="-0.257975 0.658368 0.257975 0.658368" mass="0.0309053" diaginertia="9.19223e-06 8.92299e-06 3.59913e-07" />
+                                      <joint name="ltool_Right_1_Joint" pos="0 0 0" axis="0 0 1" range="0 0.91" actuatorfrcrange="-10 10" />
+                                      <geom name="ltool_Right_1_Link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_Right_1_Link" />
+                                      <geom name="ltool_Right_1_Link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_Right_1_Link" />
+                                      <body name="ltool_Right_Support_Link" pos="0.040359 0.037365 0">
+                                        <inertial pos="-0.0177926 0.0354309 -2.81888e-08" quat="0.699435 0.699435 0.10388 0.10388" mass="0.0828694" diaginertia="2.95349e-05 2.83129e-05 4.20884e-06" />
+                                        <joint name="ltool_Right_Support_Joint" pos="0 0 0" axis="0 0 -1" range="0 0.91" actuatorfrcrange="-10 10" />
+                                        <geom name="ltool_Right_Support_Link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_Right_Support_Link" />
+                                        <geom name="ltool_Right_Support_Link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="ltool_Right_Support_Link" />
+                                        <body name="ltool_Right_Pad_Link" pos="-0.0255002 0.042 0" />
+                                      </body>
+                                    </body>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+                <body name="right_arm_base_link" pos="0 0.000300005 0.303401" quat="0.5 0.5 -0.5 0.5">
+                  <inertial pos="-2.25e-06 0 0.0638003" quat="0 0.707107 0 0.707107" mass="0.165049" diaginertia="0.00025219 0.0001549 0.00015447" />
+                  <geom name="right_arm_base_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.866667 0.909804 1 1" mesh="right_arm_base_link" />
+                  <body name="r_link_1" pos="0 0 0.1915">
+                    <inertial pos="0.000241 -0.013273 -0.00995" quat="0.99968 -0.0189047 0.00181236 0.0167158" mass="1.574" diaginertia="0.00292117 0.00247752 0.00172684" />
+                    <joint name="r_joint_1" pos="0 0 0" axis="0 0 1" range="-3.10669 3.10669" actuatorfrcrange="-60 60" />
+                    <geom name="r_link_1_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="r_link_1" />
+                    <geom name="r_link_1_collision_0" type="mesh" rgba="1 1 1 1" mesh="r_link_1" />
+                    <body name="r_link_2" quat="0.707107 -0.707107 0 0">
+                      <inertial pos="-0.000357 -0.106798 0.005329" quat="0.709262 0.704621 0.014095 -0.0160596" mass="1.217" diaginertia="0.0174045 0.0173203 0.000926595" />
+                      <joint name="r_joint_2" pos="0 0 0" axis="0 0 1" range="-2.26893 2.26893" actuatorfrcrange="-60 60" />
+                      <geom name="r_link_2_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="r_link_2" />
+                      <geom name="r_link_2_collision_0" type="mesh" rgba="1 1 1 1" mesh="r_link_2" />
+                      <body name="r_link_3" pos="0 -0.256 0" quat="0.707107 0.707107 0 0">
+                        <inertial pos="3e-06 -0.010398 -0.011324" quat="0.995311 -0.0966488 0.00228521 0.00326843" mass="1.11" diaginertia="0.00209907 0.00165956 0.0011642" />
+                        <joint name="r_joint_3" pos="0 0 0" axis="0 0 1" range="-3.10669 3.10669" actuatorfrcrange="-30 30" />
+                        <geom name="r_link_3_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="r_link_3" />
+                        <geom name="r_link_3_collision_0" type="mesh" rgba="1 1 1 1" mesh="r_link_3" />
+                        <body name="r_link_4" quat="0.707107 -0.707107 0 0">
+                          <inertial pos="-5e-06 -0.084658 0.004747" quat="0.709717 0.704447 0.00523623 -0.00537479" mass="0.685" diaginertia="0.00620459 0.00616319 0.00038812" />
+                          <joint name="r_joint_4" pos="0 0 0" axis="0 0 1" range="-2.35619 2.35619" actuatorfrcrange="-30 30" />
+                          <geom name="r_link_4_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="r_link_4" />
+                          <geom name="r_link_4_collision_0" type="mesh" rgba="1 1 1 1" mesh="r_link_4" />
+                          <body name="r_link_5" pos="0 -0.21 0" quat="0.707107 0.707107 0 0">
+                            <inertial pos="7.8e-05 -0.012937 -0.008781" quat="0.990681 -0.13603 0.00136057 0.00666726" mass="0.619" diaginertia="0.000778648 0.000600024 0.000463975" />
+                            <joint name="r_joint_5" pos="0 0 0" axis="0 0 1" range="-3.10669 3.10669" actuatorfrcrange="-10 10" />
+                            <geom name="r_link_5_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="r_link_5" />
+                            <geom name="r_link_5_collision_0" type="mesh" rgba="1 1 1 1" mesh="r_link_5" />
+                            <body name="r_link_6" quat="0.707107 -0.707107 0 0">
+                              <inertial pos="-1.4e-05 -0.078524 0.002819" quat="0.708152 0.705985 0.00723602 -0.00739307" mass="0.602" diaginertia="0.00449988 0.00447829 0.00029472" />
+                              <joint name="r_joint_6" pos="0 0 0" axis="0 0 1" range="-2.23402 2.23402" actuatorfrcrange="-10 10" />
+                              <geom name="r_link_6_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="r_link_6" />
+                              <geom name="r_link_6_collision_0" type="mesh" rgba="1 1 1 1" mesh="r_link_6" />
+                              <body name="r_link_7" pos="0 -0.18448 0" quat="0.707107 0.707107 0 0">
+                                <inertial pos="-0.00214488 -0.00022405 -0.0307112" quat="0.737163 -0.179807 -0.214494 0.615022" mass="0.199617" diaginertia="0.000153126 0.000140759 0.000115645" />
+                                <joint name="r_joint_7" pos="0 0 0" axis="0 0 -1" range="-6.28318 6.28318" actuatorfrcrange="-10 10" />
+                                <geom name="r_link_7_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="r_link_7" />
+                                <geom name="r_link_7_collision_0" type="mesh" rgba="1 1 1 1" mesh="r_link_7" />
+                                <body name="r_camera_rolink" pos="-0.045 -0.00809999 -0.0535" quat="-0.00286069 -0.00286069 0.707101 -0.707101">
+                                  <inertial pos="0.0334204 -0.0012832 -0.00990498" quat="0.68177 0.00921717 -0.000552911 0.731508" mass="0.127288" diaginertia="0.000183309 0.000160588 3.66731e-05" />
+                                  <joint name="r_camera_rojoint" pos="0 0 0" axis="0 0 -1" range="0 0.78" />
+                                  <geom name="r_camera_rolink_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.898039 0.917647 0.929412 1" mesh="r_camera_rolink" />
+                                  <geom name="r_camera_rolink_collision_0" type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="r_camera_rolink" />
+                                  <body name="r_camera_link" pos="0.039496 -0.0410701 -0.0318511" quat="0.5 0.5 -0.5 0.5">
+                                    <inertial pos="0.0251239 0.00014451 -0.0167862" quat="0.509218 0.490608 0.49829 0.501704" mass="0.164" diaginertia="0.000217701 0.000211865 3.33534e-05" />
+                                    <geom name="r_camera_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.0627451 0.00392157 0.592157 1" mesh="r_camera_link" />
+                                    <geom name="r_camera_link_collision_0" type="mesh" rgba="0.0627451 0.00392157 0.592157 1" mesh="r_camera_link" />
+                                  </body>
+                                </body>
+                                <body name="r_link_8" pos="0 0 0.0085">
+                                  <inertial pos="-9.75e-06 -3.639e-05 -0.00240898" quat="-0.000702211 0.707106 0.000919582 0.707106" mass="0.121369" diaginertia="8.418e-05 5.16501e-05 3.85699e-05" />
+                                  <geom name="r_link_8_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.866667 0.866667 0.890196 1" mesh="r_link_8" />
+                                  <geom name="r_link_8_collision_0" type="mesh" rgba="0.866667 0.866667 0.890196 1" mesh="r_link_8" />
+                                  <body name="rtool_base_link" quat="0.707105 0 0 -0.707108">
+                                    <inertial pos="3.84872e-06 -4.41448e-05 0.0553868" quat="0.707104 -0.000129103 0.00015269 0.70711" mass="0.953456" diaginertia="0.00187418 0.00177629 0.000875449" />
+                                    <geom name="rtool_base_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_base_link" />
+                                    <geom name="rtool_base_link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_base_link" />
+                                    <body name="rtool_Left_1_Link" pos="0.030141 0 0.10415" quat="0.707105 0.707108 0 0">
+                                      <inertial pos="0.0202604 0.0187578 0" quat="-0.257975 0.658368 0.257975 0.658368" mass="0.0309053" diaginertia="9.19223e-06 8.92299e-06 3.59913e-07" />
+                                      <joint name="rtool_Left_1_Joint" pos="0 0 0" axis="0 0 -1" range="-0.91 0" actuatorfrcrange="-10 10" />
+                                      <geom name="rtool_Left_1_Link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_Left_1_Link" />
+                                      <geom name="rtool_Left_1_Link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_Left_1_Link" />
+                                      <body name="rtool_Left_Support_Link" pos="0.040359 0.037365 0">
+                                        <inertial pos="-0.0177926 0.0354309 -3.45319e-05" quat="0.699435 0.699435 0.10388 0.10388" mass="0.0828693" diaginertia="2.95349e-05 2.83129e-05 4.20884e-06" />
+                                        <joint name="rtool_Left_Support_Joint" pos="0 0 0" axis="0 0 -1" range="0 0.91" actuatorfrcrange="-10 10" />
+                                        <geom name="rtool_Left_Support_Link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_Left_Support_Link" />
+                                        <geom name="rtool_Left_Support_Link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_Left_Support_Link" />
+                                        <body name="rtool_Left_Pad_Link" pos="-0.0255002 0.042 0" />
+                                      </body>
+                                    </body>
+                                    <body name="rtool_Left_2_Link" pos="0.016 0 0.121" quat="0.707105 0.707108 0 0">
+                                      <inertial pos="0.0202604 0.0187578 0" quat="-0.257975 0.658368 0.257975 0.658368" mass="0.0309053" diaginertia="9.19223e-06 8.92299e-06 3.59913e-07" />
+                                      <joint name="rtool_Left_2_Joint" pos="0 0 0" axis="0 0 -1" range="-0.91 0" actuatorfrcrange="-10 10" />
+                                      <geom name="rtool_Left_2_Link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_Left_2_Link" />
+                                      <geom name="rtool_Left_2_Link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_Left_2_Link" />
+                                    </body>
+                                    <body name="rtool_Right_2_Link" pos="-0.016 0 0.121" quat="-2.59734e-06 -2.59735e-06 0.707108 0.707105">
+                                      <inertial pos="0.0202604 0.0187578 0" quat="-0.257975 0.658368 0.257975 0.658368" mass="0.0309053" diaginertia="9.19223e-06 8.92299e-06 3.59913e-07" />
+                                      <joint name="rtool_Right_2_Joint" pos="0 0 0" axis="0 0 1" range="0 0.91" actuatorfrcrange="-10 10" />
+                                      <geom name="rtool_Right_2_Link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_Right_2_Link" />
+                                      <geom name="rtool_Right_2_Link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_Right_2_Link" />
+                                    </body>
+                                    <body name="rtool_Right_1_Link" pos="-0.030141 0 0.10415" quat="-2.59734e-06 -2.59735e-06 0.707108 0.707105">
+                                      <inertial pos="0.0202604 0.0187578 0" quat="-0.257975 0.658368 0.257975 0.658368" mass="0.0309053" diaginertia="9.19223e-06 8.92299e-06 3.59913e-07" />
+                                      <joint name="rtool_Right_1_Joint" pos="0 0 0" axis="0 0 1" range="0 0.91" actuatorfrcrange="-10 10" />
+                                      <geom name="rtool_Right_1_Link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_Right_1_Link" />
+                                      <geom name="rtool_Right_1_Link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_Right_1_Link" />
+                                      <body name="rtool_Right_Support_Link" pos="0.040359 0.037365 0">
+                                        <inertial pos="-0.0177926 0.0354309 -2.81888e-08" quat="0.699435 0.699435 0.10388 0.10388" mass="0.0828694" diaginertia="2.95349e-05 2.83129e-05 4.20884e-06" />
+                                        <joint name="rtool_Right_Support_Joint" pos="0 0 0" axis="0 0 -1" range="0 0.91" actuatorfrcrange="-10 10" />
+                                        <geom name="rtool_Right_Support_Link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_Right_Support_Link" />
+                                        <geom name="rtool_Right_Support_Link_collision_0" type="mesh" rgba="0.615686 0.639216 0.67451 1" mesh="rtool_Right_Support_Link" />
+                                        <body name="rtool_Right_Pad_Link" pos="-0.0255002 0.042 0" />
+                                      </body>
+                                    </body>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="base_camera_link_1" pos="0.27124 -0.0115 0.13939" quat="0.499998 0.5 0.500002 0.5">
+        <inertial pos="0.0129146 -6.767e-05 -0.00603315" quat="0 0.707107 0 0.707107" mass="0.1" diaginertia="7.3e-05 7.078e-05 1.056e-05" />
+        <geom name="base_camera_link_1_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="base_camera_link_1" />
+      </body>
+      <body name="base_camera_link_2" pos="0.2759 0 0.089845" quat="0.500015 0.499983 0.500019 0.499983">
+        <inertial pos="0 -2.721e-05 -0.0156208" quat="0.707107 0 0 0.707107" mass="0.00502834" diaginertia="4.9e-07 4.7e-07 2.4e-07" />
+        <geom name="base_camera_link_2_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="base_camera_link_2" />
+      </body>
+      <body name="base_link_2">
+        <inertial pos="-0.0530237 -0.00232809 0.29537" quat="-0.000816583 0.747225 -0.00211471 0.664567" mass="1.3946" diaginertia="0.0437283 0.028384 0.020146" />
+        <geom name="base_link_2_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 1 1 1" mesh="base_link_2" />
+        <geom name="base_link_2_collision_0" type="mesh" rgba="1 1 1 1" mesh="base_link_2" />
+      </body>
+      <body name="wc_front_left_link" pos="0.196 0.148 0.0963">
+        <inertial pos="-0.00574005 4.71e-06 -0.027252" quat="0.956492 0.00100708 0.291741 0.00301848" mass="0.861705" diaginertia="0.00133028 0.00132117 0.000866724" />
+        <joint name="wc_front_left_joint" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" />
+        <geom name="wc_front_left_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="wc_front_left_link" />
+        <geom name="wc_front_left_link_collision_0" size="0.05" pos="0 0 -0.04" rgba="0.752941 0.752941 0.752941 1" />
+      </body>
+      <body name="wc_rear_left_link" pos="-0.18 0.148 0.0963">
+        <inertial pos="-0.00574005 4.71e-06 -0.027252" quat="0.956492 0.00100708 0.291741 0.00301848" mass="0.861705" diaginertia="0.00133028 0.00132117 0.000866724" />
+        <joint name="wc_rear_left_joint" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" />
+        <geom name="wc_rear_left_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="wc_rear_left_link" />
+        <geom name="wc_rear_left_link_collision_0" size="0.05" pos="0 0 -0.04" rgba="0.752941 0.752941 0.752941 1" />
+      </body>
+      <body name="wc_rear_right_link" pos="-0.18 -0.148 0.0963">
+        <inertial pos="-0.00574005 4.71e-06 -0.027252" quat="0.956492 0.00100708 0.291741 0.00301848" mass="0.861705" diaginertia="0.00133028 0.00132117 0.000866724" />
+        <joint name="wc_rear_right_joint" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" />
+        <geom name="wc_rear_right_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.776471 0.756863 0.737255 1" mesh="wc_rear_right_link" />
+        <geom name="wc_rear_right_link_collision_0" size="0.05" pos="0 0 -0.04" rgba="0.776471 0.756863 0.737255 1" />
+      </body>
+      <body name="wc_front_right_link" pos="0.196 -0.148 0.0963">
+        <inertial pos="-0.00574005 4.71e-06 -0.027252" quat="0.956492 0.00100708 0.291741 0.00301848" mass="0.861705" diaginertia="0.00133028 0.00132117 0.000866724" />
+        <joint name="wc_front_right_joint" pos="0 0 0" axis="0 0 1" range="-3.14 3.14" />
+        <geom name="wc_front_right_link_visual_0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.752941 0.752941 0.752941 1" mesh="wc_front_right_link" />
+        <geom name="wc_front_right_link_collision_0" size="0.05" pos="0 0 -0.04" rgba="0.752941 0.752941 0.752941 1" />
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

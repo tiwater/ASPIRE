@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "qualification": "photo_based_geometric_prototype",
+  "frame": "world: x toward table from robot, y robot-left, z up; table frame origin at tabletop center",
+  "table": {
+    "size_m": [
+      0.6,
+      1.2,
+      0.035
+    ],
+    "top_height_m": 0.75,
+    "center_xy_m": [
+      0.88,
+      0.0
+    ]
+  },
+  "robot": {
+    "base_xy_m": [
+      0.0,
+      0.0
+    ],
+    "yaw_rad": 0.0,
+    "frozen_joints_rad": {}
+  },
+  "machine": {
+    "center_table_xy_m": [
+      0.04,
+      0.16
+    ],
+    "size_m": [
+      0.4,
+      0.32,
+      0.43
+    ],
+    "platform_height_m": 0.045,
+    "pot_bay_y_m": 0.072,
+    "pot_bay_x_m": -0.075,
+    "head_bottom_m": 0.2
+  },
+  "pot": {
+    "radius_m": 0.068,
+    "height_m": 0.14,
+    "wall_m": 0.003,
+    "mass_kg": 0.396,
+    "handle_outer_width_m": 0.044,
+    "handle_outer_height_m": 0.102,
+    "handle_thickness_m": 0.014,
+    "handle_depth_m": 0.03,
+    "handle_outer_to_center_m": 0.125,
+    "lid_hole_radius_m": 0.007,
+    "yaw_rad": 1.5707963267948966
+  },
+  "cup": {
+    "height_m": 0.08,
+    "bottom_radius_m": 0.025,
+    "rim_radius_m": 0.035,
+    "wall_m": 0.001,
+    "mass_kg": 0.006,
+    "measured_usable_capacity_ml": null
+  },
+  "dispenser": {
+    "center_table_xy_m": [
+      -0.015,
+      -0.2
+    ],
+    "size_m": [
+      0.14,
+      0.115,
+      0.42
+    ],
+    "ring_height_m": 0.17,
+    "ring_radius_m": 0.041,
+    "stack_count": 4,
+    "stack_pitch_m": 0.0076,
+    "finger_stiffness_n_per_m": 1000.0,
+    "finger_friction": 0.8
+  },
+  "outlet": {
+    "travel_m": 0.008,
+    "spring_n_per_m": 1204.8563512694018,
+    "tip_radius_m": 0.005,
+    "preload_n": 0.0
+  },
+  "task": {
+    "fill_fraction": 0.8,
+    "fill_basis": "geometrically_estimated_capacity",
+    "withdraw_table_direction": [
+      -0.70710678,
+      0.70710678,
+      0.0
+    ],
+    "withdraw_distance_m": 0.18,
+    "cup_place_table_xyz_m": [
+      -0.16,
+      -0.15,
+      0.001
+    ]
+  },
+  "provenance": {
+    "table": {
+      "source": "Table photos 83/84/85",
+      "status": "photo_estimate",
+      "uncertainty_m": 0.03
+    },
+    "machine": {
+      "source": "CoffeeMachine photos 109/110/111/112 and Scene 98/100",
+      "status": "photo_estimate",
+      "uncertainty_m": 0.02
+    },
+    "pot_shape": {
+      "source": "Pot photos 101/104/105/106",
+      "status": "photo_estimate",
+      "uncertainty_m": 0.005
+    },
+    "handle": {
+      "source": "20261022 handover: outer44, cavity30, material14, outer-to-center125 mm",
+      "status": "historical_measurement_unverified_current"
+    },
+    "cup": {
+      "source": "Cup photos 87/88/89; rim approximately70 mm",
+      "status": "photo_estimate",
+      "uncertainty_m": 0.003
+    },
+    "dispenser": {
+      "source": "CupShelf photos 90-97",
+      "status": "photo_estimate",
+      "uncertainty_m": 0.01
+    },
+    "poses": {
+      "source": "user spatial description and Scene photos",
+      "status": "illustrative_not_live_registration"
+    },
+    "masses_friction_stiffness_wall_thickness": {
+      "source": "prototype defaults except user-reported pot mass and approved force priors",
+      "status": "not_hardware_force_limits"
+    },
+    "stack_pitch_and_finger_stiffness": {
+      "source": "nominal simulation settling experiment",
+      "status": "tuned_for_prototype_stability_not_measured_hardware"
+    },
+    "spring_and_lid": {
+      "source": "force from user prior; assumed 8 mm reference compression, zero preload; hidden contact geometry unknown",
+      "status": "mechanism_proxy_requires_measurement"
+    },
+    "fluid": {
+      "source": "user: omit detailed fluid simulation; favor low spout and slow tilt",
+      "status": "not_simulated_fill_feedback_still_required"
+    },
+    "pot_empty_mass": {
+      "source": "user provided 396 g",
+      "status": "user_reported_measurement"
+    },
+    "force_priors": {
+      "source": "user: half full-pot weight; two full cups of water weight",
+      "status": "approved_initial_estimates_to_be_measured_later"
+    }
+  },
+  "force_priors": {
+    "water_density_kg_m3": 1000.0,
+    "gravity_m_s2": 9.80665,
+    "spring_full_pot_weight_fraction": 0.5,
+    "spring_reference_compression_m": 0.008,
+    "dispenser_full_cups_of_water": 2.0,
+    "full_pot_includes_empty_pot": true,
+    "purpose": "simulation_priors_not_hardware_force_limits"
+  },
+  "pour_geometry": {
+    "rim_clearance_m": 0.005,
+    "min_tip_above_rim_m": 0.01,
+    "max_tip_above_rim_m": 0.025,
+    "max_tilt_rate_deg_s": 5.0,
+    "spout_insertion_enabled": false,
+    "status": "initial_geometric_trial_envelope_not_spill_guarantee"
+  }
+}

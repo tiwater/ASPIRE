@@ -1,0 +1,157 @@
+{
+  "scene": "/home/sawyer/aspire/artifacts/realman/coffee/scene.xml",
+  "urdf_sha256": "52331775bbe450c355ead701c828f70eac9a7ece58ca72091e1995aa9b9b7e0b",
+  "scene_config_sha256": "16bac530d16862a64bf4bfed22ccdb0fcb56dd5e92080f2ad4c50b86f24f7bec",
+  "mujoco_version": "3.3.0",
+  "source_meshes_sha256": {
+    "base_link.STL": "1628e805e69c2bab321a4bab000a287e2ddcbbd77e1d9f016ccbaec3d6fb0e44",
+    "wr_link.STL": "aa4279a674896b43e47f049b26d81a7540c183dd17ce87b7e2c0d4f53bbf599c",
+    "wl_link.STL": "aa4279a674896b43e47f049b26d81a7540c183dd17ce87b7e2c0d4f53bbf599c",
+    "xt_link_1.STL": "7beb8bce62ef29affb13bebd2d6cd47e6d30e295d62560a35ca28342a1b7f20f",
+    "xt_link_2.STL": "9e057dd117b0485e7bc5d0d400f0193d39443f1b59fe9c7a1d2b409dda03351a",
+    "dt_link.STL": "22b252d7ae504418fe9078b20a661620b576c21fc532d8842936154f078da8c6",
+    "yb_link.STL": "dffb1464333f7f98bb2a3f9cbfc305ce17fd30654b165cdff758880ca96366cc",
+    "xb_link.STL": "e985afe53b3108d6464b46e8e21b32c8d43ca8f0ea03c72be8a574c2f4808f74",
+    "jb_link.STL": "ffe08d9af0e74bffab97cc65930114247d17ed23d71de9706e549ab19be6d1f4",
+    "tb_link.STL": "268575dcb86175ec421c1f283ce12027e21fada124e8861fd484703103ccdca9",
+    "tb_camera_link.STL": "62e0f95befcfb23b13314b8a41a1589f7cf5cfeb097174c4ad7a98cf3f306b4f",
+    "xb_camera_link_1.STL": "687d17e562d5be5dbd24eb95d4f38ec369397364f48520b6bc1b0779fe63b49f",
+    "xb_camera_link_2.STL": "49c1d328415ad9bf62e071ed8d633d1afb8b4b6301031961974ed599ce382dd4",
+    "xb_camera_link_3.STL": "028f3160af57470f09cf74e4eff3a0ae2f90f4d94ef02f476cf1c9d37b74757f",
+    "left_arm_base_link.STL": "01c89756ff6dd2bb72c5c6bd0918a1652b2188fef6a73e1e58d60968a79c8f64",
+    "right_arm_base_link.STL": "70c1a0dcb5cef73ca689364b8eba2b062dd346b50a9c08812955bfd5767c5e9a",
+    "base_camera_link_1.STL": "3e2069ccefa224e49dc8573e37ab2747327c4518eb6c73e3b7a972cd426bcbf3",
+    "base_camera_link_2.STL": "538528111e025f109f055476fa71d2bd9a7a235b98df7141b5119a5bd033d1c9",
+    "base_link_2.STL": "f1d296bd89973533a6b2dcb3e55e583fdbcdda33090ba4238ad697f46c38f192",
+    "wc_front_left_link.STL": "bd6e91c3f416227a3fc6e816ebaf9e8e9f800d97de48e0ab68d1df0656adea2a",
+    "wc_rear_left_link.STL": "dd8911bc40e107f8e906be0e17782c5033885fe54b8505f819ea7a49844d6159",
+    "wc_rear_right_link.STL": "253901c2e599d7c49a30e56d5803f96e4d08c06f47c371c1395866173b27b044",
+    "wc_front_right_link.STL": "8d12fcf598a1d87be4c61375e15ca7cfae74a7a67ec2cb37e2810b2163b450bd",
+    "l_link_1.STL": "444cf3c34c8231af0d259143ba7fd7c86be241767e0694b6040d21f4f1f93e66",
+    "l_link_2.STL": "a67185ce2f3d295495c693c650b8db3b62fc6164b9c0ea6310c77b661020e116",
+    "l_link_3.STL": "ede09ef597f2431e75c5fd25efd8144c0e88064224fc981105b17d3ed82af78d",
+    "l_link_4.STL": "2d55ae158ba105dbe2aa5a64c3c474449e7e019b4d4d3126a9c13d74e1150cb5",
+    "l_link_5.STL": "2fc93b2bc970eadca950afa3120129766e2bead60234c6d8752d3b223e407046",
+    "l_link_6.STL": "d6fa55099a530912a30801c88aa0c716d88dc9535fa829c641dcce656d987371",
+    "l_link_7.STL": "58fe176dbab761a6407915a65202123b6dbe8ff894fc5513e24a7e251804ac41",
+    "l_camera_rolink.STL": "4ebda91075212452a6e7fa6ebef690dd7665e6c445a60315a5b865341cfb691f",
+    "l_camera_link.STL": "ce873eae281cc73dd7409048e296ed3a8fb70a4bec89d80aad4be688339a2abc",
+    "l_link_8.STL": "461906430d437cdf0c4ef63404f1ba1d6bf58d645ab8db7a53a6e95d896b01b4",
+    "r_link_1.STL": "444cf3c34c8231af0d259143ba7fd7c86be241767e0694b6040d21f4f1f93e66",
+    "r_link_2.STL": "a67185ce2f3d295495c693c650b8db3b62fc6164b9c0ea6310c77b661020e116",
+    "r_link_3.STL": "ede09ef597f2431e75c5fd25efd8144c0e88064224fc981105b17d3ed82af78d",
+    "r_link_4.STL": "2d55ae158ba105dbe2aa5a64c3c474449e7e019b4d4d3126a9c13d74e1150cb5",
+    "r_link_5.STL": "2fc93b2bc970eadca950afa3120129766e2bead60234c6d8752d3b223e407046",
+    "r_link_6.STL": "d6fa55099a530912a30801c88aa0c716d88dc9535fa829c641dcce656d987371",
+    "r_link_7.STL": "58fe176dbab761a6407915a65202123b6dbe8ff894fc5513e24a7e251804ac41",
+    "r_camera_rolink.STL": "4ebda91075212452a6e7fa6ebef690dd7665e6c445a60315a5b865341cfb691f",
+    "r_camera_link.STL": "ce873eae281cc73dd7409048e296ed3a8fb70a4bec89d80aad4be688339a2abc",
+    "r_link_8.STL": "461906430d437cdf0c4ef63404f1ba1d6bf58d645ab8db7a53a6e95d896b01b4",
+    "ltool_base_link.STL": "dc86b6a32e9471c70a3d61c32647e94ef1757a49af21b81167c1723a8c95f9eb",
+    "ltool_Left_1_Link.STL": "3da3d82555c1f56b038481f5bc6c6d2b4379a27dc4717a63ba57a39b7a26b76e",
+    "ltool_Left_Support_Link.STL": "a4c3248cf9f2c925d18aa9bb2e3659ef0d6a703252b006a3d9f1bc8ec2e917fb",
+    "ltool_Left_2_Link.STL": "753902189a92f1f8c3b0027002439b4fd78df3da08ca697a65b5cf134415c692",
+    "ltool_Right_2_Link.STL": "20770c538e80122778df0a01a2e700f505622df612e1eee1d02bfe1bc93c55f8",
+    "ltool_Right_1_Link.STL": "32bdad2620e3c36b10c629874af985048c91300705b6f6c9000665406c9cfdae",
+    "ltool_Right_Support_Link.STL": "136475599e901768a0195df51634cb3f007d0d5a0c647855056aac31dc62a73b",
+    "rtool_base_link.STL": "dc86b6a32e9471c70a3d61c32647e94ef1757a49af21b81167c1723a8c95f9eb",
+    "rtool_Left_1_Link.STL": "3da3d82555c1f56b038481f5bc6c6d2b4379a27dc4717a63ba57a39b7a26b76e",
+    "rtool_Left_Support_Link.STL": "a4c3248cf9f2c925d18aa9bb2e3659ef0d6a703252b006a3d9f1bc8ec2e917fb",
+    "rtool_Left_2_Link.STL": "753902189a92f1f8c3b0027002439b4fd78df3da08ca697a65b5cf134415c692",
+    "rtool_Right_2_Link.STL": "20770c538e80122778df0a01a2e700f505622df612e1eee1d02bfe1bc93c55f8",
+    "rtool_Right_1_Link.STL": "32bdad2620e3c36b10c629874af985048c91300705b6f6c9000665406c9cfdae",
+    "rtool_Right_Support_Link.STL": "136475599e901768a0195df51634cb3f007d0d5a0c647855056aac31dc62a73b"
+  },
+  "bodies": 74,
+  "joints": 35,
+  "geoms": 341,
+  "actuators": 16,
+  "frozen_urdf_joints": [
+    "wr_joint",
+    "wl_joint",
+    "xt_joint_1",
+    "xt_joint_2",
+    "dt_joint",
+    "yb_joint",
+    "xb_joint",
+    "jb_joint",
+    "tb_joint",
+    "l_camera_rojoint",
+    "r_camera_rojoint",
+    "wc_front_left_joint",
+    "wc_rear_left_joint",
+    "wc_rear_right_joint",
+    "wc_front_right_joint"
+  ],
+  "frozen_urdf_positions_rad": {
+    "wr_joint": 0.0,
+    "wl_joint": 0.0,
+    "xt_joint_1": 0.0,
+    "xt_joint_2": 0.0,
+    "dt_joint": 0.0,
+    "yb_joint": 0.0,
+    "xb_joint": 0.0,
+    "jb_joint": 0.0,
+    "tb_joint": 0.0,
+    "l_camera_rojoint": 0.0,
+    "r_camera_rojoint": 0.0,
+    "wc_front_left_joint": 0.0,
+    "wc_rear_left_joint": 0.0,
+    "wc_rear_right_joint": 0.0,
+    "wc_front_right_joint": 0.0
+  },
+  "mimic_constraints": 10,
+  "qualification": "photo_based_geometric_prototype",
+  "assembly_contact_exclusions": [
+    [
+      "xb_link",
+      "l_link_1"
+    ],
+    [
+      "xb_link",
+      "r_link_1"
+    ],
+    [
+      "ltool_Left_Support_Link",
+      "ltool_Left_2_Link"
+    ],
+    [
+      "ltool_Right_Support_Link",
+      "ltool_Right_2_Link"
+    ],
+    [
+      "rtool_Left_Support_Link",
+      "rtool_Left_2_Link"
+    ],
+    [
+      "rtool_Right_Support_Link",
+      "rtool_Right_2_Link"
+    ],
+    [
+      "coffee_machine",
+      "spring_outlet"
+    ],
+    [
+      "cup_dispenser",
+      "retention_finger0"
+    ],
+    [
+      "cup_dispenser",
+      "retention_finger1"
+    ],
+    [
+      "cup_dispenser",
+      "retention_finger2"
+    ]
+  ],
+  "fluid_simulation": false,
+  "real_motion": false,
+  "limitations": [
+    "URDF controller zero/sign mapping unverified",
+    "torso and base frozen in this fixture",
+    "tool sites are mounting frames, not calibrated grasp centers",
+    "unmeasured masses/friction/springs",
+    "convex robot mesh contacts plus source primitive contacts",
+    "no thermal or fluid model"
+  ]
+}

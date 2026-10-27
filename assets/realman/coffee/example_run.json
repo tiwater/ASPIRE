@@ -1,0 +1,17 @@
+{
+  "program_ok": true,
+  "result": {
+    "motion_ok": true,
+    "arms": [
+      "left",
+      "right"
+    ],
+    "joints_per_arm": 7
+  },
+  "error": null,
+  "simulation_only": true,
+  "coffee_task_success": null,
+  "simulation_seconds": 0.16000000000000011,
+  "run_dir": "artifacts/realman/runs/run-321f6afefba1",
+  "model_sha256": "30d8456cb99841ec785831a72cb9d04487cd92fe1bdbdeabf2e451969886bfb8"
+}

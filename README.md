@@ -191,6 +191,14 @@ verified final tightness. Re-ground the current scene and verify the actual outc
 > [!WARNING]
 > ASPIRE executes language-model-generated Python with full import access. Trial processes and watchdogs are not a security sandbox. Run generated code on an isolated host without credentials or sensitive mounts, restrict network access, and never grant a simulation agent access to physical hardware. Real-robot work requires the controls in [`aspire/real/AGENTS.md`](https://github.com/NVlabs/ASPIRE/blob/v0.1/aspire/real/AGENTS.md) and separate operator authorization.
 
+### RealBot-01 coffee workbench
+
+The [RealBot-01 development guide](docs/realman/simulation.md) covers the dual-RM75
+robot model, photo-derived coffee scene, read-only ROS2 capture, and CAP simulation
+adapter. The [implementation plan](docs/realman/coffee-plan.md) tracks the remaining
+calibration, live execution backend, and coffee-task validation. This workbench
+does not yet execute the coffee task on physical hardware.
+
 ## Contribution Guidelines
 
 Start with [CONTRIBUTING.md](https://github.com/NVlabs/ASPIRE/blob/v0.1/CONTRIBUTING.md). Third-party contributions must include a Developer Certificate of Origin sign-off.

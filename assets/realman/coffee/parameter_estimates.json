@@ -1,0 +1,16 @@
+{
+  "cup_capacity_ml": 211.64175032702428,
+  "cup_target_ml": 169.31340026161942,
+  "target_water_mass_g": 169.31340026161942,
+  "pot_capacity_ml": 1569.778489118142,
+  "pot_empty_mass_kg": 0.396,
+  "pot_full_reference_mass_kg": 1.9657784891181422,
+  "spring_reference_force_n": 9.638850810155214,
+  "spring_reference_compression_m": 0.008,
+  "spring_stiffness_n_per_m": 1204.8563512694018,
+  "dispenser_reference_pull_force_n": 4.150993141689025,
+  "capacity_source": "circular_frustum_photo_geometry_with_wall_and_floor_subtracted",
+  "force_source": "user_approved_initial_estimates",
+  "hardware_force_limit_qualified": false,
+  "actual_pour_volume_observed": false
+}

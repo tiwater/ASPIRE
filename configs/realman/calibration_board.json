@@ -1,0 +1,11 @@
+{
+  "type": "chessboard",
+  "inner_corners_columns": 11,
+  "inner_corners_rows": 8,
+  "square_size_m": 0.06,
+  "charuco_squares_columns": null,
+  "charuco_squares_rows": null,
+  "marker_size_m": null,
+  "aruco_dictionary": null,
+  "notes": "60 mm square size supplied by operator; 11x8 internal corners detected in both head and chest images of capture aspire_board_20261026T093329Z. Pattern is 12x9 squares. Physical grid planarity and dimensional accuracy not independently verified."
+}

@@ -1,0 +1,24 @@
+{
+  "simulation_seconds": 10.0,
+  "object_drift_m": {
+    "pot": 0.0010167429794667071,
+    "cup_0": 0.004833543485074079,
+    "cup_1": 0.0032136195302894695,
+    "cup_2": 0.0023881755582094186,
+    "cup_3": 0.0025171040455490585
+  },
+  "warnings": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "finite": true,
+  "initial_retention_stable": true,
+  "coffee_task_success": null,
+  "real_world_validated": false
+}

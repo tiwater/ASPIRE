@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "robot": "RealBot-01 / dual RM75 / CTAG2F90D",
+  "urdf": "ref/realman_robot/LSRX_V0.0.13.SLDASM/urdf/LSRX_V0.0.13.SLDASM.urdf",
+  "ros": {
+    "setup": "/opt/ros/humble/setup.bash",
+    "state_topic": "/robot_slave/states",
+    "command_service": "/robot/command",
+    "command_service_type": "rm_robot_interfaces/srv/StringCmd",
+    "depth_cameras": [
+      "head_depth_cam",
+      "chest_depth_cam",
+      "left_arm_depth_cam",
+      "right_arm_depth_cam"
+    ],
+    "rgb_cameras": [
+      "chest_wide_cam"
+    ]
+  },
+  "arms": {
+    "left": {
+      "state_key": "arm_left",
+      "device": 0,
+      "urdf_joints": [
+        "l_joint_1",
+        "l_joint_2",
+        "l_joint_3",
+        "l_joint_4",
+        "l_joint_5",
+        "l_joint_6",
+        "l_joint_7"
+      ],
+      "flange_link": "l_link_7",
+      "tool_mount_link": "l_link_8"
+    },
+    "right": {
+      "state_key": "arm_right",
+      "device": 1,
+      "urdf_joints": [
+        "r_joint_1",
+        "r_joint_2",
+        "r_joint_3",
+        "r_joint_4",
+        "r_joint_5",
+        "r_joint_6",
+        "r_joint_7"
+      ],
+      "flange_link": "r_link_7",
+      "tool_mount_link": "r_link_8"
+    }
+  },
+  "units": {
+    "ros_joint_position": "millidegree",
+    "controller_translation": "micrometre",
+    "controller_rotation": "milliradian",
+    "gripper_native_range": [
+      0,
+      1000
+    ]
+  },
+  "physical_motion_backend": null,
+  "commissioning": {
+    "controller_to_urdf_left": null,
+    "controller_to_urdf_right": null,
+    "body_joint_mapping": null,
+    "left_tool_frame": null,
+    "right_tool_frame": null,
+    "left_gripper_aperture_curve": null,
+    "right_gripper_aperture_curve": null,
+    "camera_extrinsics": {
+      "left_arm_depth_cam": null,
+      "right_arm_depth_cam": null,
+      "head_depth_cam": null,
+      "chest_depth_cam": null
+    },
+    "table_localization": null,
+    "command_owner_stop_watchdog": null
+  },
+  "notes": [
+    "Joint units were verified against the handover and a live ROS state sample; controller-to-URDF signs/offsets were NOT verified.",
+    "Never send URDF angles as controller angles without commissioned mappings.",
+    "Joint 8 is fixed; camera mount joints are not arm motors.",
+    "Gripper position/1000 is native travel fraction, not a measured aperture or force.",
+    "Do not reuse YAM Home, six-joint schemas, dated scripts or named waypoints.",
+    "Simulation snapshot only; live calibration and connection settings are maintained separately in robot.json."
+  ]
+}

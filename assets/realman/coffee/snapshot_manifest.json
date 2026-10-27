@@ -1,0 +1,28 @@
+{
+  "scope": "portable snapshot of previously generated coffee simulation outputs",
+  "source": "artifacts/realman/coffee",
+  "changes": [
+    "XML mesh paths made repository-relative",
+    "resolved URDF paths made relative; trailing whitespace removed"
+  ],
+  "historical_reports_preserved": true,
+  "sha256": {
+    "build_report.json": "0c0495e7a59a19155989a48b8c3461b8fb731899cf2588a783eb33a986a2f185",
+    "example_run.json": "05e7b935d0f7e100fd785062b4f1aa032fe41a96da9d15490dffb0b287b978b3",
+    "front.png": "124926fdcff80573e66817eacde0b472cd549278f817275c4d4e9ae6d158b4c4",
+    "overview.png": "da045ceceb7d401a1e9f9f81eb01c6bf396855242cc539c135070a0acb212437",
+    "parameter_estimates.json": "f10b050b658f23486dfe442cd8cdb0e90a9644949ce0eea6c1e85e699e0e1474",
+    "resolved_robot.urdf": "b37910f9657eaeadff78dd54a495581b072b0d935cc8f4dc77ad21bf1df303b0",
+    "robot_import.xml": "893eaf3560d172d0897cd4b9d2639ce7d4bf8998ddc1a646b78bacd149aa8ff9",
+    "scene.xml": "53db041b8645ec74c3ab54ad068f71e70e606ead06dc1398b2fab0faeac40113",
+    "scene_parameters.json": "5ed413ba29e900b58d0b1c1a157ac2f14d6397a8342ddb49a4c3137fe11acbc7",
+    "side.png": "441da7236f6ffdd8fb4cdfa2d9ce7b8d8df8cf2f7a8e82c530714d92266ce613",
+    "stability.json": "722b7ec562019fc37740eda278e51885ed150b0beff9daea9e121ebba493f9bc"
+  },
+  "verification": {
+    "staged_checkout_tests_passed": 109,
+    "rebuild_succeeded": true,
+    "portable_scene_5s_initial_retention_stable": true,
+    "real_world_validated": false
+  }
+}
