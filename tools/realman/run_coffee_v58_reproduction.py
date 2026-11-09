@@ -20,13 +20,14 @@ import subprocess
 import sys
 import tarfile
 import tempfile
+from types import SimpleNamespace
 
 
 REPO = Path(__file__).resolve().parents[2]
 PACKAGE = REPO / "assets/realman/coffee/v58_reproduction"
 ARTIFACTS = REPO / "artifacts/realman/coffee_service_20261102"
 CASE = "v58_reproduction"
-RUNNER_NAME = "run_service_lifecycle_staff_collection_clearance_v31_cycle_speed2_v58.py"
+RUNNER_NAME = "run_service_lifecycle_staff_collection_clearance_v31_cycle_speed2_v58_reproduction.py"
 
 
 def sha(path: Path) -> str:
@@ -154,13 +155,23 @@ def main() -> int:
         raise FileExistsError(f"preserve existing trial; choose another --name: {trial}")
 
     runner = ARTIFACTS / RUNNER_NAME
-    copy_verified(PACKAGE / "source" / RUNNER_NAME, runner)
+    runner_text = (PACKAGE / "historical/original_runner.py").read_text()
+    old_plan_path = 'ServiceLifecycle(e,Path(__file__).parent/"lifecycle/plan.json")'
+    new_plan_path = 'ServiceLifecycle(e,Path(__file__).parent/args.case/"lifecycle/plan.json")'
+    if runner_text.count(old_plan_path) != 1:
+        raise ValueError("historical runner does not contain the expected lifecycle-plan path")
+    portable_runner = runner_text.replace(old_plan_path, new_plan_path).encode()
+    runner.parent.mkdir(parents=True, exist_ok=True)
+    if runner.exists():
+        if runner.read_bytes() != portable_runner:
+            raise FileExistsError(f"preserve different existing reproduction runner: {runner}")
+    else:
+        runner.write_bytes(portable_runner)
     for name in [
         "local_ik.py", "local_ik_constrained.py", "local_ik_return.py",
         "local_ik_clearance_strict.py", "local_ik_return_elbow_v2.py",
     ]:
         copy_verified(PACKAGE / "ik" / name, ARTIFACTS / name)
-    copy_verified(PACKAGE / "lifecycle/plan.json", ARTIFACTS / "lifecycle/plan.json")
     for path in sorted((PACKAGE / "validation").glob("*.json")):
         copy_verified(path, ARTIFACTS / path.name)
     copy_verified(PACKAGE / "scene/scene.xml", case_root / "review/model/scene.xml")
@@ -168,12 +179,16 @@ def main() -> int:
     copy_verified(PACKAGE / "scene/review_result.json", case_root / "review/result.json")
     copy_verified(PACKAGE / "scene/initial_standing.npz", case_root / "initial_standing.npz")
     copy_verified(PACKAGE / "scene/initial_standing.json", case_root / "initial_standing.json")
+    copy_verified(PACKAGE / "lifecycle/plan.json", case_root / "lifecycle/plan.json")
     scene_path = case_root / "review/model/scene.xml"
     scene_hash = sha(scene_path)
     review_meta = json.loads((case_root / "review/result.json").read_text())
     initial_meta = json.loads((case_root / "initial_standing.json").read_text())
+    lifecycle_plan = json.loads((case_root / "lifecycle/plan.json").read_text())
     if review_meta.get("model_sha256") != scene_hash or initial_meta.get("model_sha256") != scene_hash:
         raise ValueError("scene model hash differs from the saved initial-state metadata")
+    if lifecycle_plan.get("model_sha256") != scene_hash or lifecycle_plan.get("sampled_prepare_passed") is not True:
+        raise ValueError("lifecycle plan hash or sampled-prepare evidence differs from the scene model")
     if initial_meta.get("npz_sha256") != sha(case_root / "initial_standing.npz"):
         raise ValueError("initial-state checkpoint checksum mismatch")
     model = mujoco.MjModel.from_xml_path(str(scene_path))
@@ -181,6 +196,11 @@ def main() -> int:
         expected_state_size = mujoco.mj_stateSize(model, mujoco.mjtState.mjSTATE_INTEGRATION)
         if "state" not in state or state["state"].shape != (expected_state_size,):
             raise ValueError("initial standing checkpoint does not match the scene model")
+    from cap_harness.realman.service_lifecycle import ServiceLifecycle
+    ServiceLifecycle(
+        SimpleNamespace(model_hash=scene_hash, adapter=SimpleNamespace(model=model)),
+        case_root / "lifecycle/plan.json",
+    )
 
     baseline_files = json.loads((PACKAGE / "ik/baseline_manifest.json").read_text())["files"]
     for relative, expected in baseline_files.items():

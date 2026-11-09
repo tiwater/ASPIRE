@@ -10,6 +10,8 @@
 
 场景 XML 原来使用 `/home/sawyer/aspire/...` 绝对网格路径。包内包含仓库中的 RealBot STL 网格，以及原始 1,320 个 base-housing OBJ 网格的压缩包和逐文件哈希；启动器会把 OBJ 解包到被忽略的 `artifacts/realman/coffee_service_20261102/base_housing_parts/`，再通过仓库根相对路径加载。网格几何未替换或简化，XML 字节哈希与历史模型不同。历史模型哈希、移植模型哈希及输入文件哈希记录在包内清单中。
 
+生命周期计划保存在本次 case 的 `lifecycle/plan.json`，而不是共享 artifacts 根目录中的旧计划。移植计划的 `model_sha256` 已与可移植场景 XML 一致；启动器会在仿真前同时检查场景、初始状态和计划的模型哈希，并实例化 `ServiceLifecycle` 做同一项运行时校验。若这些输入不匹配，准备阶段会立即给出明确错误。
+
 ## 环境
 
 使用 Python 3.12，安装本项目 RealMan 仿真依赖：

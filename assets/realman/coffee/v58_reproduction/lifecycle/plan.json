@@ -1,6 +1,6 @@
 {
-  "model_sha256": "990e7fff88bde142346b151a77f08bedc47f4b47c013c7339b735bbf17080917",
-  "model": "/home/sawyer/aspire/artifacts/realman/coffee_service_20261102/lifecycle/scene_decomposed.xml",
+  "model_sha256": "3eedf8a8b777a3bfe00633242a65095e8fe923411ee3c2d92bc5175da17224a8",
+  "model": "assets/realman/coffee/v58_reproduction/scene/scene.xml",
   "simulation_only": true,
   "physical_motion_allowed": false,
   "sampled_prepare_passed": true,
