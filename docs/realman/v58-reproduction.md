@@ -8,7 +8,7 @@
 
 原始运行目录没有保存 `implementation_snapshots/captured_during_run.json`，因此不能对原始 v58 做逐字节、原环境回放。本工具使用保存的原始实验脚本、命令参数、初始姿态、生命周期计划、场景配置和模型，从起始状态重新运行；运行时将当前仓库中的完整 `cap_harness` Python 源码复制为不可变快照，并写入新 trial。新 trial 可使用 `replay_coffee_trial.py` 再次回放。新运行的结果应单独审计，不能继承原 v58 的验收结论。
 
-场景 XML 原来使用 `/home/sawyer/aspire/...` 绝对网格路径。包内副本只把这些路径改为指向仓库内 RealBot STL 网格的相对路径；几何数据未改，XML 字节哈希与历史模型不同。历史模型哈希、移植模型哈希及输入文件哈希记录在包内清单中。
+场景 XML 原来使用 `/home/sawyer/aspire/...` 绝对网格路径。包内包含仓库中的 RealBot STL 网格，以及原始 1,320 个 base-housing OBJ 网格的压缩包和逐文件哈希；启动器会把 OBJ 解包到被忽略的 `artifacts/realman/coffee_service_20261102/base_housing_parts/`，再通过仓库根相对路径加载。网格几何未替换或简化，XML 字节哈希与历史模型不同。历史模型哈希、移植模型哈希及输入文件哈希记录在包内清单中。
 
 ## 环境
 
@@ -20,7 +20,7 @@ source .venv-v58/bin/activate
 python -m pip install -e '.[realman]' numpy==1.26.4 scipy==1.17.1
 ```
 
-历史环境记录为 Python 3.12.14、MuJoCo 3.3.0、NumPy 1.26.4、SciPy 1.17.1。复现工具强制 MuJoCo 3.3.0，并检查其余关键版本。模型引用的 RealBot 网格位于 `ref/realman_robot/LSRX_V0.0.13.SLDASM/meshes/`。
+历史环境记录为 Python 3.12.14、MuJoCo 3.3.0、NumPy 1.26.4、SciPy 1.17.1。复现工具强制 MuJoCo 3.3.0，并检查其余关键版本。模型引用的 RealBot 网格位于 `ref/realman_robot/LSRX_V0.0.13.SLDASM/meshes/`；base-housing 网格由复现包自动解压。
 
 ## 运行
 

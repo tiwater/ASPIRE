@@ -18,6 +18,8 @@ import re
 import shutil
 import subprocess
 import sys
+import tarfile
+import tempfile
 
 
 REPO = Path(__file__).resolve().parents[2]
@@ -49,6 +51,62 @@ def validate_package() -> None:
             raise ValueError(f"reproduction input is missing or changed: {relative}")
 
 
+def materialize_base_housing_parts() -> None:
+    manifest = json.loads((PACKAGE / "scene/base_housing_parts_manifest.json").read_text())
+    expected = {entry["name"]: entry for entry in manifest["files"]}
+    expected[manifest["metadata"]["name"]] = manifest["metadata"]
+    if len(manifest["files"]) != 1320:
+        raise ValueError("v58 base-housing mesh manifest must contain all 1320 OBJ files")
+    target = ARTIFACTS / "base_housing_parts"
+    missing = set(expected)
+    if target.is_dir():
+        for name, entry in expected.items():
+            path = target / name
+            if not path.exists():
+                continue
+            if not path.is_file() or path.stat().st_size != entry["bytes"] or sha(path) != entry["sha256"]:
+                raise ValueError(f"existing base-housing part is missing or differs: {path}")
+            missing.remove(name)
+        if not missing:
+            return
+    if target.exists() and not target.is_dir():
+        raise FileExistsError(f"base-housing destination is not a directory: {target}")
+
+    ARTIFACTS.mkdir(parents=True, exist_ok=True)
+    archive = PACKAGE / "scene/base_housing_parts.tar.gz"
+    with tempfile.TemporaryDirectory(prefix="v58_base_housing_", dir=ARTIFACTS) as temp_name:
+        temporary = Path(temp_name) / "base_housing_parts"
+        temporary.mkdir()
+        with tarfile.open(archive, "r:gz") as bundle:
+            members = bundle.getmembers()
+            if len(members) != len(expected):
+                raise ValueError("base-housing archive member count differs from its manifest")
+            seen: set[str] = set()
+            for member in members:
+                parts = Path(member.name).parts
+                if len(parts) != 2 or parts[0] != "base_housing_parts" or parts[1] not in expected or not member.isfile():
+                    raise ValueError(f"unexpected base-housing archive member: {member.name}")
+                name = parts[1]
+                if name in seen:
+                    raise ValueError(f"duplicate base-housing archive member: {name}")
+                seen.add(name)
+                source = bundle.extractfile(member)
+                if source is None:
+                    raise ValueError(f"cannot read base-housing archive member: {name}")
+                output = temporary / name
+                output.write_bytes(source.read())
+                entry = expected[name]
+                if output.stat().st_size != entry["bytes"] or sha(output) != entry["sha256"]:
+                    raise ValueError(f"base-housing part checksum mismatch: {name}")
+        if seen != set(expected):
+            raise ValueError("base-housing archive is incomplete")
+        if target.is_dir():
+            for name in missing:
+                shutil.move(str(temporary / name), str(target / name))
+        else:
+            temporary.replace(target)
+
+
 def runtime_snapshot(snapshot_root: Path, trial: Path, runner: Path) -> None:
     destination = trial / "implementation_snapshots"
     destination.mkdir(parents=True, exist_ok=True)
@@ -73,6 +131,7 @@ def main() -> int:
         parser.error("--name must contain only letters, numbers, and underscores")
 
     validate_package()
+    materialize_base_housing_parts()
     try:
         import mujoco
         import numpy

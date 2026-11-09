@@ -4,7 +4,7 @@
   "historical_runner_sha256": "75613e8c8369347c57ae2a0a61c0bcb276e149c35e687cd5c83f7f445d810c0f",
   "historical_model_sha256": "990e7fff88bde142346b151a77f08bedc47f4b47c013c7339b735bbf17080917",
   "original_model_xml_sha256": "990e7fff88bde142346b151a77f08bedc47f4b47c013c7339b735bbf17080917",
-  "portable_model_xml_sha256": "fbae2ccddb715ce020443972c8a80239fe5925af48b9b32cc20e83d493c3f0da",
+  "portable_model_xml_sha256": "3eedf8a8b777a3bfe00633242a65095e8fe923411ee3c2d92bc5175da17224a8",
   "original_runner_timestamp": "2026-11-07 02:09:01 +0800",
   "original_result_timestamp": "2026-11-07 10:00:24 +0800",
   "experiment_success": true,
@@ -16,5 +16,5 @@
   "independently_clear_segments": 12,
   "contact_or_supported_segments": 36,
   "historical_module_snapshot": "not captured in the archived v58 trial; the reproduction runner records a fresh snapshot for every new run",
-  "scene_relocation": "Only mesh asset URI strings were changed from /home/sawyer/aspire/... to relative paths. Geometry payloads and model structure are unchanged; XML byte hash therefore differs from the historical model hash."
+  "scene_relocation": "Mesh paths were made portable: 57 tracked RealBot STL files resolve from the repository, and 1320 original base-housing OBJ files are bundled and extracted to the ignored artifacts directory. Geometry payloads and model structure are unchanged; XML byte hash therefore differs from the historical model hash."
 }
