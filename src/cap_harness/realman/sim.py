@@ -36,6 +36,10 @@ class CoffeeSimAdapter:
         self.data = mujoco.MjData(self.model)
         self.width, self.height = width, height
         self.renderer = None
+        self.task_evaluator = None
+        self.task_evidence = None
+        self._evaluation_config = None
+        self._last_evaluation_s = -1.0
         self.joint_names = {a: tuple(f"{a[0]}_joint_{i}" for i in range(1, 8)) for a in self.arms}
         self.joint_ids = {
             a: np.array([self.model.joint(n).id for n in names])
@@ -67,11 +71,30 @@ class CoffeeSimAdapter:
     def get_task_context(self):
         return self._task
 
+    def enable_task_evaluation(self, scene_config):
+        """Opt in to oracle geometry grading, without granting policy truth access."""
+        from copy import deepcopy
+
+        from .sim_evaluation import CoffeeGeometryEvaluator
+
+        self._evaluation_config = deepcopy(scene_config)
+        self.task_evaluator = CoffeeGeometryEvaluator(self, self._evaluation_config)
+        self.task_evidence = self.task_evaluator.update()
+        self._last_evaluation_s = float(self.data.time)
+
+    def get_grasp_geometry(self, arm):
+        """Report aperture-dependent simulation grasp frame, not grasp success."""
+        from .grasp_geometry import grasp_geometry
+
+        return grasp_geometry(self.model, self.data, self.resolve_arm(arm))
+
     def reset(self, task_ref="serve_coffee", seed=0):
         if task_ref not in (0, "serve_coffee", "realman_coffee_prototype"):
             raise ValueError("unknown coffee task")
         self.mj.mj_resetData(self.model, self.data)
         self.mj.mj_forward(self.model, self.data)
+        if self._evaluation_config is not None:
+            self.enable_task_evaluation(self._evaluation_config)
         return self.get_observation()
 
     def _pose(self, position, matrix):
@@ -175,6 +198,13 @@ class CoffeeSimAdapter:
             self.mj.mj_step(self.model, self.data)
             if not np.isfinite(self.data.qpos).all() or not np.isfinite(self.data.qvel).all():
                 raise RuntimeError("non-finite simulation state")
+            if (
+                self.task_evaluator is not None
+                and self.data.time - self._last_evaluation_s >= 0.02 - 1e-9
+            ):
+                self.mj.mj_forward(self.model, self.data)
+                self.task_evidence = self.task_evaluator.update()
+                self._last_evaluation_s = float(self.data.time)
         self.mj.mj_forward(self.model, self.data)
 
     def step(self, action):

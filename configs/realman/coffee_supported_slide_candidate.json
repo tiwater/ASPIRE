@@ -1,0 +1,28 @@
+{
+  "simulation_only": true,
+  "physical_motion_allowed": false,
+  "workload": "configs/realman/coffee_workload_diagnostic_ccd.json",
+  "document": "docs/realman/supported-platform-slide-20261031.md",
+  "evidence_manifest": "assets/realman/coffee/supported_slide_20261031/manifest.json",
+  "platform_contact_is_intentional": true,
+  "supported_slide": {
+    "minimum_upward_support_n": 0.02,
+    "position_error_m": 0.002,
+    "yaw_error_deg": 0.5,
+    "tilt_deg": 2.0,
+    "linear_speed_m_s": 0.003,
+    "angular_speed_rad_s": 0.03,
+    "stable_duration_s": 0.5,
+    "commanded_lift_m": 0.0
+  },
+  "free_space_orientation_error_deg": 0.5,
+  "full_loaded_policy_qualified": false,
+  "hardware_qualified": false,
+  "cold_start_platform_exit_verified_mm": 200,
+  "withdrawal_to_free_space_verified": false,
+  "supported_yaw_correction": {
+    "gain_per_20ms": 0.04,
+    "deadband_deg": 0.25,
+    "maximum_deg": 1.0
+  }
+}

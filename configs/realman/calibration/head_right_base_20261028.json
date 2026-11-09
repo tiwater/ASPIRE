@@ -1,0 +1,174 @@
+{
+  "status": "validated_local_board_geometry",
+  "training_samples": 8,
+  "held_out_samples": 4,
+  "validation_report": "artifacts/realman/active_handeye_20261028/powered/heldout_validation.json",
+  "validation_sha256": "dc2b61225dee7c7017b83e30eae55cedd424c8b4f6f9a4997cd41fb80a60622a",
+  "frozen_candidate": "artifacts/realman/active_handeye_20261028/powered/frozen_candidate.json",
+  "frozen_candidate_sha256": "2ad0ee000a8ed96dc19dabc0d3e19853938f28763d5bed1953d6211280323aa3",
+  "validation_metrics": {
+    "closure_rms_mm": 0.5957224735828665,
+    "closure_max_mm": 1.0522404226718896,
+    "max_wrist_pixel_rms": 0.32329371337006957
+  },
+  "controller_joint_ranges_deg": [
+    [
+      -13.588,
+      -13.584
+    ],
+    [
+      8.046,
+      8.048
+    ],
+    [
+      -82.229,
+      -82.225
+    ],
+    [
+      -73.512,
+      -73.51
+    ],
+    [
+      -20.342,
+      -20.339
+    ],
+    [
+      -22.133,
+      -10.136
+    ],
+    [
+      38.177,
+      78.081
+    ]
+  ],
+  "orientation_span_deg": 41.57380760091341,
+  "fixed_context_millidegrees": {
+    "body": [
+      85178,
+      -68967,
+      -12669,
+      -30,
+      14
+    ],
+    "head": [
+      283,
+      21981
+    ]
+  },
+  "maximum_context_deviation_deg": 0.05,
+  "translation_units": "metre",
+  "deployment_scope": "repository geometry only; no controller TCP/work frame writes or motion-gate changes",
+  "general_workspace_qualified": false,
+  "tcp_qualified": false,
+  "assumptions": [
+    "60mm board grid; unmeasured board flatness",
+    "factory RGB CameraInfo; unchanged camera mounts",
+    "stationary software image/pose brackets; no hardware synchronization",
+    "joint X/E fit retained all eight views; independent four-view evaluation without refit"
+  ],
+  "invalidation": [
+    "camera or bracket moves",
+    "camera intrinsics/mode changes",
+    "controller tool/work offsets or kinematic calibration changes",
+    "head/body change invalidates right-base/head transform"
+  ],
+  "not_qualified_for": [
+    "absolute submillimetre positioning",
+    "gripper/probe TCP or grasp frame",
+    "unvalidated distant workspace or loaded-arm accuracy",
+    "depth scale/RGB-depth registration",
+    "general controller-to-URDF mapping or autonomous contact"
+  ],
+  "schema_version": 1,
+  "arm": "right",
+  "parent_frame": "right_controller_base",
+  "child_frame": "head_depth_cam_color_optical_frame",
+  "T_base_camera": [
+    [
+      0.9989413146252697,
+      0.04347098474916154,
+      -0.01505069498980357,
+      0.011833327726162147
+    ],
+    [
+      0.033603191725449774,
+      -0.4660877976075177,
+      0.8841001020400554,
+      0.13405771375089995
+    ],
+    [
+      0.03141775677225537,
+      -0.8836698695815717,
+      -0.46705512110787056,
+      0.1685220068527405
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "camera_info": {
+    "header": {
+      "stamp": {
+        "sec": 1793181999,
+        "nanosec": 415062016
+      },
+      "frame_id": "head_depth_cam_color_optical_frame"
+    },
+    "height": 720,
+    "width": 1280,
+    "distortion_model": "plumb_bob",
+    "k": [
+      607.9915161132812,
+      0.0,
+      642.5582885742188,
+      0.0,
+      608.0368041992188,
+      371.39459228515625,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "d": [
+      -0.030603863298892975,
+      0.03504653647542,
+      -0.00036155126872472465,
+      -0.00015623154467903078,
+      -0.012282990850508213,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "r": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "p": [
+      607.9915161132812,
+      0.0,
+      642.5582885742188,
+      0.0,
+      0.0,
+      608.0368041992188,
+      371.39459228515625,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  "equation": "board_T_tool = inverse(head_T_board) @ inverse(right_base_T_head) @ right_base_T_tool",
+  "selected_camera": "head_depth_cam",
+  "calibrated_date": "2026-10-28",
+  "head_body_must_remain_fixed": true
+}

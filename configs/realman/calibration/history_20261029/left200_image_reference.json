@@ -1,0 +1,311 @@
+{
+  "schema": "semantic-jaw-reference-v1",
+  "reference_id": "left200_shared_taskspace_20261012",
+  "arm": "left",
+  "camera_id": "left_arm_depth_cam_color_optical_frame",
+  "opening_position": 200,
+  "inner_gap_mm": 26.5,
+  "metric_qualified": false,
+  "image_size": [
+    1280,
+    720
+  ],
+  "K": [
+    [
+      609.7933349609375,
+      0.0,
+      643.193115234375
+    ],
+    [
+      0.0,
+      609.88916015625,
+      368.6611022949219
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "D": [
+    -0.027269359678030014,
+    0.03452211245894432,
+    6.753226625733078e-05,
+    -0.0002838188083842397,
+    -0.012924672104418278,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "parameters": [
+    0.007751875301652092,
+    0.0013016147874631014,
+    -0.0005682469766460557,
+    20.49668974256552,
+    78.70507226800555,
+    218.27182394090545
+  ],
+  "features": [
+    {
+      "side": 0,
+      "kind": "inner",
+      "points_mm": [
+        [
+          13.249999999999996,
+          11.534799436244366,
+          -17.9999555600297
+        ],
+        [
+          13.249999999999996,
+          11.534799436244366,
+          16.91258770636697
+        ]
+      ]
+    },
+    {
+      "side": 0,
+      "kind": "outer",
+      "points_mm": [
+        [
+          20.898689672550784,
+          11.534799436244366,
+          -17.9999555600297
+        ],
+        [
+          20.898689672550784,
+          11.534799436244366,
+          16.91258770636697
+        ]
+      ]
+    },
+    {
+      "side": 0,
+      "kind": "front",
+      "points_mm": [
+        [
+          13.249999999999996,
+          11.534799436244366,
+          16.91258770636697
+        ],
+        [
+          20.898689672550784,
+          11.534799436244366,
+          16.91258770636697
+        ]
+      ]
+    },
+    {
+      "side": 0,
+      "kind": "rear",
+      "points_mm": [
+        [
+          13.249999999999996,
+          11.534799436244366,
+          -17.9999555600297
+        ],
+        [
+          20.898689672550784,
+          11.534799436244366,
+          -17.9999555600297
+        ]
+      ]
+    },
+    {
+      "side": 1,
+      "kind": "inner",
+      "points_mm": [
+        [
+          -13.249999999999996,
+          11.500065946051839,
+          -18.000040170475934
+        ],
+        [
+          -13.249999999999996,
+          11.500065946051839,
+          16.91910452310169
+        ]
+      ]
+    },
+    {
+      "side": 1,
+      "kind": "outer",
+      "points_mm": [
+        [
+          -20.89650553840342,
+          11.500065946051839,
+          -18.000040170475934
+        ],
+        [
+          -20.89650553840342,
+          11.500065946051839,
+          16.91910452310169
+        ]
+      ]
+    },
+    {
+      "side": 1,
+      "kind": "front",
+      "points_mm": [
+        [
+          -13.249999999999996,
+          11.500065946051839,
+          16.91910452310169
+        ],
+        [
+          -20.89650553840342,
+          11.500065946051839,
+          16.91910452310169
+        ]
+      ]
+    },
+    {
+      "side": 1,
+      "kind": "rear",
+      "points_mm": [
+        [
+          -13.249999999999996,
+          11.500065946051839,
+          -18.000040170475934
+        ],
+        [
+          -20.89650553840342,
+          11.500065946051839,
+          -18.000040170475934
+        ]
+      ]
+    }
+  ],
+  "search_segments_px": [
+    [
+      [
+        665.0,
+        544.0
+      ],
+      [
+        666.0,
+        571.0
+      ]
+    ],
+    [
+      [
+        642.0,
+        545.0
+      ],
+      [
+        642.0,
+        571.0
+      ]
+    ],
+    [
+      [
+        645.0,
+        542.0
+      ],
+      [
+        663.0,
+        543.0
+      ]
+    ],
+    [
+      [
+        644.0,
+        573.0
+      ],
+      [
+        665.0,
+        573.0
+      ]
+    ],
+    [
+      [
+        732.0,
+        545.0
+      ],
+      [
+        743.0,
+        571.0
+      ]
+    ],
+    [
+      [
+        753.0,
+        545.0
+      ],
+      [
+        766.0,
+        569.0
+      ]
+    ],
+    [
+      [
+        733.0,
+        542.0
+      ],
+      [
+        751.0,
+        542.0
+      ]
+    ],
+    [
+      [
+        747.0,
+        574.0
+      ],
+      [
+        765.0,
+        573.0
+      ]
+    ]
+  ],
+  "RGB_T_jaw_reference": [
+    [
+      -0.9999989914523794,
+      -0.0005732860461366401,
+      0.0012993988354573795,
+      0.020496689742565518
+    ],
+    [
+      0.0005631961428361468,
+      -0.9999697929186846,
+      -0.007752164876202002,
+      0.07870507226800555
+    ],
+    [
+      0.0013038037923619728,
+      -0.007751425241362426,
+      0.9999691072740191,
+      0.21827182394090544
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "reference_origin": "Inner-face midpoint at model pad-center height and extension; NOT controller ArmTip",
+  "model_provenance": {
+    "version": "realbot-urdf-stl-v1-20260924",
+    "arm": "left",
+    "root_link": "l_link_8",
+    "urdf": "/Users/joshua/Documents/Codex/Projects/\u777f\u5c14\u66fc\u673a\u68b0\u81c2/tmp/factory_urdf_20261011/LSRX_V0.0.13.SLDASM/urdf/LSRX_V0.0.13.SLDASM.urdf",
+    "urdf_sha256": "52331775bbe450c355ead701c828f70eac9a7ece58ca72091e1995aa9b9b7e0b",
+    "mesh_sha256": {
+      "/Users/joshua/Documents/Codex/Projects/\u777f\u5c14\u66fc\u673a\u68b0\u81c2/tmp/factory_urdf_20261011/LSRX_V0.0.13.SLDASM/meshes/ltool_base_link.STL": "dc86b6a32e9471c70a3d61c32647e94ef1757a49af21b81167c1723a8c95f9eb",
+      "/Users/joshua/Documents/Codex/Projects/\u777f\u5c14\u66fc\u673a\u68b0\u81c2/tmp/factory_urdf_20261011/LSRX_V0.0.13.SLDASM/meshes/ltool_Left_1_Link.STL": "3da3d82555c1f56b038481f5bc6c6d2b4379a27dc4717a63ba57a39b7a26b76e",
+      "/Users/joshua/Documents/Codex/Projects/\u777f\u5c14\u66fc\u673a\u68b0\u81c2/tmp/factory_urdf_20261011/LSRX_V0.0.13.SLDASM/meshes/ltool_Left_Support_Link.STL": "a4c3248cf9f2c925d18aa9bb2e3659ef0d6a703252b006a3d9f1bc8ec2e917fb",
+      "/Users/joshua/Documents/Codex/Projects/\u777f\u5c14\u66fc\u673a\u68b0\u81c2/tmp/factory_urdf_20261011/LSRX_V0.0.13.SLDASM/meshes/ltool_Left_2_Link.STL": "753902189a92f1f8c3b0027002439b4fd78df3da08ca697a65b5cf134415c692",
+      "/Users/joshua/Documents/Codex/Projects/\u777f\u5c14\u66fc\u673a\u68b0\u81c2/tmp/factory_urdf_20261011/LSRX_V0.0.13.SLDASM/meshes/ltool_Right_2_Link.STL": "20770c538e80122778df0a01a2e700f505622df612e1eee1d02bfe1bc93c55f8",
+      "/Users/joshua/Documents/Codex/Projects/\u777f\u5c14\u66fc\u673a\u68b0\u81c2/tmp/factory_urdf_20261011/LSRX_V0.0.13.SLDASM/meshes/ltool_Right_1_Link.STL": "32bdad2620e3c36b10c629874af985048c91300705b6f6c9000665406c9cfdae",
+      "/Users/joshua/Documents/Codex/Projects/\u777f\u5c14\u66fc\u673a\u68b0\u81c2/tmp/factory_urdf_20261011/LSRX_V0.0.13.SLDASM/meshes/ltool_Right_Support_Link.STL": "136475599e901768a0195df51634cb3f007d0d5a0c647855056aac31dc62a73b"
+    },
+    "mesh_count": 7,
+    "triangle_count": 55621
+  },
+  "binding_image_sha256": "920d429eb767e03fcb2cae9c1f0bc3f30b1f85079ceb0b3af1842a44d09c0e2f",
+  "limitations": [
+    "One-time manually inspected semantic seed ROIs; only two current frames.",
+    "STL top rim is not independently measured contact surface; no physical accuracy claim.",
+    "No handle target depth or motion command produced."
+  ]
+}

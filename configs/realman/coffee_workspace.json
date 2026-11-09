@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "scene_config": "configs/realman/coffee_scene.json",
+  "robot_config": "configs/realman/robot_sim.json",
+  "purpose": "offline upright pregrasp feasibility; <=10 degree upper-body tilt; engineering posture candidates within legacy URDF limits, not hardware positions. Measured reference with unresolved dt_joint limit conflict is documented in docs/realman/upright-stance-20261030.md",
+  "pregrasp_offset_m": 0.08,
+  "ik_seed": 51,
+  "ik_restarts": 8,
+  "candidates": [
+    {"name": "nominal_upright", "frozen_joints_rad": {}},
+    {"name": "upright_lower_chain_1p2", "frozen_joints_rad": {"xt_joint_1": -1.2, "xt_joint_2": 1.2}},
+    {"name": "upright_lower_chain_1p5", "frozen_joints_rad": {"xt_joint_1": -1.5, "xt_joint_2": 1.5}},
+    {"name": "upright_folded_legacy_bounds", "frozen_joints_rad": {"xt_joint_1": -1.5, "xt_joint_2": 2.4, "dt_joint": -0.9}}
+  ]
+}

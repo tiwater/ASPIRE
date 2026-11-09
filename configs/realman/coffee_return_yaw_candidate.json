@@ -1,0 +1,40 @@
+{
+  "simulation_only": true,
+  "physical_motion_allowed": false,
+  "parent_candidate": "configs/realman/coffee_supported_tilt_candidate.json",
+  "document": "docs/realman/leg-stance-return-validation-20261031.md",
+  "control_history": "docs/realman/return-yaw-validation-20261031.md",
+  "evidence_manifest": "assets/realman/coffee/return_yaw_20261031/manifest.json",
+  "controller": "artifacts/realman/return_yaw_20261031/run.py",
+  "model_case": "leg_forward_mesh",
+  "supported_slide_max_tilt_deg": 5.0,
+  "return_yaw_correction_max_deg": 2.0,
+  "outward_yaw_correction_max_deg": 1.0,
+  "yaw_acceptance_deg": 0.5,
+  "strict_mount_orientation_ik": true,
+  "use_experimental_return_clearance_ik": false,
+  "frozen_leg_joints_rad": {
+    "xt_joint_1": -1.4062466849168713,
+    "xt_joint_2": 0.33729077085932424
+  },
+  "upper_body_tilt_deg": 2.8706623610470667,
+  "shoulder_front_distance_m": 0.5452242301759977,
+  "body_transition_verified": false,
+  "legacy_dt_limit_conflict_unchanged": true,
+  "full_loaded_policy_qualified": false,
+  "hardware_qualified": false,
+  "floor_collision_segments": 128,
+  "base_workload": "configs/realman/coffee_workload_faceted_floor.json",
+  "model_sha256": "228153c3c9f672edc0773614e664b3abe030abb97a0e448c9275aaa503b898ab",
+  "return_entry_detour": {
+    "span_m": 0.04,
+    "maximum_lateral_offset_m": 0.006,
+    "outward_maximum_lateral_offset_m": 0.0028284271247461905,
+    "final_position_and_heading_unchanged": true
+  },
+  "local_return_validated": true,
+  "local_return_evidence": "artifacts/realman/return_yaw_20261031/leg_forward_mesh/entry6/result.json",
+  "continuous_platform_roundtrip_verified": true,
+  "continuous_roundtrip_evidence": "artifacts/realman/return_yaw_20261031/leg_forward_mesh/cold_entry6/result.json",
+  "force_margin_robustness_verified": false
+}

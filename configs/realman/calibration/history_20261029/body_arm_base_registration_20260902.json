@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "calibration_id": "realbot01-v0013-body-to-independent-sdk-bases-20260902",
+  "valid": true,
+  "read_only_calibration": true,
+  "do_not_fallback": true,
+  "frame_convention": "T_sample_sdk_base_from_reference_sdk_base",
+  "units": {
+    "controller_joint_position": "millidegree",
+    "translation": "metre",
+    "rotation": "radian"
+  },
+  "urdf": {
+    "package": "realbot01_description",
+    "relative_path": "urdf/realbot01.urdf",
+    "sha256": "591790c849f7b9a3786c2117409ade09ecff9578d186e77f570744bb46e9c44e",
+    "body_joint_names": [
+      "xt_joint_1",
+      "xt_joint_2",
+      "dt_joint",
+      "yb_joint",
+      "xb_joint"
+    ],
+    "frozen_kinematic_chain": [
+      {"name": "xt_joint_1", "type": "revolute", "origin_xyz": [-0.0969997533421639, 0.0, 0.342799999992982], "origin_rpy": [0.0, 0.0, 0.0], "axis": [0.0, -1.0, 0.0]},
+      {"name": "xt_joint_2", "type": "revolute", "origin_xyz": [0.0, 0.0, 0.254999999997302], "origin_rpy": [0.0, 0.0, 0.0], "axis": [0.0, -1.0, 0.0]},
+      {"name": "dt_joint", "type": "revolute", "origin_xyz": [0.0, 0.0, 0.254999999999999], "origin_rpy": [0.0, 0.0, 0.0], "axis": [0.0, -1.0, 0.0]},
+      {"name": "yb_joint", "type": "revolute", "origin_xyz": [0.0, 0.0, 0.121000713557114], "origin_rpy": [0.0, 0.0, 0.0], "axis": [1.0, 0.0, 0.0]},
+      {"name": "xb_joint", "type": "revolute", "origin_xyz": [0.0, 0.0, 0.128999295565109], "origin_rpy": [0.0, 0.0, 0.0], "axis": [0.0, 0.0, 1.0]}
+    ],
+    "arm_base_fixed_joints": {
+      "left": {"name": "left_arm_base_joint", "origin_xyz": [0.0, -0.000299995349115831, 0.303400704434889], "origin_rpy": [1.5707963267949, -1.5707963267949, 3.1415926]},
+      "right": {"name": "right_arm_base_joint", "origin_xyz": [0.0, 0.000300004650874985, 0.303400704434888], "origin_rpy": [1.5707963267949, -1.5707963267949, 0.0]}
+    }
+  },
+  "uncalibrated_joint": {
+    "name": "yb_joint",
+    "controller_index": 3,
+    "maximum_reference_to_sample_delta_mdeg": 100.0,
+    "policy": "reject"
+  },
+  "acceptance": {
+    "maximum_holdout_translation_mm": 5.0,
+    "maximum_holdout_rotation_deg": 0.5
+  },
+  "sides": {
+    "left": {
+      "arm_base_link": "left_arm_base_link",
+      "arm": "left",
+      "independent_of_other_arm": true,
+      "source_report": "real_world_reports/20260902_body_arm_mapping/body_arm_calibration_20260902/left_urdf_registration_independent.json",
+      "controller_to_urdf_signs": [-1.0, -1.0, -1.0, 1.0, 1.0],
+      "T_urdf_arm_base_from_sdk_arm_base": [
+        [0.995536142848774, -0.07884225435334201, 0.051881472707202274, 0.004038747371197046],
+        [0.07380076406887022, 0.9929456611347837, 0.09280280845135126, 0.0038523887868447786],
+        [-0.058832265846525116, -0.08855965764438208, 0.9943319121567372, -0.0647895868304262],
+        [0.0, 0.0, 0.0, 1.0]
+      ],
+      "validation": {
+        "valid": true,
+        "max_bidirectional_holdout_translation_mm": 3.624663371480994,
+        "max_bidirectional_holdout_rotation_deg": 0.32293120388959856
+      }
+    },
+    "right": {
+      "arm_base_link": "right_arm_base_link",
+      "arm": "right",
+      "independent_of_other_arm": true,
+      "source_report": "real_world_reports/20260902_body_arm_mapping/body_arm_calibration_20260902/right_urdf_registration_independent.json",
+      "controller_to_urdf_signs": [-1.0, -1.0, -1.0, 1.0, -1.0],
+      "T_urdf_arm_base_from_sdk_arm_base": [
+        [0.9982199573959332, -0.05069715937178896, 0.03141201502758105, -1.1508013465693756],
+        [0.052543864246670326, 0.9967503099437243, -0.06105703855508477, 0.012479672283693392],
+        [-0.028214517300301743, 0.06259886307850215, 0.9976398765861306, -0.060543940320702073],
+        [0.0, 0.0, 0.0, 1.0]
+      ],
+      "validation": {
+        "valid": true,
+        "max_bidirectional_holdout_translation_mm": 4.031864742460995,
+        "max_bidirectional_holdout_rotation_deg": 0.17867736885878763
+      }
+    }
+  },
+  "forbidden_sources": [
+    "real_world_reports/20260902_body_arm_mapping/body_arm_sdk_base_mapping.json"
+  ],
+  "runtime_rules": [
+    "Select the mapping by requested side; never infer one arm base from the other arm.",
+    "Read current five body controller positions for every calculation; never replay a stored pose delta.",
+    "This mapping converts SDK arm-base frames only. Camera conversion additionally requires that side's current seven arm joints and that side's hand-eye calibration.",
+    "Reject a material yb_joint change because lateral body tilt was not calibrated.",
+    "A valid transform does not authorize robot motion."
+  ]
+}

@@ -1,0 +1,15 @@
+[Unit]
+Description=ASPIRE RealMan MCP single robot owner (observation-only by default)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=%h/aspire-control/start_backend.sh
+WorkingDirectory=%h/aspire-control
+# Never auto-restart into a changed physical scene after a fault.
+Restart=no
+TimeoutStopSec=10
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=default.target

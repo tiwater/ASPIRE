@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "qualification": "observed_static_simulation_reference_with_unresolved_legacy_urdf_limit_conflict",
+  "physical_motion_allowed": false,
+  "max_upper_body_tilt_deg": 10,
+  "measured_reference": {
+    "controller_body_order": [
+      "xt_joint_1",
+      "xt_joint_2",
+      "dt_joint",
+      "yb_joint",
+      "xb_joint"
+    ],
+    "controller_body_mdeg": [
+      80572,
+      -23909,
+      -58376,
+      0,
+      6
+    ],
+    "mapped_frozen_urdf_deg": {
+      "xt_joint_1": -80.572,
+      "xt_joint_2": 23.909,
+      "dt_joint": 58.376000000000005,
+      "yb_joint": 0.0,
+      "xb_joint": 0.006
+    },
+    "controller_arm_reference_mdeg": {
+      "left": [
+        -30425,
+        -87132,
+        146199,
+        75173,
+        -121915,
+        90747,
+        87411
+      ],
+      "right": [
+        -16138,
+        25389,
+        9742,
+        56565,
+        -6,
+        24180,
+        -24
+      ]
+    },
+    "state_source": "passive /robot_slave/states subscription over SSH, not an enabled motion backend",
+    "upper_body_tilt_deg": 1.712999999999683,
+    "body_reference_mapping": "configs/realman/calibration/history_20261029/body_arm_base_registration_20260902.json",
+    "arm_mapping_candidate": "configs/realman/controller_urdf_candidate.json"
+  },
+  "legacy_limit_conflicts": [
+    {
+      "joint": "dt_joint",
+      "controller_deg": -58.376,
+      "mapped_urdf_deg": 58.376000000000005,
+      "legacy_limits_deg": [
+        -80.21409131831524,
+        9.740282517223996
+      ],
+      "within_legacy_limits": false
+    }
+  ],
+  "geometry_model": "artifacts/realman/shoulder60_20261030/observed_stance.xml",
+  "reproduction_script": "artifacts/realman/shoulder60_20261030/probe.py",
+  "motion_trajectory": null,
+  "default_scene_policy": "Default coffee_scene requires <=10 deg total chest tilt. Observed reference is a separately audited frozen model, not a limit override for build_model.",
+  "validation_document": "docs/realman/shoulder60-validation-20261030.md",
+  "operator_scene_distance_reference": {
+    "reported_on": "2026-10-30",
+    "source": "operator: coffee-machine front panel to arm shoulder axis approximately 60 cm",
+    "reported_distance_m": 0.6,
+    "interpretation": "Assume front-to-back horizontal separation from shoulder axis to front vertical fascia plane; not distance to machine centre or sloped control-panel centre.",
+    "interpretation_confirmed": false,
+    "observed_static_model_measurement": {
+      "shoulder_midpoint_world_x_m": 0.35105330603139995,
+      "machine_front_plane_world_x_m": 0.72,
+      "horizontal_separation_m": 0.3689466939686,
+      "difference_to_operator_reference_m": 0.23105330603139995
+    },
+    "status": "60 cm horizontal candidate built and locally revalidated; complete task and real deployment unqualified",
+    "next_step": "Use the 60 cm upright stance with initial handle 135 degrees. One continuous empty-vessel coffee motion sequence passed, including pouring posture, cup placement and pot return. Next validate payloads, volume feedback, randomized scenes, perception and hardware mapping.",
+    "candidate_60cm": {
+      "model": "artifacts/realman/shoulder60_20261030/observed_stance.xml",
+      "model_sha256": "a5f5117c825d511f80ee33791d68938b6f31724aaf0a9960e98a1d38c61be9a7",
+      "table_center_xy_m": [
+        1.1110533060314,
+        0.0
+      ],
+      "workstation_shift_x_m": 0.23105330603139995,
+      "shoulder_to_front_horizontal_m": 0.6,
+      "body_transform_reference_unchanged": true,
+      "physical_motion_allowed": false,
+      "document": "docs/realman/shoulder60-validation-20261030.md",
+      "evidence_archive": "assets/realman/coffee/shoulder60_20261030/evidence.tar.gz"
+    }
+  },
+  "stance_only_reference_model": "artifacts/realman/upright_stance_20261030/observed_stance.xml",
+  "return_candidate": "configs/realman/coffee_return_candidate.json",
+  "active_scene_candidate": "configs/realman/coffee_initial135_candidate.json",
+  "active_workload": "configs/realman/coffee_workload.json"
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "simulation_only": true,
+  "physical_motion_allowed": false,
+  "initial_pot_load": {
+    "cup_equivalents": 2.0,
+    "fraction_of_cup_capacity_per_equivalent": 1.0,
+    "density_kg_m3": 1000.0,
+    "interpretation": "two full geometric cup capacities; each served cup still targets 80 percent"
+  },
+  "served_cup_fill_fraction": 0.8,
+  "gripper_pad_modification_allowed": false,
+  "gripper_geometry_reference": "original imported pads: 2 x 36 x 18 mm, 2 g each; modeled proxies, not new hardware",
+  "left_gripper_effort_limit_nm": 2.5,
+  "force_command_hardware_mapping_verified": false,
+  "pad_normal_diagnostic_stop_n": 25.0,
+  "contact_solver": {
+    "timestep_s": 0.001,
+    "multiccd": true,
+    "ccd_tolerance": 1e-08
+  },
+  "source_review": "artifacts/realman/yaw135_initial_20261030/support_torsion/review",
+  "outlet_conical_hypothesis": {
+    "bottom_radius_m": 0.004,
+    "top_radius_m": 0.01,
+    "height_m": 0.006,
+    "segments": 64,
+    "seated_compression_m": 0.002,
+    "initial_pot_settling_gap_m": 0.001,
+    "stiffness_n_per_m": 200.0,
+    "preload_at_zero_n": 0.4,
+    "sliding_friction": 0.3,
+    "damping_n_s_m": 0.2,
+    "qualification": "operator-described mechanism; dimensions, installation, friction and forces are unmeasured engineering priors"
+  },
+  "simulation_diagnostics": {
+    "pad_load": {
+      "warning_n": 25.0,
+      "sustained_n": 30.0,
+      "peak_n": 35.0,
+      "sustained_s": 0.1,
+      "clear_n": 29.0,
+      "minimum_pad_n": 0.02,
+      "maximum_sample_gap_s": 0.002,
+      "asymmetric_s": 0.01
+    },
+    "rack_support": {
+      "maximum_gap_s": 0.04,
+      "maximum_excursion_m": 0.0005
+    }
+  }
+}

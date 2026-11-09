@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "name": "realman_coffee_v1",
+  "status": "simulation_fixture_development_not_policy_training_ready",
+  "scene_config": "configs/realman/coffee_scene.json",
+  "robot_config": "configs/realman/robot_sim.json",
+  "splits": {
+    "development": [51, 65],
+    "validation": [66, 80],
+    "heldout": [1, 50]
+  },
+  "randomization": {
+    "table_height_delta_m": [-0.02, 0.02],
+    "base_x_delta_m": [-0.03, 0.03],
+    "base_y_delta_m": [-0.03, 0.03],
+    "base_yaw_delta_rad": [-0.0872664626, 0.0872664626],
+    "machine_x_delta_m": [-0.015, 0.015],
+    "machine_y_delta_m": [-0.015, 0.015],
+    "dispenser_x_delta_m": [-0.015, 0.015],
+    "dispenser_y_delta_m": [-0.015, 0.015],
+    "dispenser_friction_scale": [0.9, 1.1],
+    "outlet_force_prior_scale": [0.9, 1.1]
+  },
+  "randomization_basis": "Engineering sensitivity ranges, not measured distributions. Coupled mechanism geometry remains intact. No mass/dimension estimates silently promoted to measurements.",
+  "fixture_check": {
+    "settle_seconds": 5.0,
+    "max_object_drift_m": 0.01
+  },
+  "policy_success_evaluator": null,
+  "fluid_mode": "geometry_only_until_explicit_volume_proxy_is_implemented",
+  "physical_backend": null
+}

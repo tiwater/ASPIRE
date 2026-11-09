@@ -4,7 +4,12 @@ from pathlib import Path
 
 import pytest
 
-from cap_harness.realman.estimates import cavity_volume_m3, estimate_parameters, pour_envelope
+from cap_harness.realman.estimates import (
+    cavity_volume_m3,
+    estimate_parameters,
+    pour_envelope,
+    profiled_cavity_volume_m3,
+)
 
 
 @pytest.fixture
@@ -20,9 +25,20 @@ def test_cavity_subtracts_floor_and_wall():
         cavity_volume_m3(0.04, 0.04, 0.1, 0.05, 0.003)
 
 
+def test_profile_capacity_clips_floor_and_lid_and_accounts_for_neck():
+    cylinder = [[0, 0.04], [0.05, 0.04], [0.1, 0.04]]
+    expected = math.pi * 0.038**2 * 0.091
+    assert profiled_cavity_volume_m3(cylinder, 0.002, 0.003, 0.094) == pytest.approx(expected)
+    neck = [[0, 0.04], [0.05, 0.04], [0.08, 0.03], [0.1, 0.03]]
+    assert profiled_cavity_volume_m3(neck, 0.002, 0.003, 0.094) < expected
+    with pytest.raises(ValueError):
+        profiled_cavity_volume_m3(list(reversed(neck)), 0.002, 0.003, 0.094)
+
+
 def test_user_load_priors_and_units(config):
     e = estimate_parameters(config)
-    assert 210 < e["cup_capacity_ml"] < 213
+    assert 198 < e["cup_capacity_ml"] < 201
+    assert e["cup_capacity_source"] == "frustum_below_rolled_rim_center"
     assert e["cup_target_ml"] == pytest.approx(e["cup_capacity_ml"] * 0.8)
     assert e["target_water_mass_g"] == pytest.approx(e["cup_target_ml"])
     assert e["pot_empty_mass_kg"] == 0.396

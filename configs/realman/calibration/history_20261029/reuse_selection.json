@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "scoped_reuse_confirmed_scene_validation_pending",
+  "selection_is_not_controller_activation": true,
+  "hardware_continuity_evidence": "artifacts/realman/history_reuse_review_20261029/operator_hardware_continuity.json",
+  "wood_probe_tcp": {
+    "status": "removed_archived_not_current_tool",
+    "estimate": "artifacts/realman/tcp_calibration_20261028/right_probe_provisional.json",
+    "use_for_coffee": false,
+    "further_contact_sampling_required": false
+  },
+  "wrist_geometric_calibrations": {
+    "left": "configs/realman/calibration/left_wrist_20261027.json",
+    "right": "configs/realman/calibration/right_wrist_20261028.json",
+    "scope": "Retain original local geometric validation and exclusions; body/arm pose changes alone do not alter the fixed wrist-to-tool transform; no global precision upgrade"
+  },
+  "historical_task_reproduction": {
+    "left_carafe_profile": "configs/realman/calibration/history_20261029/coffee_task_geometry.json#/left_carafe",
+    "left_handeye": "configs/realman/calibration/history_20261029/left_handeye_active_20261010.json",
+    "right_cup_profile": "configs/realman/calibration/history_20261029/coffee_task_geometry.json#/right_cup",
+    "right_handeye": "configs/realman/calibration/history_20261029/right_handeye_pitch_trial_20261008.json",
+    "right_trial_status_preserved": true,
+    "policy": "Choose a complete declared task/profile family; never silently combine new handeye with old geometric compensations or interpret historic scene coordinates as current targets"
+  },
+  "fixed_head_right_base": {
+    "config": "configs/realman/calibration/head_right_base_20261028.json",
+    "current_context_eligible": false,
+    "reason": "Body changed0.226deg versus0.05deg context limit",
+    "disposition": "Keep original calibration as contextual evidence; use wrist-local task observations for initial task checks instead of extending old fixed-head chain"
+  },
+  "remaining_task_checks": [
+    "Current target and finite workspace observations in each arm task frame",
+    "Low-speed single-stage task validation through registered supported native tools after current motion envelope and interface are available",
+    "Obtain missing frozen pouring path before treating that historical route as executable"
+  ],
+  "automatic_motion_enabled": false,
+  "grasp_center_globally_calibrated": false,
+  "tool_orientation_globally_calibrated": false,
+  "no_new_calibration_motion_performed": true
+}

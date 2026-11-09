@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "simulation_only": true,
+  "physical_motion_allowed": false,
+  "qualification": "load_and_gripper_capacity_development_not_a_validated_policy",
+  "geometry_candidate": "configs/realman/coffee_initial135_candidate.json",
+  "initial_pot_liquid_ml": 1000.0,
+  "initial_pot_liquid_source": "operator: usually approximately 1 L",
+  "empty_pot_mass_kg": 0.396,
+  "fill_fraction_of_cup_capacity": 0.8,
+  "water_density_kg_m3": 1000.0,
+  "payload_mode": "rigid_upright_fill_attached_to_vessel",
+  "free_surface_and_flow_simulated": false,
+  "actual_volume_observed": false,
+  "material_strength_modeled": false,
+  "physical_force_mapping_verified": false,
+  "gripper_profiles_left": {
+    "previous": {
+      "kp_nm_per_rad": 36,
+      "kv_nms_per_rad": 0.2,
+      "effort_limit_nm": 3,
+      "linkage_time_constant_s": 0.004,
+      "pad_time_constant_s": 0.005,
+      "joint_damping_nms_per_rad": 0.03
+    },
+    "force5": {
+      "kp_nm_per_rad": 60,
+      "kv_nms_per_rad": 0.2,
+      "effort_limit_nm": 5,
+      "linkage_time_constant_s": 0.004,
+      "pad_time_constant_s": 0.005,
+      "joint_damping_nms_per_rad": 0.03
+    },
+    "stiff6": {
+      "kp_nm_per_rad": 120,
+      "kv_nms_per_rad": 0.4,
+      "effort_limit_nm": 6,
+      "linkage_time_constant_s": 0.002,
+      "pad_time_constant_s": 0.004,
+      "joint_damping_nms_per_rad": 0.03
+    },
+    "stiff8": {
+      "kp_nm_per_rad": 120,
+      "kv_nms_per_rad": 0.4,
+      "effort_limit_nm": 8,
+      "linkage_time_constant_s": 0.002,
+      "pad_time_constant_s": 0.004,
+      "joint_damping_nms_per_rad": 0.03
+    },
+    "stiff9": {
+      "kp_nm_per_rad": 120,
+      "kv_nms_per_rad": 0.4,
+      "effort_limit_nm": 9,
+      "linkage_time_constant_s": 0.002,
+      "pad_time_constant_s": 0.004,
+      "joint_damping_nms_per_rad": 0.03
+    },
+    "stiff8_damped": {
+      "kp_nm_per_rad": 120,
+      "kv_nms_per_rad": 0.4,
+      "effort_limit_nm": 8,
+      "linkage_time_constant_s": 0.002,
+      "pad_time_constant_s": 0.004,
+      "joint_damping_nms_per_rad": 0.1
+    },
+    "stiff8_pad8": {
+      "kp_nm_per_rad": 120,
+      "kv_nms_per_rad": 0.4,
+      "effort_limit_nm": 8,
+      "linkage_time_constant_s": 0.002,
+      "pad_time_constant_s": 0.008,
+      "joint_damping_nms_per_rad": 0.1
+    }
+  },
+  "profile_qualification": "unmeasured equivalent simulator settings, not CTAG hardware commands or material design limits",
+  "geometry_and_friction_changed": false,
+  "guard_thresholds_relaxed": false,
+  "right_cup_gripper_changed": false,
+  "coffee_task_success": null,
+  "evidence_document": "docs/realman/payload-gripper-validation-20261030.md",
+  "evidence_archive": "assets/realman/coffee/payload_20261030/evidence.tar.gz",
+  "selected_simulation_profile": "stiff8",
+  "selected_control": {
+    "prelift_m": 0.00025,
+    "extraction_lift_m": 0.00025,
+    "gravity_feedforward": true,
+    "feedforward_ramp_s": 2,
+    "object_position_proportional_gain": 0.8,
+    "object_velocity_damping_s": 0.1,
+    "object_position_integral_gain_per_s": 0.5,
+    "max_waypoint_settle_s": 30,
+    "grasp_anchor_reset_during_motion": false
+  },
+  "validation": {
+    "same_model_cup_checkpoint_to_withdrawal_passed": true,
+    "maximum_logged_grasp_rotation_deg": 2.9727356610678695,
+    "maximum_logged_handle_translation_m": 0.0003403398846556442,
+    "constant_pot_payload_full_motion_validated": false,
+    "liquid_transfer_full_sequence_validated": false,
+    "prescribed_transfer_reached_target_with_geometry_checks": true,
+    "prescribed_transfer_full_motion_validated": false,
+    "latest_adaptive_hold_trials": {
+      "profiles": [
+        "stiff8_damped",
+        "stiff8_pad8"
+      ],
+      "max_waypoint_settle_s": 60,
+      "result": "both stopped during second extraction segment on pot lid / machine head contact",
+      "continuous_hold": true,
+      "control_uses_current_grasp_transform": true,
+      "safety_monitor_uses_original_grasp_anchor": true
+    }
+  },
+  "prescribed_transfer": {
+    "target_fraction_of_geometric_cup_capacity": 0.8,
+    "target_volume_ml": 159.5596469029622,
+    "maximum_prescribed_rate_ml_s": 10,
+    "update_period_s": 0.02,
+    "actual_flow_observed": false,
+    "geometry_required_before_and_after_each_update": true
+  },
+  "selected_profile_status": "diagnostic_reference_only_not_promoted_for_hardware_or_full_sequence",
+  "manufacturer_gripper_specification": {
+    "model": "CTAG2F90-D",
+    "source_url": "https://en.changingtek.com/diandong/147",
+    "accessed_on": "2026-10-30",
+    "maximum_gripping_force_n": 25.0,
+    "force_convention": "not specified on product page: per-finger versus combined and measurement lever arm unresolved",
+    "force_to_simulator_torque_mapping": null,
+    "installed_unit_rating_verified": false,
+    "reinforced_simulation_profile_hardware_qualified": false,
+    "note": "The imported 10 Nm joint limit is not a manufacturer rating. Reinforced trials measure roughly 73 N per pad; do not deploy these settings as CTAG force commands."
+  },
+  "evidence_manifest": "assets/realman/coffee/payload_20261030/manifest.json",
+  "evidence_restore_command": "python assets/realman/coffee/payload_20261030/restore.py",
+  "followup_contact_refinement": "configs/realman/coffee_contact_refinement_candidate.json"
+}

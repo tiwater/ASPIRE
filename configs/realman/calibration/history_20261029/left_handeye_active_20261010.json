@@ -1,0 +1,23 @@
+{
+  "arm": "left",
+  "trial_id": "left_factory_pitch_centered_20261010",
+  "status": "active_user_authorized",
+  "transform_convention": "p_ArmTip = R * p_RGB + T",
+  "units": "meters",
+  "rpy_convention": "R = Rz(yaw) * Ry(pitch) * Rx(roll), degrees below",
+  "rpy_deg": [-0.790633846313854, -0.3946367076107493, 89.8882616695846],
+  "factory_pitch_deg": 0.30991793509140697,
+  "pitch_offset_from_factory_deg": -0.7045546427021563,
+  "additional_pitch_correction_allowed": false,
+  "additional_fixed_lateral_compensation_mm": 0.0,
+  "source": "User approved as new LEFT extrinsic after confirming centering from rightward 2.5mm trial on 2026-10-10. Full target-generator inversion used actual controller lateral displacement 2.5139690378441815mm.",
+  "rollback_source": "config/factory_left_handeye_20261010.json",
+  "inference_report": "output/left_pitch_centering_inference_20261010/report.json",
+  "qualification": "Single-scene empirical correction; cross-position validation remains pending. Not an independently measured global calibration.",
+  "ArmTip_T_RGB": [
+    [0.0019501542711265875, -0.9999027062394666, -0.01381213065786053, 0.083109055],
+    [0.9999743782222074, 0.0020450555461121417, -0.006860076305927887, -0.022761502],
+    [0.00688765543771202, -0.013798398559409711, 0.9998810751283209, -0.016099713],
+    [0.0, 0.0, 0.0, 1.0]
+  ]
+}

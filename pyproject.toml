@@ -18,10 +18,15 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+realman-control = [
+  "mcp>=1.26,<2",
+  "pillow>=10",
+]
 realman = [
   "mujoco==3.3.0",
   "pillow>=10",
   "opencv-python-headless>=4.8,<4.13",
+  "imageio[ffmpeg]>=2.34",
 ]
 dev = [
   "pytest>=8",

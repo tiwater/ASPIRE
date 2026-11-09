@@ -38,10 +38,33 @@ def solve_mount_ik(
     sid = m.site(arm + "_tool_mount").id
     rng = np.random.default_rng(seed)
     start_joints = d.qpos[indices].copy()
+    chain = set()
+    for i in range(m.nbody):
+        parent = i
+        while parent:
+            if m.body(parent).name == arm[0] + "_link_1":
+                chain.add(i)
+                break
+            parent = int(m.body_parentid[parent])
+
+    def collisions_at_candidate():
+        mj.mj_forward(m, d)
+        return [
+            {
+                "geom1": m.geom(c.geom1).name,
+                "geom2": m.geom(c.geom2).name,
+                "penetration_m": -float(c.dist),
+            }
+            for c in d.contact[: d.ncon]
+            if c.dist < -0.0001
+            and (m.geom_bodyid[c.geom1] in chain or m.geom_bodyid[c.geom2] in chain)
+        ]
 
     def error(q):
         d.qpos[indices] = q
-        mj.mj_forward(m, d)
+        # The optimizer needs FK only. Full collision/dynamics is evaluated for
+        # every candidate, not for every finite-difference perturbation.
+        mj.mj_kinematics(m, d)
         diff = d.site_xpos[sid] - target
         if target_rotation is None:
             return diff
@@ -61,11 +84,27 @@ def solve_mount_ik(
             error, initial, bounds=(bounds[:, 0], bounds[:, 1]), max_nfev=200, diff_step=1e-5
         )
         residual = float(np.linalg.norm(error(fit.x)))
-        if best is None or residual < best[0]:
-            best = (residual, fit.x.copy())
-        if residual < 1e-5:
+        collisions = collisions_at_candidate()
+        position_error = float(np.linalg.norm(d.site_xpos[sid] - target))
+        angle_error = (
+            0.0
+            if target_rotation is None
+            else float(
+                np.linalg.norm(
+                    Rotation.from_matrix(
+                        target_rotation @ d.site_xmat[sid].reshape(3, 3).T
+                    ).as_rotvec()
+                )
+            )
+        )
+        solved = position_error < 0.002 and angle_error < 0.02
+        rank = (not solved, bool(collisions) if solved else False, residual)
+        if best is None or rank < best[0]:
+            best = (rank, fit.x.copy())
+        if solved and not collisions:
             break
     error(best[1])
+    collisions = collisions_at_candidate()
     position_error = float(np.linalg.norm(d.site_xpos[sid] - target))
     angle_error = (
         None
@@ -76,26 +115,6 @@ def solve_mount_ik(
             )
         )
     )
-    chain = set()
-    for i in range(m.nbody):
-        parent = i
-        while parent:
-            if m.body(parent).name == arm[0] + "_link_1":
-                chain.add(i)
-                break
-            parent = int(m.body_parentid[parent])
-    collisions = []
-    for c in d.contact[: d.ncon]:
-        if c.dist < -0.0001 and (
-            m.geom_bodyid[c.geom1] in chain or m.geom_bodyid[c.geom2] in chain
-        ):
-            collisions.append(
-                {
-                    "geom1": m.geom(c.geom1).name,
-                    "geom2": m.geom(c.geom2).name,
-                    "penetration_m": -float(c.dist),
-                }
-            )
     return {
         "arm": arm,
         "frame": "world",
@@ -105,6 +124,7 @@ def solve_mount_ik(
         "orientation_error_rad": angle_error,
         "pose_solved": position_error < 0.002 and (angle_error is None or angle_error < 0.02),
         "final_state_collisions": collisions,
+        "attempts": attempt + 1,
         "path_checked": False,
         "physical_motion_allowed": False,
     }

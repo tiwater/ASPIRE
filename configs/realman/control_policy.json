@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "motion_enabled": false,
+  "allow_stop": false,
+  "exclusive_control_verified": false,
+  "stop_verified": false,
+  "max_step_deg": 0.5,
+  "arms": {
+    "left": {"controller_limits_deg": null, "reviewed_envelope_deg": null, "workspace_review": null, "limits_evidence": null},
+    "right": {"controller_limits_deg": null, "reviewed_envelope_deg": null, "workspace_review": null, "limits_evidence": null}
+  },
+  "notes": [
+    "Observation-only deployment. Enabling flags is commissioning, not automatic initialization.",
+    "Seven controller joint angles in degrees; no URDF mapping is assumed.",
+    "Reviewed joint envelope must cover the entire controller path and fixed scene, not just endpoints. This is not a collision planner.",
+    "Local file lock only excludes ASPIRE instances; it does not exclude pendant, teleoperation or other ROS clients.",
+    "Remote-agent disconnect, process kill and physical emergency-stop behaviour require on-site acceptance before autonomous use."
+  ]
+}

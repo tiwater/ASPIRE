@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "hardware_continuity_confirmed_historical_profiles_available_for_scoped_reuse",
+  "runtime_enabled": false,
+  "motion_authorized_by_profile": false,
+  "wood_probe_tcp_required_for_coffee": false,
+  "do_not_mix_handeye_and_task_compensation_families": true,
+  "current_controller_frames": {
+    "left": {
+      "native_capture_stationary": true,
+      "tool_name": "Arm_Tip",
+      "work_name": "World",
+      "zero_tool_work_offsets": true
+    },
+    "right": {
+      "native_capture_stationary": true,
+      "tool_name": "Arm_Tip",
+      "work_name": "World",
+      "zero_tool_work_offsets": true
+    }
+  },
+  "left_carafe": {
+    "opening_native": 200,
+    "inner_gap_mm": 26.5,
+    "nominal_approach_center_tool_m": [
+      0,
+      0,
+      0.21
+    ],
+    "center_status": "historical approach model only, not calibrated loaded grasp center",
+    "handeye_profile": "left_handeye_active_20261010.json",
+    "lateral_reference_profile": "left200_image_reference.json",
+    "lateral_reference_qualification": "historically operator accepted for Oct22 first alignment, original global metric_qualified remains false",
+    "model": {
+      "handle_height_mm": 112,
+      "midheight_below_top_mm": 56,
+      "inward_from_outer_wall_mm": 7,
+      "depth_from_front_face_mm": 15,
+      "outer_wall_to_carafe_center_mm": 125,
+      "grasp_to_carafe_axis_mm": 118,
+      "open_command": 200,
+      "open_inner_gap_mm": 26.5,
+      "nominal_pad_reach_mm": 210,
+      "approach_distance_mm": 50
+    },
+    "latest_executed_insertion_mm": 48,
+    "old_sequence_insertion_mm": 45,
+    "insertion_distance_is_not_a_global_constant": true,
+    "controller_motion_evidence": "artifacts/realman/history_reuse_review_20261029/remote_snapshot/captures/forward48_20261022_01/execution_summary.json",
+    "visual_alignment_evidence": "artifacts/realman/history_reuse_review_20261029/remote_snapshot/captures/lateral_second_20261022_01/alignment_result.json"
+  },
+  "right_cup": {
+    "opening_native": 650,
+    "closing_native": 350,
+    "nominal_approach_center_tool_m": [
+      0,
+      0,
+      0.195
+    ],
+    "center_status": "historical task-model value, not independent loaded TCP measurement",
+    "grasp_height_above_cup_bottom_mm": 35,
+    "approach_standoff_mm": 20,
+    "closure_forward_compensation_mm": 7,
+    "closure_compensation_status": "operator-selected value in Oct22 handover, not measured aperture curve; source config absent",
+    "handeye_profile": "right_handeye_pitch_trial_20261008.json",
+    "handeye_status": "trial_authorized, production_replacement=false preserved",
+    "primary_geometry_source": "artifacts/realman/history_reuse_review_20261029/remote_snapshot/build_right_dispenser_geometry_20261009.py",
+    "latest_policy_source": "ref/astra_policy_history/RealBot01项目交接文档_20261022.docx"
+  },
+  "scene_refresh_required": [
+    "current coffee machine/cup/dispenser geometry and task-specific visual residual",
+    "current whole arm collision-reviewed routes; historical endpoints are not arbitrary-start routes"
+  ],
+  "limits": [
+    "Historical action success supports scoped reuse, not universal calibration certification",
+    "No gripper or motion commands sent during extraction",
+    "Historical 210mm and195mm task points must not be replaced by wood-probe404mm endpoint",
+    "Current head-to-base context changed, so yesterday fixed-head compensation cannot currently be used"
+  ],
+  "hardware_continuity_evidence": "artifacts/realman/history_reuse_review_20261029/operator_hardware_continuity.json",
+  "current_task_validation_completed": false
+}

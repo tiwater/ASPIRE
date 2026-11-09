@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "arm": "left",
+  "parent_frame": "left_controller_Arm_Tip",
+  "child_frame": "left_arm_depth_cam_color_optical_frame",
+  "equation": "base_T_tool @ tool_T_camera @ camera_T_board = base_T_board",
+  "pose_convention": "controller micrometres / milliradians; fixed XYZ RPY = Rz(yaw) Ry(pitch) Rx(roll)",
+  "T_tool_camera": [
+    [
+      -0.010015870971406715,
+      -0.9998498186815882,
+      -0.014142927952848945,
+      0.08707283730245015
+    ],
+    [
+      0.9999200834311689,
+      -0.010123683601592603,
+      0.007572171507508257,
+      -0.02241396508109774
+    ],
+    [
+      -0.007714212836602782,
+      -0.014065955805781162,
+      0.9998713116234417,
+      0.008726115191278949
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "camera_info": {
+    "width": 1280,
+    "height": 720,
+    "k": [
+      609.7933349609375,
+      0.0,
+      643.193115234375,
+      0.0,
+      609.88916015625,
+      368.6611022949219,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "d": [
+      -0.027269359678030014,
+      0.03452211245894432,
+      6.753226625733078e-05,
+      -0.0002838188083842397,
+      -0.012924672104418278,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "distortion_model": "plumb_bob",
+    "frame_id": "left_arm_depth_cam_color_optical_frame"
+  },
+  "calibrated_date": "2026-10-27",
+  "status": "validated_local_geometry",
+  "translation_units": "metre",
+  "camera_serial_verified": false,
+  "training_samples": 12,
+  "held_out_samples": 4,
+  "validation": {
+    "translation_mm_rms": 0.21056456186150116,
+    "translation_mm_max": 0.27761797662672394,
+    "rotation_deg_rms": 0.02850131459075795,
+    "rotation_deg_max": 0.04182208902431766,
+    "board_center_mm_rms": 0.2702528800531416,
+    "board_center_mm_max": 0.34184743073351453,
+    "reprojection_rms_px_rms": 0.3523642258240709,
+    "reprojection_rms_px_max": 0.40327428828493794
+  },
+  "orientation_span_deg": 18.086801961030016,
+  "accepted_comparison_methods": [
+    "PARK",
+    "HORAUD",
+    "DANIILIDIS"
+  ],
+  "maximum_leave_one_out_translation_change_mm": 1.4906007887524135,
+  "maximum_leave_one_out_rotation_change_deg": 0.07443484752852678,
+  "controller_joint_ranges_deg": [
+    [
+      21.203,
+      21.215
+    ],
+    [
+      -84.153,
+      -84.149
+    ],
+    [
+      44.089,
+      44.1
+    ],
+    [
+      84.627,
+      84.633
+    ],
+    [
+      76.427,
+      76.433
+    ],
+    [
+      61.298,
+      72.242
+    ],
+    [
+      -79.501,
+      -65.098
+    ]
+  ],
+  "fixed_board_check": "artifacts/realman/handeye_run_20261027/fixed_board_check.json",
+  "report": "artifacts/realman/handeye_run_20261027/solution_reviewed.json",
+  "data_sha256": "artifacts/realman/handeye_run_20261027/data_sha256.json",
+  "deployment_scope": "repository geometry configuration only; controller TCP/work frame and native motion gates unchanged",
+  "not_qualified_for": [
+    "absolute submillimetre positioning",
+    "depth scale or RGB-depth registration",
+    "unvalidated distant workspace or loaded-arm accuracy",
+    "right wrist or head/chest camera extrinsics",
+    "gripper TCP, controller-to-URDF map, or mobile-base/world alignment"
+  ],
+  "invalidation": [
+    "camera/bracket moved or replaced",
+    "camera mode or intrinsics changed",
+    "Arm_Tip or World offsets changed",
+    "arm kinematics or controller calibration changed"
+  ],
+  "assumptions": [
+    "operator-specified 60 mm grid and board planarity",
+    "fixed board between head-camera start/mid/end checkpoints",
+    "factory RGB CameraInfo intrinsics",
+    "stationary software pose/image bracket, not hardware synchronization"
+  ]
+}

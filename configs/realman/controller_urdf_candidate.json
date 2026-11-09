@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "photo_reviewed_candidate_not_full_calibration",
+  "angle_rule": "q_urdf_deg = sign * q_controller_deg + offset_deg",
+  "arms": {
+    "left": {"sign": [1, 1, 1, 1, 1, 1, -1], "offset_deg": [0, 0, 0, 0, 0, 0, 180]},
+    "right": {"sign": [1, -1, 1, -1, 1, -1, -1], "offset_deg": [0, 0, 0, 0, 0, 0, 180]}
+  },
+  "evidence": ["ref/Tmp/Calibrate/Front.jpg", "ref/Tmp/Calibrate/Left.jpg", "ref/Tmp/Calibrate/Right.jpg", "artifacts/realman/commission_state_20261027.json"],
+  "qualified_for_cartesian_control": false,
+  "qualified_for_general_joint_motion": false,
+  "notes": [
+    "Photos confirm coarse link posture and wrist camera placement, not a metric calibration.",
+    "Right even-joint sign reversal corrects the gross raised-arm reconstruction; a 180-degree J1-offset hypothesis places asymmetric joint housings incorrectly and is not selected.",
+    "Wrist sign and 180-degree mounting offset remain candidates pending controlled motion/pose checks.",
+    "Do not overwrite vendor URDF or controller zero/installation settings with this candidate.",
+    "Only a separately reviewed J7 commissioning interval may use a full wrist-rotation geometry sweep to account for uncertain wrist angle."
+  ]
+}

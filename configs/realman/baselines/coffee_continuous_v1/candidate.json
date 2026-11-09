@@ -1,0 +1,251 @@
+{
+  "simulation_only": true,
+  "physical_motion_allowed": false,
+  "status": "continuous_nominal_coffee_sequence_passed_randomized_policy_and_hardware_unqualified",
+  "baseline": "configs/realman/coffee_pour_candidate.json",
+  "document": "docs/realman/continuous-coffee-validation-20261101.md",
+  "grasp": {
+    "interpretation": "approach approximately normal to handle loop plane; opening axis across the outer rail; finger upper edge under upper crossbar",
+    "height_offset_m": 0.02,
+    "side_tilt_deg": 0,
+    "maximum_side_tilt_deg": 10,
+    "stock_pads_and_drive_preserved": true,
+    "regrasp_for_45_degree_carry": false,
+    "upper_bar_bearing_requires_actual_upward_normal_contact": true,
+    "qualified_contact_mode": "opposing finger contact: outer pad plus inner pad or positively identified upper-bar bearing, never vertical support alone",
+    "initialization_yaw_candidate_deg": 130,
+    "inplane_rotation_deg": -8,
+    "selection": "20 mm / -8 deg: one continuous nominal coffee sequence passed from initial pregrasp without regrasp; randomized-policy and hardware validation remain pending",
+    "drive_comparisons": "effort-only 0.9 and kp/effort 1.1 failed suspended-load diagnostics; not selected"
+  },
+  "heading": {
+    "nominal_initial_deg": 135,
+    "candidate_search_deg": [
+      125,
+      130,
+      135,
+      140,
+      145
+    ],
+    "initial_tolerance_deg": 10,
+    "supported_waypoint_tolerance_deg": 5,
+    "radial_axis_alignment_must_be_checked_after_nozzle_clear": true,
+    "travel_heading_candidate_deg": 135,
+    "axis_error_after_nozzle_clear_max_deg": 12,
+    "axis_check_minimum_radius_m": 0.025
+  },
+  "outlet_unilateral_exception": {
+    "maximum_s": 0.2,
+    "only_while_extracting": true,
+    "requires_positive_outlet_contact": true,
+    "requires_platform_support_n_above": 0.02,
+    "disabled_permanently_after_outlet_clear": true,
+    "does_not_waive_other_active_guards": true
+  },
+  "payload_two_full_cups": true,
+  "dynamic_grasp_qualified": false,
+  "full_sequence_qualified": true,
+  "videos_versioned": false,
+  "unit_checks": "23 relevant checks passed in prior commit f6ad12c; core source hashes unchanged; this revision adds a continuous integration run, evidence audit and video/archive checks",
+  "force_diagnostics": {
+    "basis": "per-finger normal vector resultant plus individual contact peak",
+    "raw_pad_and_scalar_sum_logged": true,
+    "sustained_n": 40,
+    "sustained_s": 0.1,
+    "peak_n": 50,
+    "hardware_rating_claim": false,
+    "clear_n": 39,
+    "original_sustained_n": 30,
+    "exploratory_margin_authorized": true,
+    "normal_loads_include_all_finger_handle_contacts": true,
+    "previous_exploration_sustained_n": 33
+  },
+  "local_suspended_withdrawal": {
+    "verified": true,
+    "trial": "artifacts/realman/upper_handle_20261101/leg_yaw130/upper20_margin33",
+    "resumed": true,
+    "exit_radius_m": 0.24,
+    "final_upper_bar_upward_n": 12.974186859820865,
+    "peak_finger_normal_resultant_n": 32.722913448975866,
+    "maximum_handle_translation_m": 0.001086939990287035,
+    "maximum_grasp_rotation_deg": 4.34173997730433,
+    "final_approach_deviation_deg": 0.1050449618109869,
+    "video": "artifacts/realman/upper_handle_20261101/leg_yaw130_upper20_margin33_4x.mp4",
+    "controller_snapshot": "artifacts/realman/upper_handle_20261101/leg_yaw130/upper20_margin33/experiment.py"
+  },
+  "airborne_orientation_control": {
+    "platform_free_hold_s": 0.5,
+    "ramp_deg_s": 0.5,
+    "initial_bound_deg": 2,
+    "final_bound_deg": 4.8,
+    "independent_grasp_relative_rotation_limit_deg": 8,
+    "bumpless_existing_correction_preserved": true,
+    "support_constrained_pitch_roll_frozen": true
+  },
+  "controller": "artifacts/realman/continuous_coffee_20261101/run.py",
+  "model_case": "leg_yaw130",
+  "model_sha256": "67336b88926c57571d568780837c2a49abb8001d5fec42be066aeaf7184d3dac",
+  "evidence_manifest": "assets/realman/coffee/continuous_coffee_20261101/manifest.json",
+  "current_controller_full_sequence_qualified": true,
+  "previous_document": "docs/realman/pour-precision-validation-20261101.md",
+  "historical_failures": [
+    {
+      "trial": "upper20_transfer48_target",
+      "stage": "pot_transfer_rise",
+      "reason": "relative_rotation reached 5 degrees before pouring"
+    },
+    {
+      "trial": "cold_upper20_margin33_v2",
+      "stage": "pot_extract_060",
+      "reason": "33.219 N sustained finger resultant"
+    },
+    {
+      "trial": "cold_upper22_margin33",
+      "stage": "load_transfer",
+      "reason": "53.569 N transition peak; command discontinuity fixed in subsequent test"
+    },
+    {
+      "trial": "upper22_bumpless_v2",
+      "stage": "load_transfer",
+      "reason": "transition spike removed, then 33.112 N sustained resultant after 9.325 s"
+    },
+    {
+      "trial": "upper18p5_inplane_m15",
+      "stage": "pot_extract_010",
+      "reason": "36.624 N peak"
+    },
+    {
+      "trial": "approach20_8deg40n",
+      "stage": "pour_tilt_45",
+      "reason": "actual angular speed 12.238 deg/s exceeds unchanged 5 deg/s stop; grasp and load guards passed at stop"
+    },
+    {
+      "trial": "pour45_completion_dt01",
+      "stage": "pot_return_0.02",
+      "reason": "244.362 N peak on outlet recontact; 1.83 degree compensation discontinuity identified"
+    },
+    {
+      "trial": "seat_bumpless_1ms",
+      "stage": "pot_return_0.01",
+      "reason": "compensation discontinuity removed, but coarse integration still triggered 195.652 N peak"
+    },
+    {
+      "trial": "cold_upper20_precision",
+      "stage": "pot_return_0.02",
+      "reason": "236.729 N coarse-step peak with old compensation branch; corrected continuation from valid 30 mm checkpoint passed"
+    },
+    {
+      "trial": "seat_bumpless_dt01",
+      "stage": "pot_release",
+      "reason": "seating passed; opening 0.23 swept support link into handle at ~19.62 mm aperture; reduced opening 0.205 passed"
+    }
+  ],
+  "remaining_failures": [
+    {
+      "trial": "hold20_extension60",
+      "stage": "pot_transfer_rise",
+      "reason": "bounded 90.8 s hold passed but final relative-rotation trend +0.001785 deg/s is not complete convergence"
+    }
+  ],
+  "relaxed_margin_experiment": {
+    "simulation_only": true,
+    "model_drive_and_original_grasp_anchor_unchanged": true,
+    "hold_duration_s": 90.8,
+    "20mm_final_relative_rotation_deg": 5.202965,
+    "22mm_final_relative_rotation_deg": 5.54565,
+    "20mm_final_handle_shift_m": 0.00089575,
+    "20mm_final_finger_normal_resultant_n": 31.169843,
+    "20mm_last10s_angle_slope_deg_s": 0.0017853,
+    "40deg_pour_waypoint_passed": true,
+    "45deg_pour_passed": false,
+    "continuous_full_sequence_passed": false,
+    "controller_runner": "artifacts/realman/grasp_margin_20261101/launch.py",
+    "historical_record": "grasp_margin_20261101; subsequent precision and release results are separate"
+  },
+  "precision_validation": {
+    "physics_timestep_s": 0.001,
+    "pour_timestep_s": 0.0001,
+    "independent_local_recheck_timestep_s": 5e-05,
+    "controller_period_s": 0.02,
+    "pour_speed_limit_deg_s": 5,
+    "local_45deg_peak_speeds_deg_s": [
+      3.27504082,
+      3.271039839
+    ],
+    "all_guards_checked_each_physics_step": true,
+    "contact_model_and_hardware_parameters_unchanged": true,
+    "nozzle_recontact_preserves_existing_rotation_compensation": true,
+    "return_timestep_s": 0.0001,
+    "return_precision_radius_m": 0.031,
+    "nominal_initial_state_pour_peak_deg_s": 3.204666601364728
+  },
+  "prescribed_payload_transfer": {
+    "verified_in_resumed_run": true,
+    "cup_target_ml": 159.5596469029622,
+    "remaining_pot_ml": 239.3394703544433,
+    "fluid_simulated": false,
+    "true_volume_feedback": false,
+    "trial": "continuous_corrected",
+    "verified_in_initial_state_prefix": true,
+    "verified_in_continuous_run": true
+  },
+  "controller_sha256": "d2ff874322a6e54503d052ea7931d660d3d6572c73825e387327c1e3af3352b0",
+  "checkpoint_resumed_nominal_sequence_qualified": true,
+  "remaining_qualification_gaps": [
+    "randomized scene and ASPIRE learned-policy evaluation",
+    "real liquid feedback and hardware validation",
+    "unbounded fixed-command suspension stability not established"
+  ],
+  "release": {
+    "opening_fraction": 0.205,
+    "verified_aperture_m": 0.018312518209570677,
+    "hold_before_retract_s": 2,
+    "retract_m": 0.04,
+    "direction": "negative actual grasp approach axis",
+    "final_hold_s": 2,
+    "new_collision_exemptions": false,
+    "simulation_protocol_only": true
+  },
+  "checkpoint_resumed_validation": {
+    "prefix_trial": "cold_upper20_precision",
+    "prefix_checkpoint": "loaded_return_030.npz",
+    "checkpoint_time_s": 569.8999999778378,
+    "suffix_trial": "cold_seat_bumpless_dt01",
+    "final_time_s": 602.979999969534,
+    "maximum_suffix_finger_resultant_n": 33.49120509200075,
+    "seat_position_error_m": 0.00042375401605018086,
+    "seat_orientation_error_deg": 0.19001608204057582,
+    "final_relations_verified": true,
+    "no_regrasp": true,
+    "monolithic": false,
+    "evidence": "artifacts/realman/pour_speed_20261101/completion_audit.json",
+    "video": "artifacts/realman/pour_speed_20261101/coffee_checkpoint_resumed_4x.mp4"
+  },
+  "qualification_scope": "one uninterrupted fixed-scene oracle geometry rollout with prescribed rigid-payload mass transfer from initial pregrasp; not randomized robustness, learned policy, liquid-flow or hardware qualification",
+  "continuous_validation": {
+    "simulation_seconds": 607.9399999673476,
+    "mid_run_checkpoint_restores": 0,
+    "controller_unchanged_during_run": true,
+    "maximum_pour_speed_deg_s": 3.2737824789088075,
+    "maximum_finger_load_n": 34.527718416792574,
+    "maximum_relative_rotation_deg": 4.360319532295445,
+    "maximum_handle_shift_mm": 2.412332428780455,
+    "no_regrasp": true,
+    "final_relations_verified": [
+      "cup_supported_by_table",
+      "right_gripper_released",
+      "cup_upright",
+      "remaining_cups_retained",
+      "pot_on_hotplate",
+      "lid_outlet_aligned",
+      "pot_stable_after_release",
+      "left_gripper_released",
+      "pot_upright"
+    ],
+    "trace_sha256": "0354778d947dc57473d0699c96a0f00e86ee3543e49d42e6dc3e6fd107b92cf6",
+    "trial": "continuous_corrected",
+    "evidence": "artifacts/realman/continuous_coffee_20261101/audit.json",
+    "video": "artifacts/realman/continuous_coffee_20261101/coffee_continuous_full_4x.mp4",
+    "initial_state": "time-zero initial_pregrasp; cups in rack, pot on machine; no Home-to-table motion"
+  }
+}

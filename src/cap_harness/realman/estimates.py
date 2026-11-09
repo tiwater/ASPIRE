@@ -18,6 +18,31 @@ def cavity_volume_m3(bottom_radius, top_radius, height, wall, bottom_thickness):
     return math.pi * h * (rb * rb + rb * rt + rt * rt) / 3
 
 
+def profiled_cavity_volume_m3(profile, wall, floor, ceiling):
+    """Integrate a piecewise-linear axial cavity between floor and lid underside.
+
+    The small local pouring-lip flare is excluded; this is a geometric capacity
+    prior, not a fluid simulation or a measured usable fill limit.
+    """
+    if (
+        len(profile) < 2
+        or not all(math.isfinite(v) for point in profile for v in point)
+        or not all(math.isfinite(v) for v in (wall, floor, ceiling))
+        or not 0 < wall < min(r for _, r in profile)
+        or not profile[0][0] <= floor < ceiling <= profile[-1][0]
+        or any(b[0] <= a[0] for a, b in zip(profile, profile[1:]))
+    ):
+        raise ValueError("invalid cavity profile or integration bounds")
+    volume = 0.0
+    for (za, ra), (zb, rb) in zip(profile, profile[1:]):
+        low, high = max(floor, za), min(ceiling, zb)
+        if low < high:
+            r0 = ra + (rb - ra) * (low - za) / (zb - za) - wall
+            r1 = ra + (rb - ra) * (high - za) / (zb - za) - wall
+            volume += math.pi * (high - low) * (r0 * r0 + r0 * r1 + r1 * r1) / 3
+    return volume
+
+
 def estimate_parameters(config):
     c, p, priors = config["cup"], config["pot"], config["force_priors"]
     rho, g = priors["water_density_kg_m3"], priors["gravity_m_s2"]
@@ -26,11 +51,16 @@ def estimate_parameters(config):
     fraction = config["task"]["fill_fraction"]
     if not math.isfinite(fraction) or not 0 < fraction < 1:
         raise ValueError("invalid fill fraction")
+    roll = c.get("rolled_rim_radius_m", 0)
     cup = cavity_volume_m3(
-        c["bottom_radius_m"], c["rim_radius_m"], c["height_m"], c["wall_m"], c["wall_m"]
+        c["bottom_radius_m"],
+        c["rim_radius_m"] - roll,
+        c["height_m"] - roll,
+        c["wall_m"],
+        c["wall_m"],
     )
-    pot = cavity_volume_m3(
-        p["radius_m"], p["radius_m"] * 0.92, p["height_m"] - 0.008, p["wall_m"], p["wall_m"]
+    pot = profiled_cavity_volume_m3(
+        p["body_profile_z_radius_m"], p["wall_m"], p["wall_m"], p["height_m"] - 0.006
     )
     full_pot_mass = p["mass_kg"] + rho * pot
     spring = priors["spring_full_pot_weight_fraction"] * full_pot_mass * g
@@ -54,7 +84,9 @@ def estimate_parameters(config):
         "spring_reference_compression_m": reference,
         "spring_stiffness_n_per_m": (spring - preload) / reference,
         "dispenser_reference_pull_force_n": pull,
-        "capacity_source": "circular_frustum_photo_geometry_with_wall_and_floor_subtracted",
+        "capacity_source": "photo_geometry_with_wall_and_floor_subtracted",
+        "cup_capacity_source": "frustum_below_rolled_rim_center" if roll else "circular_frustum",
+        "pot_capacity_source": "axial_profile_below_lid_excluding_local_spout_flare",
         "force_source": "user_approved_initial_estimates",
         "hardware_force_limit_qualified": False,
         "actual_pour_volume_observed": False,
@@ -73,7 +105,11 @@ def pour_envelope(config, *, spout_in_cup_m, tilt_rate_rad_s):
         raise ValueError("need finite spout position and tilt rate")
     c, rule = config["cup"], config["pour_geometry"]
     x, y, z = spout_in_cup_m
-    allowed_radius = c["rim_radius_m"] - c["wall_m"] - rule["rim_clearance_m"]
+    allowed_radius = (
+        c["rim_radius_m"]
+        - max(c["wall_m"], 2 * c.get("rolled_rim_radius_m", 0))
+        - rule["rim_clearance_m"]
+    )
     gap = z - c["height_m"]
     return {
         "spout_projection_inside_rim": math.hypot(x, y) <= allowed_radius,

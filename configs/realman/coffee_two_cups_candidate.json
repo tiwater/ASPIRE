@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "simulation_only": true,
+  "physical_motion_allowed": false,
+  "workload": "configs/realman/coffee_workload.json",
+  "initial_water_ml": 398.8991172574055,
+  "loaded_pot_mass_kg": 0.7948991172574109,
+  "stock_pads_preserved": true,
+  "full_sequence_passed": false,
+  "coffee_task_success": null,
+  "force_hardware_mapping_verified": false,
+  "trials": [
+    {
+      "path": "artifacts/realman/two_cups_20261031/stock_two_cups/full",
+      "cold_start": true,
+      "experiment_success": false,
+      "last_stage": "prelift",
+      "stop": {
+        "time_s": 44.98999999998585,
+        "stage": "prelift",
+        "metrics": {
+          "handle_delta_grasp_m": [
+            1.2748820722718879e-06,
+            -3.8891408846816744e-05,
+            -3.901871414158743e-06
+          ],
+          "handle_translation_m": 3.910743672143554e-05,
+          "relative_rotation_deg": 0.35676037918079095,
+          "pot_origin_translation_m": 0.0009107290119555506,
+          "pad_forces_n": [
+            30.591318925249677,
+            0.0
+          ],
+          "both_pads_loaded": false,
+          "unilateral_unload_s": 0.0,
+          "bilateral_unload_s": 0.0,
+          "failures": [
+            "pad_load_limit"
+          ]
+        },
+        "tilt_deg": 0.10997378562111824,
+        "linkage_error_rad": 0.00014210887834087416,
+        "fixed_housing_contacts": [],
+        "failures": [
+          "pad_load_limit"
+        ]
+      },
+      "model_sha256": "a826679c4b6134102006259de4f91d19fd6b478f0858907f4435d85fa286e751",
+      "left_gripper_effort_limit_nm": 2.5
+    },
+    {
+      "path": "artifacts/realman/two_cups_20261031/stock_two_cups/direct_exit",
+      "cold_start": false,
+      "experiment_success": false,
+      "last_stage": "pot_extract_010",
+      "stop": {
+        "time_s": 44.44099999998713,
+        "stage": "pot_extract_010",
+        "metrics": {
+          "handle_delta_grasp_m": [
+            -1.5572585152778817e-06,
+            -3.1281888322742812e-06,
+            2.744670166374434e-07
+          ],
+          "handle_translation_m": 3.50513217967495e-06,
+          "relative_rotation_deg": 0.06155976846434702,
+          "pot_origin_translation_m": 0.0001440549908962072,
+          "pad_forces_n": [
+            20.867750911996314,
+            25.030396773629988
+          ],
+          "both_pads_loaded": true,
+          "unilateral_unload_s": 0.0,
+          "bilateral_unload_s": 0.0,
+          "failures": [
+            "pad_load_limit"
+          ]
+        },
+        "tilt_deg": 0.05580038311422973,
+        "linkage_error_rad": 0.00014728477939207618,
+        "fixed_housing_contacts": [],
+        "failures": [
+          "pad_load_limit"
+        ]
+      },
+      "model_sha256": "a826679c4b6134102006259de4f91d19fd6b478f0858907f4435d85fa286e751",
+      "left_gripper_effort_limit_nm": 2.5
+    },
+    {
+      "path": "artifacts/realman/two_cups_20261031/stock_two_cups_effort22/direct_full",
+      "cold_start": true,
+      "experiment_success": false,
+      "last_stage": "pot_extract_010",
+      "stop": {
+        "time_s": 44.94999999998594,
+        "stage": "pot_extract_010",
+        "metrics": {
+          "handle_delta_grasp_m": [
+            -3.8552664723592867e-05,
+            -0.00010512743319907036,
+            3.847211992051782e-05
+          ],
+          "handle_translation_m": 0.00011839843402466719,
+          "relative_rotation_deg": 1.5287663864688517,
+          "pot_origin_translation_m": 0.0037566175732276293,
+          "pad_forces_n": [
+            0.0,
+            27.882093405183056
+          ],
+          "both_pads_loaded": false,
+          "unilateral_unload_s": 0.0009999999999976694,
+          "bilateral_unload_s": 0.0,
+          "failures": [
+            "pad_load_limit"
+          ]
+        },
+        "tilt_deg": 0.7035343686061832,
+        "linkage_error_rad": 0.00019823868534118994,
+        "fixed_housing_contacts": [],
+        "failures": [
+          "pad_load_limit"
+        ]
+      },
+      "model_sha256": "661275f9e2aa3497b5fa51725f8067cfabf40b894741c0fcc1c92bd36d9d0782",
+      "left_gripper_effort_limit_nm": 2.2
+    }
+  ],
+  "evidence_document": "docs/realman/two-cups-validation-20261031.md",
+  "evidence_manifest": "assets/realman/coffee/two_cups_20261031/manifest.json",
+  "qualification": "three failed stock-pad two-cup extraction diagnostics; not a qualified full policy",
+  "spring_force_followup": {
+    "workload": "configs/realman/coffee_workload_spring_half.json",
+    "document": "docs/realman/two-cups-spring-half-20261031.md",
+    "evidence_manifest": "assets/realman/coffee/two_cups_spring_half_20261031/manifest.json"
+  },
+  "outlet_geometry_followup": {
+    "workload": "configs/realman/coffee_workload_conical_outlet.json",
+    "document": "docs/realman/conical-outlet-validation-20261031.md",
+    "evidence_manifest": "assets/realman/coffee/conical_outlet_20261031/manifest.json",
+    "mechanism_fixture_passed": true,
+    "hardware_qualified": false
+  },
+  "diagnostic_margin_followup": {
+    "workload": "configs/realman/coffee_workload_diagnostic_ccd.json",
+    "document": "docs/realman/diagnostic-margin-validation-20261031.md",
+    "evidence_manifest": "assets/realman/coffee/diagnostic_margin_20261031/manifest.json",
+    "simulation_only": true,
+    "full_loaded_policy_qualified": false,
+    "hardware_qualified": false
+  },
+  "supported_slide_followup": "configs/realman/coffee_supported_slide_candidate.json",
+  "recessed_platform_followup": "configs/realman/coffee_recessed_platform_candidate.json"
+}

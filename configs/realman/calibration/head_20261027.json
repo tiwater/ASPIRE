@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "camera": "head_depth_cam",
+  "parent_frame": "left_controller_base",
+  "child_frame": "head_depth_cam_color_optical_frame",
+  "equation": "p_left_controller_base = T_base_camera @ p_camera_optical",
+  "T_base_camera": [
+    [
+      0.9997786553839701,
+      0.008558755922349514,
+      -0.01921946762223823,
+      -0.07697889549092836
+    ],
+    [
+      0.020956234723442997,
+      -0.32415571132688215,
+      0.9457715955982073,
+      0.07794161305503094
+    ],
+    [
+      0.0018645280466054927,
+      -0.945965021822279,
+      -0.32426332050347406,
+      0.20949997038966975
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "camera_info": {
+    "width": 1280,
+    "height": 720,
+    "k": [
+      607.9915161132812,
+      0.0,
+      642.5582885742188,
+      0.0,
+      608.0368041992188,
+      371.39459228515625,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "d": [
+      -0.030603863298892975,
+      0.03504653647542,
+      -0.00036155126872472465,
+      -0.00015623154467903078,
+      -0.012282990850508213,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "distortion_model": "plumb_bob",
+    "frame_id": "head_depth_cam_color_optical_frame"
+  },
+  "camera_info_sha256": "c3dff8c37104755ae546a23b2ca3472d80c419519987fdb952fb44b51b4ebed8",
+  "calibrated_date": "2026-10-27",
+  "status": "validated_local_geometry_bound_head_body_pose",
+  "translation_units": "metre",
+  "camera_serial_verified": false,
+  "training_samples": 6,
+  "held_out_samples": 3,
+  "training_sets": [
+    "pose_00",
+    "pose_01",
+    "pose_02_retake_01",
+    "pose_03",
+    "pose_04_retake_01",
+    "pose_05"
+  ],
+  "held_out_sets": [
+    "pose_06",
+    "pose_07",
+    "pose_08"
+  ],
+  "validation": {
+    "translation_mm_rms": 0.34469889930457065,
+    "translation_mm_max": 0.5000263199016401,
+    "rotation_deg_rms": 0.04337519192004033,
+    "rotation_deg_max": 0.049312233222645434,
+    "board_center_mm_rms": 0.20246019774518043,
+    "board_center_mm_max": 0.26761684223394294,
+    "reprojection_rms_px_rms": 0.1312513321835414,
+    "reprojection_rms_px_max": 0.13678481026151773
+  },
+  "acceptance_gates": {
+    "holdout_origin_rms_mm_max": true,
+    "holdout_origin_max_mm_max": true,
+    "holdout_rotation_rms_deg_max": true,
+    "holdout_rotation_max_deg_max": true,
+    "holdout_pixel_rms_px_max": true,
+    "holdout_pixel_max_px_max": true
+  },
+  "acceptance_plan": {
+    "fixed_context_max_joint_change_deg": 0.05,
+    "minimum_board_position_span_m": 0.03,
+    "minimum_board_orientation_span_deg": 10,
+    "holdout_origin_rms_mm_max": 3,
+    "holdout_origin_max_mm_max": 5,
+    "holdout_rotation_rms_deg_max": 0.5,
+    "holdout_rotation_max_deg_max": 1,
+    "holdout_pixel_rms_px_max": 1.5,
+    "holdout_pixel_max_px_max": 2,
+    "require_all_three_views_each_set": true,
+    "fit_training_only": true,
+    "no_threshold_changes_from_holdout_results": true
+  },
+  "fixed_context_millidegrees": {
+    "body": [
+      -11,
+      8,
+      327,
+      96,
+      8
+    ],
+    "head": [
+      271,
+      21664
+    ]
+  },
+  "fixed_context_max_joint_change_deg": 0.05,
+  "reference_calibration": "configs/realman/calibration/left_wrist_20261027.json",
+  "reference_calibration_sha256": "0564c99edcc400f19b1d7685650a4fc320c4606f7e70968e01ddb14b4605d924",
+  "frozen_fit": "artifacts/realman/fixed_cameras_20261027/training_fit.json",
+  "frozen_fit_sha256": "c0b41da4c7029798ae553a189d2e1f86a6029b851ea4efca347333cd2a7fb346",
+  "validation_report": "artifacts/realman/fixed_cameras_20261027/validation.json",
+  "validation_report_sha256": "1dbfe1e1f93828e6605b707511a70ecbd7d4752ca2e0ab0493a330fd4f46955b",
+  "report": "docs/realman/fixed-cameras-20261027.md",
+  "refitted_with_validation": false,
+  "deployment_scope": "repository geometry configuration only; no runtime activation or controller frame/motion gate changes",
+  "not_qualified_for": [
+    "absolute submillimetre positioning; reference hand-eye uncertainty is inherited",
+    "depth scale or RGB-depth registration",
+    "changed head/body joint configuration",
+    "right controller base, URDF base, or mobile-base/world alignment",
+    "gripper TCP, contact execution, or distant/loaded workspace accuracy"
+  ],
+  "invalidation": [
+    "head/body joint configuration outside recorded bound; revalidate or use a separately validated kinematic transform",
+    "camera/bracket moved or replaced",
+    "camera mode or intrinsics changed",
+    "reference wrist calibration invalidated or changed",
+    "controller Arm_Tip/World offsets or arm kinematics changed"
+  ],
+  "assumptions": [
+    "operator-specified 60 mm grid and planar board",
+    "same upright board viewed by all three cameras",
+    "board and chassis held stationary within each software bracket; not hardware synchronized",
+    "factory RGB CameraInfo intrinsics",
+    "bounded corner processing protocol frozen before held-out acquisition"
+  ]
+}

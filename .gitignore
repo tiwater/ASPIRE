@@ -13,3 +13,6 @@ artifacts/
 outputs/
 validation-output/
 .behavior-appdata/
+
+# Locally generated coffee replay; keep videos outside version control.
+assets/realman/coffee/pour_completion_20261101/coffee_full_sequence_4x.mp4

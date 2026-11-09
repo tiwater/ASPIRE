@@ -198,6 +198,9 @@ robot model, photo-derived coffee scene, read-only ROS2 capture, and CAP simulat
 adapter. The [implementation plan](docs/realman/coffee-plan.md) tracks the remaining
 calibration, live execution backend, and coffee-task validation. This workbench
 does not yet execute the coffee task on physical hardware.
+The [hardware evidence index](docs/realman/hardware-evidence-index.md) locates
+recovered calibrations, historical validation records, reusable control code,
+and local archives that are not included in Git.
 
 ## Contribution Guidelines
 

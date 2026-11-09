@@ -1,0 +1,28 @@
+{
+  "simulation_only": true,
+  "physical_motion_allowed": false,
+  "workload": "configs/realman/coffee_workload_recessed_platform.json",
+  "document": "docs/realman/recessed-platform-validation-20261031.md",
+  "evidence_manifest": "assets/realman/coffee/recessed_platform_20261031/manifest.json",
+  "source_geometry": "operator: disk 2 mm below platform, rounded ramp, disk width at least pot floor width",
+  "disk_depth_m": 0.002,
+  "nominal_disk_diameter_m": 0.138,
+  "pot_floor_diameter_m": 0.136,
+  "nominal_ramp_width_m": 0.008,
+  "disk_diameter_and_ramp_width_measured": false,
+  "controller": "artifacts/realman/recessed_platform_20261031/run_matched.py",
+  "old_geometry_checkpoints_reused": false,
+  "full_loaded_policy_qualified": false,
+  "hardware_qualified": false,
+  "disk_collision": "64-sided convex prism; exact cylinder visual",
+  "maximum_disk_radial_approximation_error_m": 8.311352184310406e-05,
+  "final_model_case": "faceted_final",
+  "supported_slide_verified_waypoints_mm": [
+    10,
+    20
+  ],
+  "stopped_waypoint_mm": 30,
+  "stop_reason": "tilt about 2.004 degrees did not satisfy less-than-2-degree stability window within 30 seconds",
+  "supported_return_completed": false,
+  "tilt_acceptance_followup": "configs/realman/coffee_supported_tilt_candidate.json"
+}

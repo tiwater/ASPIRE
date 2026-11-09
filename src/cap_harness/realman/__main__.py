@@ -8,6 +8,65 @@ from pathlib import Path
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     sub = p.add_subparsers(dest="command", required=True)
+    pot = sub.add_parser("pot-bench", help="virtual-grip diagonal withdrawal; not robot policy")
+    pot.add_argument("--model", type=Path, required=True)
+    pot.add_argument("--output", type=Path, required=True)
+    dispenser = sub.add_parser(
+        "dispenser-bench", help="force-driven passive tab bench; not robot policy"
+    )
+    dispenser.add_argument("--model", type=Path, required=True)
+    dispenser.add_argument("--output", type=Path, required=True)
+    dispenser.add_argument("--hold-seconds", type=float, default=10)
+    dispenser.add_argument("--cup-friction", type=float)
+    dispenser.add_argument("--stiffness-scale", type=float, default=1)
+    video = sub.add_parser("contact-video", help="render recorded simulation states for review")
+    video.add_argument("--review", type=Path, required=True)
+    video.add_argument("--run", type=Path, required=True)
+    video.add_argument("--output", type=Path, required=True)
+    video.add_argument("--view", choices=["overview", "cup"], default="overview")
+    contact = sub.add_parser(
+        "contact-rollout", help="simulation-only cup or pot contact experiment"
+    )
+    contact.add_argument("--review", type=Path, required=True)
+    contact.add_argument("--output", type=Path, required=True)
+    contact.add_argument("--checkpoint", type=Path)
+    contact.add_argument("--phase", choices=["cup", "pot"], default="cup")
+    contact.add_argument(
+        "--cup-fraction",
+        type=float,
+        default=0.2,
+        help="cup phase: target normalized gripper opening (not force)",
+    )
+    contact.add_argument(
+        "--hold-seconds",
+        type=float,
+        default=5,
+        help="cup phase: continuously verify all three cup predicates",
+    )
+    rollout = sub.add_parser(
+        "workspace-rollout", help="replay pregrasp paths through simulated servos"
+    )
+    rollout.add_argument("--review", type=Path, required=True)
+    rollout.add_argument("--output", type=Path, required=True)
+    workspace = sub.add_parser(
+        "workspace-check", help="offline oracle pregrasp and sampled path diagnostics"
+    )
+    workspace.add_argument(
+        "--config", type=Path, default=Path("configs/realman/coffee_workspace.json")
+    )
+    workspace.add_argument("--output", type=Path, required=True)
+    benchmark = sub.add_parser(
+        "benchmark-check",
+        help="build seeded simulation fixtures and check retention; not policy success",
+    )
+    benchmark.add_argument(
+        "--config", type=Path, default=Path("configs/realman/coffee_benchmark.json")
+    )
+    benchmark.add_argument(
+        "--split", choices=["development", "validation", "heldout"], default="development"
+    )
+    benchmark.add_argument("--seeds", type=int, nargs="+", required=True)
+    benchmark.add_argument("--output", type=Path, required=True)
     build = sub.add_parser("build", help="build MuJoCo scene from supplied URDF and parameter JSON")
     build.add_argument("--robot-config", type=Path, default=Path("configs/realman/robot_sim.json"))
     build.add_argument(
@@ -33,7 +92,7 @@ def main():
     calibration.add_argument(
         "--board-config", type=Path, default=Path("configs/realman/calibration_board.json")
     )
-    for name in ("render", "viewer", "run", "ik", "validate"):
+    for name in ("render", "viewer", "run", "ik", "validate", "grasp-frames"):
         cmd = sub.add_parser(name)
         cmd.add_argument("--model", type=Path, default=Path("artifacts/realman/coffee/scene.xml"))
         if name == "render":
@@ -48,7 +107,49 @@ def main():
         elif name == "validate":
             cmd.add_argument("--seconds", type=float, default=2)
     args = p.parse_args()
-    if args.command == "estimate":
+    if args.command == "pot-bench":
+        from .pot_bench import run_pot_bench
+
+        result = run_pot_bench(args.model, args.output)
+    elif args.command == "dispenser-bench":
+        from .dispenser_bench import run_dispenser_bench
+
+        result = run_dispenser_bench(
+            args.model,
+            args.output,
+            hold_seconds=args.hold_seconds,
+            cup_friction=args.cup_friction,
+            stiffness_scale=args.stiffness_scale,
+        )
+    elif args.command == "contact-video":
+        from .contact_rollout import render_contact_trace
+
+        result = render_contact_trace(args.review, args.run, args.output, view=args.view)
+    elif args.command == "contact-rollout":
+        from .contact_rollout import run_contact_experiment, run_pot_experiment
+
+        if args.phase == "pot" and args.checkpoint is None:
+            p.error("pot phase requires a verified cup-hold checkpoint")
+        function = run_contact_experiment if args.phase == "cup" else run_pot_experiment
+        kwargs = (
+            {"hold_seconds": args.hold_seconds, "cup_fraction": args.cup_fraction}
+            if args.phase == "cup"
+            else {}
+        )
+        result = function(args.review, args.output, checkpoint=args.checkpoint, **kwargs)
+    elif args.command == "workspace-rollout":
+        from .workspace_rollout import rollout_pregrasp
+
+        result = rollout_pregrasp(args.review, args.output)
+    elif args.command == "workspace-check":
+        from .workspace import check_workspaces
+
+        result = check_workspaces(args.config, args.output)
+    elif args.command == "benchmark-check":
+        from .benchmark import check_fixtures
+
+        result = check_fixtures(args.config, args.output, split=args.split, seeds=args.seeds)
+    elif args.command == "estimate":
         from .estimates import estimate_parameters
 
         result = estimate_parameters(json.loads(args.scene_config.read_text()))
@@ -74,15 +175,23 @@ def main():
 
         adapter = CoffeeSimAdapter(args.model)
         try:
-            if args.command == "render":
+            if args.command == "grasp-frames":
+                result = {arm: adapter.get_grasp_geometry(arm) for arm in adapter.arms}
+            elif args.command == "render":
                 from PIL import Image
 
                 args.output.mkdir(parents=True, exist_ok=True)
-                for name in ("overview", "front", "side"):
+                views = ["overview", "front", "side"]
+                if any(
+                    adapter.model.camera(i).name == "machine_detail"
+                    for i in range(adapter.model.ncam)
+                ):
+                    views.append("machine_detail")
+                for name in views:
                     Image.fromarray(adapter.camera(name).rgb).save(args.output / f"{name}.png")
                 result = {
                     "output": str(args.output),
-                    "views": ["overview.png", "front.png", "side.png"],
+                    "views": [f"{name}.png" for name in views],
                 }
             elif args.command == "viewer":
                 import mujoco.viewer
@@ -114,6 +223,9 @@ def main():
                 run_dir = args.output_root / ("run-" + uuid.uuid4().hex[:12])
                 run_dir.mkdir(parents=True, exist_ok=False)
                 serializer = Serializer(run_dir)
+                parameters = args.model.parent / "scene_parameters.json"
+                if parameters.exists():
+                    adapter.enable_task_evaluation(json.loads(parameters.read_text()))
                 shutil.copyfile(args.program, run_dir / "program.py")
                 for filename in ("scene.xml", "build_report.json", "scene_parameters.json"):
                     source = args.model if filename == "scene.xml" else args.model.parent / filename
@@ -149,6 +261,7 @@ def main():
                 }
                 serializer.dump(run_dir / "execution.json", outcome)
                 serializer.dump(run_dir / "final_observation.json", adapter.get_observation())
+                serializer.dump(run_dir / "object_evidence.json", adapter.task_evidence)
                 serializer.dump(run_dir / "outcome.json", result)
             elif args.command == "ik":
                 from .ik import solve_mount_ik
@@ -184,6 +297,10 @@ def main():
         finally:
             adapter.close()
     print(json.dumps(result, indent=2, ensure_ascii=False, default=str))
+    if args.command == "contact-rollout" and not result["experiment_success"]:
+        raise SystemExit(2)
+    if args.command in ("dispenser-bench", "pot-bench") and not result["bench_success"]:
+        raise SystemExit(2)
 
 
 if __name__ == "__main__":

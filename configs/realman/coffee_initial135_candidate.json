@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "qualification": "one_continuous_nominal_empty_vessel_coffee_motion_sequence",
+  "physical_motion_allowed": false,
+  "initial_pot_yaw_deg": 135,
+  "world_axes": "X toward workstation, Y robot left, Z up",
+  "shoulder_to_machine_front_m": 0.6,
+  "upper_body_tilt_deg": 1.713,
+  "model": "artifacts/realman/yaw135_initial_20261030/support_torsion/review/model/scene.xml",
+  "model_sha256": "4b17e5c9ccbba0ae06fff277c4b27ecf419645d8647d0aa452298b99f74d5fcb",
+  "source_model": "artifacts/realman/shoulder60_20261030/observed_stance.xml",
+  "source_model_sha256": "a5f5117c825d511f80ee33791d68938b6f31724aaf0a9960e98a1d38c61be9a7",
+  "changes_from_source": {
+    "pot_initial_yaw_deg": 135,
+    "pot_support_contact_condim": 4,
+    "pot_support_friction": [
+      1,
+      0.005,
+      0.0001
+    ]
+  },
+  "contact_parameter_qualification": "existing unmeasured torsional coefficient activated; no hardware calibration or mass change",
+  "initialization": "collision-checked arm pregrasp reset; objects seated/racked; home-to-pregrasp not verified",
+  "extraction": {
+    "height_above_seat_m": 0.0005,
+    "contact_speed_m_s": 0.003,
+    "free_speed_m_s": 0.008,
+    "max_waypoint_settle_s": 10,
+    "stable_window_s": 0.5,
+    "position_tolerance_m": 0.002,
+    "rotation_tolerance_deg": 0.5
+  },
+  "return_geometry_reference": "configs/realman/coffee_return_candidate.json",
+  "liquid_simulated": false,
+  "coffee_task_success": null,
+  "evidence_document": "docs/realman/initial135-validation-20261030.md",
+  "selected_for_next_simulation_iteration": true,
+  "return": {
+    "height_above_seat_m": 0.0005,
+    "contact_speed_m_s": 0.003,
+    "lower_over_last_m": 0.01,
+    "support_probe_lowering_m": 0.0001,
+    "release_requires": [
+      "pot_on_hotplate",
+      "lid_outlet_aligned",
+      "pot_upright"
+    ],
+    "stable_after_release_s": 2
+  },
+  "validation": {
+    "continuous_fixture_to_pot_release": true,
+    "intermediate_checkpoint_restores": 0,
+    "simulated_duration_s": 134.08000000027616,
+    "return_orientation_error_deg": 0.13587903726080877,
+    "sampled_maximum_handle_drift_m": 0.001493867007474565,
+    "sampled_maximum_grasp_rotation_deg": 2.337981469429022,
+    "full_coffee_task": null,
+    "filled_pot_load_validated": false,
+    "randomized_trials": 0,
+    "full_empty_vessel_motion_sequence": {
+      "result_sha256": "9b2fd3ccf48d3c4b52bd48882f0d66957ae04650f07752f304ba127f4b32483f",
+      "continuous_empty_vessel_motion_sequence_passed": true,
+      "final_relations": {
+        "pot_on_hotplate": true,
+        "pot_stable_after_release": true,
+        "left_gripper_released": true,
+        "lid_outlet_aligned": true,
+        "pot_upright": true,
+        "cup_supported_by_table": true,
+        "right_gripper_released": true,
+        "cup_upright": true,
+        "remaining_cups_retained": true,
+        "single_cup_separated": true
+      },
+      "duration_s": 358.4399999984359,
+      "return_orientation_error_deg": 0.09112596585843245,
+      "final_pot_yaw_deg": 134.91118477807137,
+      "max_pour_angular_speed_deg_s": 4.605240303849865,
+      "sampled_active_grasp_maxima": {
+        "handle_translation_m": 0.0018706028429371923,
+        "relative_rotation_deg": 2.2745097016409637
+      },
+      "liquid_simulated": false,
+      "filled_load_validated": false,
+      "physical_motion_executed": false,
+      "home_to_pregrasp_verified": false,
+      "randomized_validation_trials": 0,
+      "coffee_task_success": null
+    },
+    "contact_guard_revalidation": {
+      "guard": "all_contacts_v2",
+      "continuous_empty_vessel_motion_sequence_passed": true,
+      "duration_s": 358.4399999984359,
+      "evidence": "artifacts/realman/payload_20261030/empty/guard_revalidation/result.json",
+      "document": "docs/realman/payload-gripper-validation-20261030.md",
+      "corrects": "prior full_sequence.py fixed housing check inspected only last contact; previous evidence retained"
+    }
+  },
+  "evidence_archive": "assets/realman/coffee/yaw135_initial_20261030/evidence.tar.gz",
+  "pour_candidate": {
+    "cup_bottom_world_m": [
+      0.88,
+      -0.3,
+      0.84
+    ],
+    "handle_heading_outside_machine_deg": 75,
+    "max_pot_tilt_deg": 45,
+    "spout_offset_along_handle_m": 0.025,
+    "spout_above_rim_target_m": 0.022,
+    "nominal_angular_speed_rad_s": 0.04,
+    "maximum_angular_speed_deg_s": 5,
+    "cup_support_probe_max_lowering_m": 0.001,
+    "cup_support_probe_step_m": 0.0001,
+    "cup_support_probe_speed_m_s": 0.0005
+  },
+  "remaining_requirements": [
+    "filled-pot/cup mass and inertia validation",
+    "volume/flow observation for actual 80% fill",
+    "randomized and uncertainty validation",
+    "home-to-pregrasp motion",
+    "replace oracle object feedback with perception",
+    "hardware joint mapping, TCP and deployment qualification"
+  ],
+  "payload_development_candidate": "configs/realman/coffee_two_cups_candidate.json",
+  "historical_payload_development_candidate": "configs/realman/coffee_payload_candidate.json"
+}

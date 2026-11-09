@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "simulation_only": true,
+  "physical_motion_allowed": false,
+  "qualification": "diagnostic_segments_only_not_full_coffee_policy",
+  "parent_candidate": "configs/realman/coffee_payload_candidate.json",
+  "contact_solver_candidate": {
+    "multiccd": true,
+    "timestep_s": 0.001
+  },
+  "independent_diagnostic_timestep_s": 0.000125,
+  "default_scene_changed": false,
+  "restore_segment": {
+    "from_tilt_deg": 30,
+    "to_tilt_deg": 0,
+    "multiccd_max_angular_speed_deg_s": 2.7134213428122775,
+    "fine_step_max_angular_speed_deg_s": 2.8470844473996038,
+    "original_grasp_anchor_preserved": true,
+    "mass_transfer_performed_in_this_segment": false
+  },
+  "pad_concept": {
+    "arm": "left",
+    "pad_x_thickness_m": 0.002,
+    "pad_y_span_m": 0.036,
+    "pad_z_span_m": 0.06,
+    "pad_axis_frame": "URDF Pad_Link; Z approximately vertical only in this grasp",
+    "mass_per_pad_kg": 0.006666666666666666,
+    "closing_grasp_roll_rad": -0.039195601927054714,
+    "effort_limit_nm": 2.5,
+    "pad_load_diagnostic_stop_n": 25,
+    "prelift_passed": true,
+    "withdrawal_passed": false,
+    "material_and_attachment_strength_verified": false,
+    "status": "historical experiment; operator forbids pad specification changes as of 2026-10-31"
+  },
+  "full_sequence_passed": false,
+  "coffee_task_success": null,
+  "document": "docs/realman/contact-refinement-20261030.md",
+  "evidence_manifest": "assets/realman/coffee/contact_refinement_20261030/manifest.json",
+  "superseded_for_future_work_by": "configs/realman/coffee_workload.json"
+}

@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "arm": "right",
+  "parent_frame": "right_controller_Arm_Tip",
+  "child_frame": "right_arm_depth_cam_color_optical_frame",
+  "equation": "base_T_tool @ tool_T_camera @ camera_T_board = base_T_board",
+  "pose_convention": "controller micrometres / milliradians; fixed XYZ RPY = Rz(yaw) Ry(pitch) Rx(roll)",
+  "T_tool_camera": [
+    [
+      -0.028247079142376896,
+      0.9995672066574582,
+      0.00821595368357001,
+      -0.08404437658525872
+    ],
+    [
+      -0.9995867665897352,
+      -0.028201905561526686,
+      -0.005563144917871113,
+      0.023909379479007457
+    ],
+    [
+      -0.005329031675905144,
+      -0.008369701171786386,
+      0.9999507735502245,
+      0.010928959360561295
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "camera_info": {
+    "width": 1280,
+    "height": 720,
+    "k": [
+      608.4740600585938,
+      0.0,
+      645.5419311523438,
+      0.0,
+      608.4697265625,
+      363.701416015625,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "d": [
+      -0.028323374688625336,
+      0.03649112582206726,
+      -0.0007131195161491632,
+      0.0006742801633663476,
+      -0.014111928641796112,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "distortion_model": "plumb_bob",
+    "frame_id": "right_arm_depth_cam_color_optical_frame"
+  },
+  "corner_processing": "bounded_single_image_PnP_rejection_v1",
+  "pixel_metrics_scope": "retained_measured_corners; board center uses full board geometry",
+  "calibrated_date": "2026-10-27",
+  "status": "validated_local_geometry",
+  "translation_units": "metre",
+  "camera_serial_verified": false,
+  "training_samples": 12,
+  "held_out_samples": 4,
+  "validation": {
+    "translation_mm_rms": 0.4611114258250831,
+    "translation_mm_max": 0.7503481954391322,
+    "rotation_deg_rms": 0.044207534707279214,
+    "rotation_deg_max": 0.0629497375587556,
+    "board_center_mm_rms": 0.4081610426010719,
+    "board_center_mm_max": 0.5793740341878498,
+    "reprojection_rms_px_rms": 0.38293719457291,
+    "reprojection_rms_px_max": 0.542259792851217
+  },
+  "orientation_span_deg": 12.009045132391709,
+  "accepted_comparison_methods": [
+    "PARK",
+    "HORAUD",
+    "DANIILIDIS"
+  ],
+  "maximum_leave_one_out_translation_change_mm": 2.3652610516701023,
+  "maximum_leave_one_out_rotation_change_deg": 0.15269468418861157,
+  "controller_joint_ranges_deg": [
+    [
+      -45.74,
+      -45.734
+    ],
+    [
+      63.65,
+      63.654
+    ],
+    [
+      -93.5,
+      -93.495
+    ],
+    [
+      -64.583,
+      -64.577
+    ],
+    [
+      5.333,
+      5.337
+    ],
+    [
+      -62.668,
+      -54.666
+    ],
+    [
+      -7.934,
+      4.062
+    ]
+  ],
+  "fixed_board_check": "artifacts/realman/right_handeye_sampling_20261027/fixed_board_final.json",
+  "report": "artifacts/realman/right_handeye_sampling_20261027/solution.json",
+  "data_sha256": "artifacts/realman/right_handeye_sampling_20261027/data_sha256.json",
+  "deployment_scope": "repository geometry configuration only; controller TCP/work frame and native motion gates unchanged",
+  "invalidation": [
+    "camera/bracket moved or replaced",
+    "camera mode or intrinsics changed",
+    "Arm_Tip or World offsets changed",
+    "arm kinematics or controller calibration changed"
+  ],
+  "assumptions": [
+    "operator-specified 60 mm grid and board planarity",
+    "fixed board between head-camera start/mid/end checkpoints",
+    "factory RGB CameraInfo intrinsics",
+    "stationary software pose/image bracket, not hardware synchronization"
+  ],
+  "not_qualified_for": [
+    "absolute submillimetre positioning",
+    "depth scale or RGB-depth registration",
+    "unvalidated distant workspace or loaded-arm accuracy",
+    "head/chest camera extrinsics",
+    "gripper TCP, controller-to-URDF map, or mobile-base/world alignment"
+  ],
+  "acquisition_recovery": {
+    "rejected_samples": [
+      "handeye_right_99f5985a1775499a84baf9f9f765b259",
+      "handeye_right_d8d8e0c36f8141acaaba30e8fa273489"
+    ],
+    "original_target": [
+      3,
+      -1
+    ],
+    "replacement_target": [
+      2.5,
+      -1
+    ],
+    "reason": "Full-board detection failed twice; no fit/holdout residual inspected."
+  }
+}

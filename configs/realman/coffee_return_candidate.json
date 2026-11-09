@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "qualification": "single_simulated_continuous_return_and_release_from_synthetic_held_state",
+  "physical_motion_allowed": false,
+  "stance_reference": "configs/realman/coffee_stance_reference.json",
+  "model": "artifacts/realman/shoulder60_20261030/observed_stance.xml",
+  "model_sha256": "a5f5117c825d511f80ee33791d68938b6f31724aaf0a9960e98a1d38c61be9a7",
+  "shoulder_to_machine_front_m": 0.6,
+  "entry_geometry": {
+    "generator": "cap_harness.realman.return_geometry.clearance_entry_centres",
+    "outward_handle_heading_deg": 135,
+    "staging_distance_m": 0.06,
+    "remaining_distances_m": [
+      0.04,
+      0.03,
+      0.02,
+      0.01,
+      0.0
+    ],
+    "detour_span_m": 0.04,
+    "lateral_offset_m": 0.0028284271247461905,
+    "lateral_direction": "(-sin(heading), cos(heading)) in the world XY plane",
+    "insertion_height_above_source_seat_m": 0.0014278439257198,
+    "lower_to_source_seat_in_last_m": 0.01,
+    "additional_support_probe_lowering_m": 0.0001,
+    "sampled_minimum_bay_clearance_m": 0.0016203188136873188
+  },
+  "simulation_controller": {
+    "position_feedback_source": "simulation object pose, not hardware perception",
+    "position_feedback_cap_m": 0.02,
+    "angular_feedback_cap_deg": 5,
+    "nominal_speed_m_s": 0.008,
+    "support_probe_speed_m_s": 0.0005,
+    "waypoint_settle_s": 5,
+    "torso_clearance_ik_from_stage": "insert_curve_00",
+    "torso_ik_soft_margin_m": 0.004,
+    "torso_ik_margin_is_not_a_hard_guarantee": true,
+    "release_open_fraction": 0.3,
+    "release_requires": [
+      "pot_on_hotplate",
+      "lid_outlet_aligned",
+      "pot_upright"
+    ],
+    "release_verified_by": [
+      "pot_stable_after_release",
+      "left_gripper_released",
+      "lid_outlet_aligned",
+      "pot_upright"
+    ],
+    "original_pinch_monitor_anchor_preserved_until_release": true,
+    "preserves": [
+      "cup_in_right_gripper",
+      "single_cup_separated",
+      "remaining_cups_retained"
+    ]
+  },
+  "remaining_requirements": [
+    "restore original handle orientation",
+    "cold-start extraction and full coffee sequence",
+    "randomized validation",
+    "hardware mapping, perception and execution qualification"
+  ],
+  "evidence_document": "docs/realman/entry-refinement-20261030.md",
+  "evidence_archive": "assets/realman/coffee/entry_refinement_20261030/evidence.tar.gz",
+  "validation": {
+    "continuous_return_elapsed_s": 98.26000000010512,
+    "intermediate_checkpoint_restore": false,
+    "release_stability_observation_s": 2.0,
+    "original_handle_orientation_restored": false,
+    "cold_start_extraction_validated": false
+  }
+}

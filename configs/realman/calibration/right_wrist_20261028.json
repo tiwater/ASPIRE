@@ -1,0 +1,144 @@
+{
+  "status": "validated_local_board_geometry",
+  "training_samples": 8,
+  "held_out_samples": 4,
+  "validation_report": "artifacts/realman/active_handeye_20261028/powered/heldout_validation.json",
+  "validation_sha256": "dc2b61225dee7c7017b83e30eae55cedd424c8b4f6f9a4997cd41fb80a60622a",
+  "frozen_candidate": "artifacts/realman/active_handeye_20261028/powered/frozen_candidate.json",
+  "frozen_candidate_sha256": "2ad0ee000a8ed96dc19dabc0d3e19853938f28763d5bed1953d6211280323aa3",
+  "validation_metrics": {
+    "closure_rms_mm": 0.5957224735828665,
+    "closure_max_mm": 1.0522404226718896,
+    "max_wrist_pixel_rms": 0.32329371337006957
+  },
+  "controller_joint_ranges_deg": [
+    [
+      -13.588,
+      -13.584
+    ],
+    [
+      8.046,
+      8.048
+    ],
+    [
+      -82.229,
+      -82.225
+    ],
+    [
+      -73.512,
+      -73.51
+    ],
+    [
+      -20.342,
+      -20.339
+    ],
+    [
+      -22.133,
+      -10.136
+    ],
+    [
+      38.177,
+      78.081
+    ]
+  ],
+  "orientation_span_deg": 41.57380760091341,
+  "fixed_context_millidegrees": {
+    "body": [
+      85178,
+      -68967,
+      -12669,
+      -30,
+      14
+    ],
+    "head": [
+      283,
+      21981
+    ]
+  },
+  "maximum_context_deviation_deg": 0.05,
+  "translation_units": "metre",
+  "deployment_scope": "repository geometry only; no controller TCP/work frame writes or motion-gate changes",
+  "general_workspace_qualified": false,
+  "tcp_qualified": false,
+  "assumptions": [
+    "60mm board grid; unmeasured board flatness",
+    "factory RGB CameraInfo; unchanged camera mounts",
+    "stationary software image/pose brackets; no hardware synchronization",
+    "joint X/E fit retained all eight views; independent four-view evaluation without refit"
+  ],
+  "invalidation": [
+    "camera or bracket moves",
+    "camera intrinsics/mode changes",
+    "controller tool/work offsets or kinematic calibration changes",
+    "head/body change invalidates right-base/head transform"
+  ],
+  "not_qualified_for": [
+    "absolute submillimetre positioning",
+    "gripper/probe TCP or grasp frame",
+    "unvalidated distant workspace or loaded-arm accuracy",
+    "depth scale/RGB-depth registration",
+    "general controller-to-URDF mapping or autonomous contact"
+  ],
+  "schema_version": 1,
+  "arm": "right",
+  "parent_frame": "right_controller_Arm_Tip",
+  "child_frame": "right_arm_depth_cam_color_optical_frame",
+  "pose_convention": "controller micrometres / milliradians; fixed XYZ RPY = Rz(yaw) Ry(pitch) Rx(roll)",
+  "equation": "G @ X @ O = E @ C",
+  "T_tool_camera": [
+    [
+      -0.03104330207172379,
+      0.999516144309024,
+      -0.0019469622763751812,
+      -0.08519798030162277
+    ],
+    [
+      -0.9995062120278798,
+      -0.031052352363053703,
+      -0.004804532276869673,
+      0.02531277091255965
+    ],
+    [
+      -0.004862665335228608,
+      0.001796852343036723,
+      0.9999865628134684,
+      0.01308778419801736
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "camera_info": {
+    "width": 1280,
+    "height": 720,
+    "k": [
+      608.4740600585938,
+      0.0,
+      645.5419311523438,
+      0.0,
+      608.4697265625,
+      363.701416015625,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "d": [
+      -0.028323374688625336,
+      0.03649112582206726,
+      -0.0007131195161491632,
+      0.0006742801633663476,
+      -0.014111928641796112,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "distortion_model": "plumb_bob",
+    "frame_id": "right_arm_depth_cam_color_optical_frame"
+  },
+  "calibrated_date": "2026-10-28",
+  "maximum_leave_one_out_translation_change_mm": 3.6959422443818024,
+  "maximum_leave_one_out_rotation_change_deg": 0.15449703629748196
+}

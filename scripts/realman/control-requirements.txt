@@ -1,0 +1,7 @@
+# Python 3.10 / aarch64 robot environment; do not change system ROS packages.
+mcp==1.26.0
+jsonschema==4.25.1
+rpds-py==0.27.1
+# Supplied through --system-site-packages on the robot when already compatible.
+numpy>=1.26,<3
+pillow>=10

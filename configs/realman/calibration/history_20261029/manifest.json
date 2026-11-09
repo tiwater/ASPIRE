@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "hardware_continuity_confirmed_scoped_calibration_reuse_established",
+  "enabled_for_robot_motion": false,
+  "assessment": "artifacts/realman/history_reuse_review_20261029/reuse_assessment.json",
+  "assessment_sha256": "328def2c50ee1cea1fb92ea1a196cd6d09cf6cee003e0cf57c84a074298034da",
+  "source_archive": "artifacts/realman/history_reuse_review_20261029/historical_runtime_text.tar.gz",
+  "source_archive_sha256": "e7203f392b2f34cf4aeec11dac953ecd98e131c8c8afc71eeee58b6bd5146867",
+  "profiles": {
+    "left_handeye_active_20261010.json": {
+      "source": "artifacts/realman/history_reuse_review_20261029/remote_snapshot/config/left_handeye_active.json",
+      "source_sha256": "818dc16f8ed55a0fabede3a05127c386a99762ed85741aedd5b9903b96ca883a",
+      "artifact_sha256": "818dc16f8ed55a0fabede3a05127c386a99762ed85741aedd5b9903b96ca883a"
+    },
+    "right_handeye_pitch_trial_20261008.json": {
+      "source": "artifacts/realman/history_reuse_review_20261029/remote_snapshot/right_factory_pitch_minus1_trial_20261008.json",
+      "source_sha256": "a350e4e5f3d09c092c0028737a0e844ba24c2b965e442a0976291bddfa4bce51",
+      "artifact_sha256": "a350e4e5f3d09c092c0028737a0e844ba24c2b965e442a0976291bddfa4bce51"
+    },
+    "right_handeye_frozen_20260921.json": {
+      "source": "artifacts/realman/history_reuse_review_20261029/remote_snapshot/data/calibration/right_r2_frozen_validation_20260921_run01/frozen_validation_result.json",
+      "source_sha256": "ebd794038a32958b58fb94131ae719f7823d467e7f20f8103430b6dfe3e8aecf",
+      "artifact_sha256": "76a33d7f605fa7dab71fe45a00253c7622779c1c7956d47544044ac978a9d4dd"
+    },
+    "left200_image_reference.json": {
+      "source": "ref/astra_policy_history/RealBot01_left200_reference_handover_20261022/output/left200_taskspace_20261012/image_reference_candidate.json",
+      "source_sha256": "ef4766b5cad840a85527309f7cc292c96dc093a4b123d5253d51e6bed9332ffc",
+      "artifact_sha256": "ef4766b5cad840a85527309f7cc292c96dc093a4b123d5253d51e6bed9332ffc"
+    }
+  },
+  "coffee_task_geometry_sha256": "339bd5912ebc9b697664e867f7e688815e6e8cabcf01bd7c5205b68ecfbf9cbf",
+  "reuse_selection_sha256": "ce225bbb5ae0da4b093e507109e5be2176e2d5b49cda50688ce6b0ab6a870a05"
+}

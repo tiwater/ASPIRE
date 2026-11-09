@@ -1,0 +1,15 @@
+{
+  "arm": "right",
+  "trial_id": "right_factory_pitch_minus1_20261008",
+  "trial_authorized": true,
+  "production_replacement": false,
+  "transform_convention": "p_ArmTip = R * p_RGB + t; metres; scipy xyz RPY",
+  "source": "User authorized manufacturer pitch minus one degree; not pitch sign reversal",
+  "pitch_deg": -0.6883543566810395,
+  "ArmTip_T_RGB": [
+    [-0.0005547473842418271, 0.9999155140893778, 0.012986798632238639, -0.083735759],
+    [-0.9999276782865667, -0.0007106809117838897, 0.012005545763409666, 0.022701359],
+    [0.01201376093383645, -0.0129791993596009, 0.9998435927344875, -0.016325428],
+    [0, 0, 0, 1]
+  ]
+}
