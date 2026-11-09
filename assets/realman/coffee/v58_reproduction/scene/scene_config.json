@@ -1,0 +1,701 @@
+{
+  "schema_version": 1,
+  "qualification": "fixed_back_stance_static_pour_candidate_not_dynamic_qualified",
+  "gripper_contact_proxy": {
+    "thickness_m": 0.002,
+    "length_m": 0.036,
+    "width_m": 0.018,
+    "mass_kg": 0.002,
+    "friction": 0.8,
+    "source": "URDF Pad_Link frames; rectangular pad dimensions and material are simulation engineering priors, not measured hardware",
+    "hardware_tcp_qualified": false,
+    "contact_time_constant_s": 0.005,
+    "contact_impedance": 0.999,
+    "contact_solmix": 1000
+  },
+  "frame": "world: x toward table from robot, y robot-left, z up; table frame origin at tabletop center",
+  "table": {
+    "size_m": [
+      0.6,
+      1.2,
+      0.035
+    ],
+    "top_height_m": 0.75,
+    "center_xy_m": [
+      1.1110533060313998,
+      0.0
+    ]
+  },
+  "robot": {
+    "base_xy_m": [
+      0.0,
+      0.0
+    ],
+    "yaw_rad": 0.0,
+    "frozen_joints_rad": {
+      "xt_joint_1": -1.5662466849168712,
+      "xt_joint_2": 0.6172907708593243,
+      "dt_joint": 1.0188534041442099,
+      "yb_joint": 0.0,
+      "xb_joint": 0.00010471975511965978
+    },
+    "max_upper_body_tilt_deg": 10
+  },
+  "machine": {
+    "center_table_xy_m": [
+      0.04,
+      0.16
+    ],
+    "size_m": [
+      0.4,
+      0.315,
+      0.43
+    ],
+    "platform_height_m": 0.045,
+    "pot_bay_y_m": 0.072,
+    "pot_bay_x_m": -0.075,
+    "head_bottom_m": 0.2,
+    "control_slope_run_m": 0.09,
+    "control_slope_drop_m": 0.045,
+    "control_panel_margin_m": 0.008,
+    "pot_bay_clearance_m": 0.005,
+    "pot_bay_wrap_deg": 140.0,
+    "pot_bay_edge_chamfer_m": 0.006,
+    "hotplate_radius_m": 0.069,
+    "hotplate_recess": {
+      "depth_m": 0.002,
+      "ramp_width_m": 0.008,
+      "profile": "half_cosine",
+      "segments": 64,
+      "radial_bands": 8,
+      "depth_source": "operator reports heating disk 2 mm below platform",
+      "ramp_source": "operator confirms sloped rounded edge; width and curvature are unmeasured engineering priors",
+      "disk_at_least_pot_floor": true
+    }
+  },
+  "pot": {
+    "radius_m": 0.068,
+    "height_m": 0.14,
+    "wall_m": 0.003,
+    "mass_kg": 0.396,
+    "handle_outer_width_m": 0.05,
+    "handle_outer_height_m": 0.102,
+    "handle_thickness_m": 0.014,
+    "handle_depth_m": 0.03,
+    "handle_outer_to_center_m": 0.125,
+    "lid_hole_radius_m": 0.007,
+    "yaw_rad": 2.2689280275926285,
+    "handle_inner_thickness_m": 0.006,
+    "handle_rail_thickness_m": 0.014,
+    "handle_bottom_m": 0.03,
+    "handle_outer_radius_m": 0.018,
+    "handle_root_radius_m": 0.006,
+    "handle_aperture_radius_m": 0.004,
+    "handle_edge_bevel_m": 0.002,
+    "handle_bottom_inset_m": 0.004,
+    "handle_band_height_m": 0.009,
+    "body_profile_z_radius_m": [
+      [
+        0,
+        0.068
+      ],
+      [
+        0.03,
+        0.0667636363636
+      ],
+      [
+        0.07,
+        0.068
+      ],
+      [
+        0.1,
+        0.068
+      ],
+      [
+        0.11,
+        0.0665
+      ],
+      [
+        0.118,
+        0.06
+      ],
+      [
+        0.124,
+        0.055
+      ],
+      [
+        0.128,
+        0.055
+      ],
+      [
+        0.132,
+        0.058
+      ],
+      [
+        0.136,
+        0.06
+      ],
+      [
+        0.14,
+        0.061
+      ]
+    ],
+    "spout_tip_radius_m": 0.066,
+    "spout_flare_start_m": 0.128,
+    "spout_half_angle_rad": 0.35,
+    "lid_radius_m": 0.0605,
+    "lid_spout_cutback_radius_m": 0.047,
+    "lid_boss_profile_radius_rise_m": [
+      [
+        0.007,
+        0.012
+      ],
+      [
+        0.011,
+        0.012
+      ],
+      [
+        0.018,
+        0.007
+      ],
+      [
+        0.025,
+        0
+      ]
+    ],
+    "support_contact_condim": 4
+  },
+  "cup": {
+    "height_m": 0.08,
+    "bottom_radius_m": 0.025,
+    "rim_radius_m": 0.035,
+    "wall_m": 0.001,
+    "mass_kg": 0.006,
+    "measured_usable_capacity_ml": null,
+    "sliding_friction": 0.05,
+    "rolled_rim_radius_m": 0.0012
+  },
+  "dispenser": {
+    "center_table_xy_m": [
+      -0.015,
+      -0.2
+    ],
+    "size_m": [
+      0.14,
+      0.115,
+      0.42
+    ],
+    "ring_height_m": 0.17,
+    "ring_radius_m": 0.041,
+    "stack_count": 4,
+    "stack_pitch_m": 0.0112,
+    "finger_friction": 0.8,
+    "retention_mechanism": "elastic_rim_tabs",
+    "latch_count": 4,
+    "elastic_tabs": {
+      "length_m": 0.0055,
+      "width_m": 0.004,
+      "thickness_m": 0.0008,
+      "nose_radius_m": 0.0015,
+      "root_height_above_ring_m": 0.005,
+      "max_bend_rad": 1.1,
+      "stiffness_nm_per_rad": 0.007,
+      "damping_nms_per_rad": 0.00015,
+      "mass_kg": 0.002
+    }
+  },
+  "outlet": {
+    "travel_m": 0.008,
+    "spring_n_per_m": 200.0,
+    "tip_radius_m": 0.01,
+    "preload_n": 0.4,
+    "tip_engagement_below_lid_m": 0.0025,
+    "conical_hypothesis": {
+      "bottom_radius_m": 0.004,
+      "top_radius_m": 0.01,
+      "height_m": 0.006,
+      "segments": 64,
+      "seated_compression_m": 0.002,
+      "initial_pot_settling_gap_m": 0.001,
+      "stiffness_n_per_m": 200.0,
+      "preload_at_zero_n": 0.4,
+      "sliding_friction": 0.3,
+      "damping_n_s_m": 0.2,
+      "qualification": "operator-described mechanism; dimensions, installation, friction and forces are unmeasured engineering priors"
+    }
+  },
+  "task": {
+    "fill_fraction": 0.8,
+    "fill_basis": "geometrically_estimated_capacity",
+    "withdraw_table_direction": [
+      -0.8660254037844386,
+      0.5,
+      0.0
+    ],
+    "withdraw_distance_m": 0.18,
+    "cup_place_table_xyz_m": [
+      -0.16,
+      -0.15,
+      0.001
+    ]
+  },
+  "provenance": {
+    "table": {
+      "source": "Table photos 83/84/85",
+      "status": "photo_estimate",
+      "uncertainty_m": 0.03
+    },
+    "machine": {
+      "source": "CoffeeMachine photos 109/110/111/112 and Scene 98/100",
+      "status": "photo_estimate",
+      "uncertainty_m": 0.02
+    },
+    "pot_shape": {
+      "source": "Pot photos 101/104/105/106/108; user confirms recessed neck below lip and tip flush with or inside belly silhouette",
+      "status": "photo_reconciled_estimate_not_current_measurement",
+      "uncertainty_m": 0.005,
+      "profile_interpretation": "68 mm belly radius; shoulder narrows to 55 mm neck, flares to 61 mm rim; integral spout tip at 66 mm (2 mm inside belly); lower profile through z=30 mm retains the handle-band interface",
+      "spout_and_lid": "lip is a local flare of the hollow wall; scalloped lid leaves pouring channel open; exact section and dimensions are photo estimates"
+    },
+    "handle": {
+      "source": "Pot photos 101/105/106 (side silhouette), 104 (top), 107/108 (rear and hinge); historical handover: cavity30, outer grip14, outer-to-center125 mm",
+      "status": "photo_reconciled_estimate_not_current_measurement",
+      "dimension_interpretation": "50 mm overall loop width = 6 mm inner web + 30 mm aperture + 14 mm outer grip; historical outer44 is aperture plus outer grip, not total loop width",
+      "uncertainty_m": 0.005,
+      "photo_estimates": "102 mm tall loop, bottom30 mm, depth30 mm, 14 mm rails, outer18/root6/aperture4 mm radii, 2 mm edge bevel, 4 mm lower inset; retaining band and closed-lid hinge/lever are geometric proxies",
+      "mass_distribution": "empty pot total remains 396 g; component mass fractions are unmeasured prototype assumptions"
+    },
+    "cup": {
+      "source": "Cup photos 87/88/89; rim approximately70 mm",
+      "status": "photo_estimate",
+      "uncertainty_m": 0.003
+    },
+    "dispenser": {
+      "source": "CupShelf photos 90-97",
+      "status": "photo_estimate",
+      "uncertainty_m": 0.01
+    },
+    "poses": {
+      "source": "user spatial description and Scene photos",
+      "status": "illustrative_not_live_registration"
+    },
+    "masses_friction_stiffness_wall_thickness": {
+      "source": "prototype defaults except user-reported pot mass and approved force priors",
+      "status": "not_hardware_force_limits"
+    },
+    "spring_and_lid": {
+      "source": "Pot photos 102/104/106 raised annular lid boss; CoffeeMachine 120 rounded spring nose; user confirms horizontal diagonal release. Boss radii/rise and 10 mm nose radius / 2.5 mm engagement are engineering photo priors, not measured dimensions. Spring reference force, 8 mm travel and zero preload unchanged.",
+      "status": "photo_informed_mechanism_proxy_requires_measurement",
+      "support_contact": "rigid pot floor/hotplate use hard contact solver to avoid millimetre penetration into a 1 mm raised disk"
+    },
+    "fluid": {
+      "source": "user: omit detailed fluid simulation; favor low spout and slow tilt",
+      "status": "not_simulated_fill_feedback_still_required"
+    },
+    "pot_empty_mass": {
+      "source": "user provided 396 g",
+      "status": "user_reported_measurement"
+    },
+    "force_priors": {
+      "source": "user: half full-pot weight; two full cups of water weight",
+      "status": "approved_initial_estimates_to_be_measured_later"
+    },
+    "machine_control_panel": {
+      "source": "CoffeeMachine photos 109/112 (side slope), 110/111 (black face and border); user identifies angled top button panel",
+      "status": "photo_estimate_not_measured",
+      "slope_interpretation": "front-downward slope: 90 mm horizontal run, 45 mm drop (26.565 degrees from horizontal); head upper-front corner removed; panel and border follow the same plane",
+      "uncertainty_m": 0.01,
+      "details": "8 mm housing margin, rounded frame and face; touch icons and button operation not simulated"
+    },
+    "pot_bay_wall": {
+      "source": "user: curved rear wall about 0.5 cm from pot, partially wraps rear of pot, chamfered edges; CoffeeMachine 113/114 photos; user correction: right tray rear wall is flush with chamfer ends",
+      "clearance_status": "user_reported_approximate_5_mm_at_belly",
+      "shape_status": "photo_estimate_not_measured",
+      "geometry": "inner cylindrical radius = pot belly radius + 5 mm; 140 degree rear wrap including outward 6 mm edge chamfers; right tray rear wall coplanar with chamfer endpoints, with no recessed transition",
+      "estimated_dimensions": "140 degree wrap and 6 mm chamfers are adjustable photo-based assumptions; shoulder/neck clearances are larger than the belly clearance",
+      "tray_wall_alignment_status": "user_confirmed_flush_relation; tray rear edge and slot decoration trimmed to meet the same wall plane"
+    },
+    "cup_friction": {
+      "source": "operator proposal 2026-10-29: cup/cup lower than cup/rack",
+      "status": "engineering_prior_not_measured",
+      "cup_cup": 0.05,
+      "cup_rack": 0.8,
+      "cup_gripper": 0.8,
+      "selection": "0.05 is an unmeasured low-friction development assumption; 0.2 self-locks nested rigid tapered cups in the force bench. Must measure or randomize before transfer."
+    },
+    "rack_contact_shape": {
+      "source": "operator confirms four plastic tabs that elastically bend under pull and catch each cup rim",
+      "status": "mechanism_confirmed_dimensions_and_stiffness_engineering_priors",
+      "model": "four independent passive torsional-flexure equivalents; not literal metal hinges or FEM plastic sheets",
+      "nominal_stiffness_basis": "0.007 N m/rad per tab is an unmeasured equivalent-flexure prior; assess complete pull force in the bench against the approved two-full-cup water-weight reference, not stiffness alone. Damping 0.00015 N m s/rad includes coupled cup load, not just bare tab inertia."
+    },
+    "hotplate": {
+      "source": "2026-10-29 native four-camera RGB-D pot-removed captures; dark opaque disk contour projected onto table-parallel plane 45 mm above tabletop",
+      "status": "multi_view_rgbd_geometric_estimate_not_metrology_certified",
+      "diameter_m": 0.12,
+      "estimated_uncertainty_m": 0.005,
+      "uncertainty_applies_to": "diameter; engineering bound, not statistical confidence interval",
+      "previous_diameter_m": 0.148,
+      "scope": "black heating disk, not the entire white pot support platform",
+      "evidence": "docs/realman/geometry-audit-20261029.md",
+      "limitations": "assumes table-parallel disk at 45 mm; repeat frames share calibration; camera scale and contour selection remain uncertain"
+    },
+    "machine_width": {
+      "source": "operator ruler measurement supplied 2026-10-29: maximum left-to-right outer housing width 31.5 cm",
+      "status": "user_reported_measurement",
+      "measurement_m": 0.315,
+      "previous_photo_estimate_m": 0.32,
+      "uncertainty_m": null,
+      "scope": "machine.size_m[1], maximum outer width along table Y; depth and height remain photo estimates",
+      "model_application": "preserve machine center and pot-bay offsets; move each outer side inward 2.5 mm",
+      "camera_comparison": "annotated front reference widths: head 297.5 mm, chest 300.7 mm, left wrist 312.3 mm; not identical landmarks to maximum housing width, so no camera scale correction inferred"
+    },
+    "cup_rolled_rim": {
+      "source": "operator confirms lip engagement; 70 mm overall rim diameter preserved",
+      "status": "cross_section_engineering_prior",
+      "minor_radius_m": 0.0012,
+      "stack_pitch_basis": "11.2 mm clears both the rigid 1 mm wall and rolled lip when nested; derived geometry, not measured nesting pitch"
+    },
+    "gripper_servos": {
+      "source": "operator requests 3x grip trial; relative to pot_07 kp12/effort1 saturated baseline (~9 N per pad)",
+      "status": "simulation_candidate_not_measured_CTAG_mapping",
+      "changes": "left kp12 -> 36, effort1 -> 3 Nm; damping0.2 unchanged; right kp4/effort1 unchanged",
+      "measurement": "compare actual bilateral handle pad forces before withdrawal, not torque limit alone"
+    },
+    "pot_withdrawal": {
+      "source": "operator 2026-10-29: curved rear bay wraps pot; pure lateral motion interferes; pure backward motion risks handle slip",
+      "path": "horizontal robot-left/back diagonal throughout extraction, reverse for return",
+      "nominal_angle_deg": 30,
+      "status": "operator_direction_confirmed_angle_and_distance_engineering_priors",
+      "angle_basis": "30 degrees from backward toward robot left; 45 degree candidate contacted 140 degree bay wrap near 15 mm withdrawal"
+    },
+    "spring_sensitivity": {
+      "simulation_only": true,
+      "scale": 0.5,
+      "status": "unmeasured_sensitivity_candidate_not_default",
+      "method": "scale spring reference-force fraction; zero preload, travel, damping, geometry, friction and gripper servo unchanged; cold-start each model"
+    }
+  },
+  "force_priors": {
+    "water_density_kg_m3": 1000.0,
+    "gravity_m_s2": 9.80665,
+    "spring_full_pot_weight_fraction": 0.25,
+    "spring_reference_compression_m": 0.008,
+    "dispenser_full_cups_of_water": 2.0,
+    "full_pot_includes_empty_pot": true,
+    "purpose": "simulation_priors_not_hardware_force_limits"
+  },
+  "pour_geometry": {
+    "rim_clearance_m": 0.005,
+    "min_tip_above_rim_m": 0.01,
+    "max_tip_above_rim_m": 0.025,
+    "max_tilt_rate_deg_s": 5.0,
+    "spout_insertion_enabled": false,
+    "status": "initial_geometric_trial_envelope_not_spill_guarantee"
+  },
+  "contact_solver": {
+    "friction_impedance_ratio": 100,
+    "basis": "numerical regularization of static friction, not a physical coefficient",
+    "timestep_s": 0.001,
+    "multiccd": true,
+    "ccd_tolerance": 1e-08
+  },
+  "gripper_servos": {
+    "left": {
+      "kp_nm_per_rad": 36.0,
+      "kv_nms_per_rad": 0.2,
+      "effort_limit_nm": 2.5
+    },
+    "right": {
+      "kp_nm_per_rad": 4.0,
+      "kv_nms_per_rad": 0.2,
+      "effort_limit_nm": 1.0
+    }
+  },
+  "simulation_diagnostics": {
+    "pad_load": {
+      "warning_n": 25.0,
+      "sustained_n": 30.0,
+      "peak_n": 35.0,
+      "sustained_s": 0.1,
+      "clear_n": 29.0,
+      "minimum_pad_n": 0.02,
+      "maximum_sample_gap_s": 0.002,
+      "asymmetric_s": 0.01
+    },
+    "rack_support": {
+      "maximum_gap_s": 0.04,
+      "maximum_excursion_m": 0.0005
+    }
+  },
+  "platform_geometry": {
+    "disk_below_platform_m": 0.002,
+    "disk_top_z_m": 0.043,
+    "platform_top_z_m": 0.045,
+    "nominal_pot_seat_z_m": 0.043,
+    "ramp_width_m": 0.008,
+    "ramp_profile": "piecewise_convex_half_cosine",
+    "ramp_width_and_curvature_measured": false,
+    "pot_floor_radius_unchanged_m": 0.068,
+    "segments": 64,
+    "radial_bands": 8,
+    "disk_collision": "convex_polygonal_prism",
+    "disk_radial_polygon_error_m": 8.311352184310406e-05
+  },
+  "outlet_spring_trial": {
+    "simulation_only": true,
+    "hardware_measured": false,
+    "shape": "solid_convex_frustum_contact_envelope",
+    "cam_rise_m": 0.003,
+    "body_initial_bottom_z_in_parent_m": 0.19300000000000006,
+    "initial_reference_q_m": 0.003,
+    "expected_seated_q_m": 0.002,
+    "spring_force_seated_n": 0.8,
+    "spring_force_at_cam_crest_n": 1.4,
+    "outlet_weight_n": 0.1962,
+    "interface_friction": 0.3,
+    "parameters": {
+      "bottom_radius_m": 0.004,
+      "top_radius_m": 0.01,
+      "height_m": 0.006,
+      "segments": 64,
+      "seated_compression_m": 0.002,
+      "initial_pot_settling_gap_m": 0.001,
+      "stiffness_n_per_m": 200.0,
+      "preload_at_zero_n": 0.4,
+      "sliding_friction": 0.3,
+      "damping_n_s_m": 0.2,
+      "qualification": "operator-described mechanism; dimensions, installation, friction and forces are unmeasured engineering priors"
+    }
+  },
+  "payload": {
+    "simulation_only": true,
+    "fluid_simulated": false,
+    "mode": "rigid_upright_fill_attached_to_vessel",
+    "pot_initial_ml": 398.8991172574055,
+    "cup_initial_ml": 0,
+    "cup_capacity_ml": 199.44955862870276,
+    "cup_equivalents": 2.0,
+    "fraction_per_equivalent": 1.0,
+    "stock_pads_verified_unchanged": true,
+    "outlet_spring_trial": {
+      "simulation_only": true,
+      "hardware_measured": false,
+      "shape": "solid_convex_frustum_contact_envelope",
+      "cam_rise_m": 0.003,
+      "body_initial_bottom_z_in_parent_m": 0.19300000000000006,
+      "initial_reference_q_m": 0.003,
+      "expected_seated_q_m": 0.002,
+      "spring_force_seated_n": 0.8,
+      "spring_force_at_cam_crest_n": 1.4,
+      "outlet_weight_n": 0.1962,
+      "interface_friction": 0.3,
+      "parameters": {
+        "bottom_radius_m": 0.004,
+        "top_radius_m": 0.01,
+        "height_m": 0.006,
+        "segments": 64,
+        "seated_compression_m": 0.002,
+        "initial_pot_settling_gap_m": 0.001,
+        "stiffness_n_per_m": 200.0,
+        "preload_at_zero_n": 0.4,
+        "sliding_friction": 0.3,
+        "damping_n_s_m": 0.2,
+        "qualification": "operator-described mechanism; dimensions, installation, friction and forces are unmeasured engineering priors"
+      }
+    },
+    "source_model_sha256": "228153c3c9f672edc0773614e664b3abe030abb97a0e448c9275aaa503b898ab",
+    "model_sha256": "08cc9297b8e31f402c9c46f0c4530f07d31f7f11ec0a64fe2df56f359a8ea12a",
+    "dry": {
+      "pot": {
+        "mass_kg": 0.3960000000000054,
+        "center_m": [
+          0.019045658947221808,
+          -2.5661486196274938e-11,
+          0.06966266063405215
+        ],
+        "inertia_kg_m2": [
+          [
+            0.0015568279231128648,
+            0.0,
+            -0.00011080075948477119
+          ],
+          [
+            0.0,
+            0.002121077773666907,
+            0.0
+          ],
+          [
+            -0.00011080075948477121,
+            0.0,
+            0.0016207427696539763
+          ]
+        ]
+      },
+      "cup_0": {
+        "mass_kg": 0.006000000000000014,
+        "center_m": [
+          3.6175365455652327e-19,
+          -3.341809674714224e-19,
+          0.036959664548867795
+        ],
+        "inertia_kg_m2": [
+          [
+            7.189675622352364e-06,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            7.189675590848729e-06,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            4.609061639823523e-06
+          ]
+        ]
+      }
+    },
+    "pot_liquid": {
+      "mass_kg": 0.3988991172574055,
+      "center_m": [
+        0.0,
+        0.0,
+        0.01828061057808179
+      ],
+      "inertia_kg_m2": [
+        [
+          0.00044329872869641713,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.00044329872869641713,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0008236939505326536
+        ]
+      ]
+    },
+    "pot_combined": {
+      "mass_kg": 0.7948991172574109,
+      "center_m": [
+        0.009488098274812399,
+        -1.2783947438243646e-11,
+        0.04387793655369425
+      ],
+      "inertia_kg_m2": [
+        [
+          0.0025247759572263172,
+          9.712343966097865e-14,
+          -0.0003052712355943285
+        ],
+        [
+          9.712343966097865e-14,
+          0.00316110970399026,
+          2.62023039060897e-13
+        ],
+        [
+          -0.0003052712355943286,
+          2.62023039060897e-13,
+          0.0025165206163965306
+        ]
+      ]
+    },
+    "workload": {
+      "schema_version": 1,
+      "simulation_only": true,
+      "physical_motion_allowed": false,
+      "initial_pot_load": {
+        "cup_equivalents": 2.0,
+        "fraction_of_cup_capacity_per_equivalent": 1.0,
+        "density_kg_m3": 1000.0,
+        "interpretation": "two full geometric cup capacities; each served cup still targets 80 percent"
+      },
+      "served_cup_fill_fraction": 0.8,
+      "gripper_pad_modification_allowed": false,
+      "gripper_geometry_reference": "original imported pads: 2 x 36 x 18 mm, 2 g each; modeled proxies, not new hardware",
+      "left_gripper_effort_limit_nm": 2.5,
+      "force_command_hardware_mapping_verified": false,
+      "pad_normal_diagnostic_stop_n": 25.0,
+      "contact_solver": {
+        "timestep_s": 0.001,
+        "multiccd": true,
+        "ccd_tolerance": 1e-08
+      },
+      "source_review": "artifacts/realman/yaw135_initial_20261030/support_torsion/review",
+      "outlet_conical_hypothesis": {
+        "bottom_radius_m": 0.004,
+        "top_radius_m": 0.01,
+        "height_m": 0.006,
+        "segments": 64,
+        "seated_compression_m": 0.002,
+        "initial_pot_settling_gap_m": 0.001,
+        "stiffness_n_per_m": 200.0,
+        "preload_at_zero_n": 0.4,
+        "sliding_friction": 0.3,
+        "damping_n_s_m": 0.2,
+        "qualification": "operator-described mechanism; dimensions, installation, friction and forces are unmeasured engineering priors"
+      },
+      "simulation_diagnostics": {
+        "pad_load": {
+          "warning_n": 25.0,
+          "sustained_n": 30.0,
+          "peak_n": 35.0,
+          "sustained_s": 0.1,
+          "clear_n": 29.0,
+          "minimum_pad_n": 0.02,
+          "maximum_sample_gap_s": 0.002,
+          "asymmetric_s": 0.01
+        },
+        "rack_support": {
+          "maximum_gap_s": 0.04,
+          "maximum_excursion_m": 0.0005
+        }
+      },
+      "hotplate_recess": {
+        "depth_m": 0.002,
+        "ramp_width_m": 0.008,
+        "profile": "half_cosine",
+        "segments": 64,
+        "radial_bands": 8,
+        "depth_source": "operator reports heating disk 2 mm below platform",
+        "ramp_source": "operator confirms sloped rounded edge; width and curvature are unmeasured engineering priors",
+        "disk_at_least_pot_floor": true
+      },
+      "hotplate_radius_m": 0.069
+    }
+  },
+  "pot_floor_collision": {
+    "shape": "convex_polygonal_prism",
+    "segments": 128,
+    "nominal_radius_m": 0.068,
+    "half_height_m": 0.0015,
+    "maximum_radial_error_m": 2.0480328658111004e-05,
+    "explicit_body_inertia_preserved": true
+  },
+  "stance_candidate": {
+    "xt_joint_1_rad": -1.5662466849168712,
+    "xt_joint_2_rad": 0.6172907708593243,
+    "initial_grasp_roll_deg": 20,
+    "initial_left_open_fraction": 0.23,
+    "delta_from_parent_rad": [
+      -0.16,
+      0.28
+    ],
+    "torso_tilt_deg": 4.00483118052301,
+    "shoulder_front_distance_m": 0.6244396242045729,
+    "body_transition_verified": false,
+    "physical_motion_allowed": false,
+    "legacy_dt_limit_conflict_unchanged": true
+  },
+  "grasp_evidence": {
+    "left_pot": "upper_bar_bearing"
+  }
+}

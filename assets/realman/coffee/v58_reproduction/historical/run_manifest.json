@@ -1,0 +1,31 @@
+{
+  "name": "service_lifecycle_staff_collection_clearance_v31_cycle_speed2_v58",
+  "base": "service_lifecycle_staff_collection_clearance_v31_cycle_speed2_v55",
+  "changes": {
+    "requested_cups": 3,
+    "demo_refills": 1,
+    "free_speed_scale": 4,
+    "contact_speed_scale": 2,
+    "pot_contact_speed_scale": 2,
+    "pour_tilt_and_restore_speed_scale": 2,
+    "contact_critical_timestep_s": 0.00025,
+    "pour_angular_limit_deg_s": 8.0,
+    "release_opening": 0.205,
+    "physical_guards": "unchanged"
+  },
+  "simulation_only": true,
+  "physical_motion_allowed": false,
+  "executed": true,
+  "run_command": "service_lifecycle_staff_collection_clearance_v31_cycle_speed2_v58_command.json",
+  "validation_needed": [],
+  "outcome": {
+    "experiment_success": true,
+    "last_stage": "standing_final_hold",
+    "simulation_seconds": 994.2800000611809,
+    "speed_policy_audit_passed": true,
+    "segments_checked": 48,
+    "independently_clear_segments": 12,
+    "contact_or_supported_segments": 36,
+    "renderer_note": "Runner exited 1 only during final screenshot generation because X11/OpenGL is unavailable; result.json was successfully written."
+  }
+}

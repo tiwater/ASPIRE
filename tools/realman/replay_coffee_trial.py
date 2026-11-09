@@ -25,6 +25,20 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def snapshot_path(snapshots: Path, source_path: str) -> Path:
+    """Resolve both portable package-tree snapshots and legacy flat snapshots."""
+    relative = Path(source_path)
+    if relative.is_absolute() or ".." in relative.parts:
+        raise ValueError("unsafe snapshot path: " + source_path)
+    if relative.parts[:2] == ("src", "cap_harness"):
+        portable = snapshots.joinpath(*relative.parts[1:])
+        if portable.is_file():
+            return portable
+    if source_path == "experiment.py" and (snapshots / "experiment.py").is_file():
+        return snapshots / "experiment.py"
+    return snapshots / relative.name
+
+
 def prepare(trial, name):
     trial = Path(trial).resolve()
     repo = Path(__file__).resolve().parents[2]
@@ -59,10 +73,9 @@ def prepare(trial, name):
         raise ValueError("recorded command does not identify this trial layout")
     snapshots = trial / "implementation_snapshots"
     manifest = json.loads((snapshots / "captured_during_run.json").read_text())
-    if len({Path(path).name for path in manifest}) != len(manifest):
-        raise ValueError("ambiguous captured module filenames")
     for path, expected in manifest.items():
-        if digest(snapshots / Path(path).name) != expected:
+        source = snapshot_path(snapshots, path)
+        if not source.is_file() or digest(source) != expected:
             raise ValueError("captured source hash mismatch: " + path)
     source = trial / "experiment.py"
     if digest(source) not in manifest.values():
@@ -70,7 +83,9 @@ def prepare(trial, name):
     model = trial.parent / "review/model/scene.xml"
     if digest(model) != result["model_sha256"]:
         raise ValueError("recorded model XML changed")
-    baseline = repo / "assets/realman/coffee/continuous_coffee_20261101/manifest.json"
+    baseline = repo / "assets/realman/coffee/v58_reproduction/ik/baseline_manifest.json"
+    if not baseline.is_file():
+        baseline = repo / "assets/realman/coffee/continuous_coffee_20261101/manifest.json"
     baseline_files = json.loads(baseline.read_text())["files"]
     local_ik = {}
     for module_name in ["local_ik", "local_ik_constrained", "local_ik_return", "local_ik_clearance_strict"]:
@@ -140,16 +155,21 @@ def execute(plan):
     if Path(sys.executable).resolve() != Path(command[0]).resolve():
         raise ValueError("invoke this tool with the recorded Python interpreter")
     repo = Path(__file__).resolve().parents[2]
-    sys.path.insert(0, str(repo / "src"))
+    snapshots = Path(plan["snapshot_directory"])
+    package_snapshot = snapshots / "cap_harness"
+    if package_snapshot.is_dir():
+        sys.path.insert(0, str(snapshots))
+    else:
+        sys.path.insert(0, str(repo / "src"))
     import cap_harness
 
     if any(name.startswith("cap_harness.realman") for name in sys.modules):
         raise RuntimeError("RealMan modules must not be loaded before snapshot selection")
-    snapshots = Path(plan["snapshot_directory"])
+    realman_snapshot = package_snapshot / "realman" if (package_snapshot / "realman").is_dir() else snapshots
     spec = importlib.util.spec_from_file_location(
         "cap_harness.realman",
-        snapshots / "__init__.py",
-        submodule_search_locations=[str(snapshots)],
+        realman_snapshot / "__init__.py",
+        submodule_search_locations=[str(realman_snapshot)],
     )
     module = importlib.util.module_from_spec(spec)
     sys.modules[spec.name] = module

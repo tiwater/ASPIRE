@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "checkpoint": "lifecycle_coffee/baseline_lifecycle_v1/prepared_work_pose.npz",
+      "sha256": "9e8323c5cd01de09bd08d57df0c1b94b551d24cd9f8e0973a52e92b2c803d8d8",
+      "samples": 2100,
+      "exact": true,
+      "maximum_difference": 0.0,
+      "reference_seconds": 9.999538136995398,
+      "reuse_seconds": 5.390258859988535
+    },
+    {
+      "checkpoint": "lifecycle_coffee/baseline_lifecycle_v1/pot_pinch.npz",
+      "sha256": "3f419b1d07667569fa2852c639325cf53d938cf95ef1a206c8b0af200c07f09e",
+      "samples": 2100,
+      "exact": true,
+      "maximum_difference": 0.0,
+      "reference_seconds": 9.744943997007795,
+      "reuse_seconds": 5.788269680982921
+    },
+    {
+      "checkpoint": "lifecycle_coffee/baseline_lifecycle_v1/pot_extract_040.npz",
+      "sha256": "b170eda39a093bf5a8f93db721e744dbed2d143e2048937a69953cb8835bd81c",
+      "samples": 2100,
+      "exact": true,
+      "maximum_difference": 0.0,
+      "reference_seconds": 5.376018682989525,
+      "reuse_seconds": 2.886028614011593
+    },
+    {
+      "checkpoint": "lifecycle_coffee/baseline_lifecycle_v1/pour_tilt_35.npz",
+      "sha256": "868d7db030b98d985fc032d6f605447535db96a609c697f266a9bb43d94e0c3e",
+      "samples": 2100,
+      "exact": true,
+      "maximum_difference": 0.0,
+      "reference_seconds": 3.4344349329767283,
+      "reuse_seconds": 1.906152134994045
+    }
+  ],
+  "scope": "solver computational equivalence only; no task qualification",
+  "mujoco_version": "3.3.0"
+}

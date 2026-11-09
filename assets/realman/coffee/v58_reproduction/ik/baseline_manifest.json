@@ -1,0 +1,9 @@
+{
+  "purpose": "Minimal solver-source hashes required by tools/realman/replay_coffee_trial.py; this intentionally does not claim to contain the full 2026-11-01 evidence archive.",
+  "files": {
+    "artifacts/realman/continuous_coffee_20261101/local_ik.py": "acc5ddbf968bf288a926818806a8947da024689309d4a63b037b1f52593b80a0",
+    "artifacts/realman/continuous_coffee_20261101/local_ik_constrained.py": "f1bce07b3b2289a02d99ba437b3461097ca6bc89c8230694638418478cbaa560",
+    "artifacts/realman/continuous_coffee_20261101/local_ik_return.py": "8838d5a3ee90a52dc1838cb8a8bdda786428dc9f0a23090f915cc761457b44af",
+    "artifacts/realman/continuous_coffee_20261101/local_ik_clearance_strict.py": "80abddf7cc5e39453bd1183d2bbd15242182cf72c7554b447d7a1b7107e7804b"
+  }
+}

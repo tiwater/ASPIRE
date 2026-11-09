@@ -1,0 +1,60 @@
+{
+  "scope": "actual thirdcup return release failure diagnostic",
+  "error": "RuntimeError: missing object relations ['pot_stable_after_release']",
+  "time_s": 1330.4000002574205,
+  "pot_position_m": [
+    1.0766014332364748,
+    0.23210429194998938,
+    0.7930678465079363
+  ],
+  "pot_on_hotplate": true,
+  "lid_outlet_aligned": true,
+  "pot_upright": true,
+  "left_gripper_released": false,
+  "residual_tool_handle_contacts": [
+    {
+      "geom1": "ltool_Right_Support_Link_collision_0",
+      "geom2": "handle_collision_12",
+      "normal_force_n": 0.0063404713682110245,
+      "distance_m": -2.2479959165587496e-10
+    }
+  ],
+  "contact_threshold_in_unchanged_release_grader_n": 0.001,
+  "last_half_second_pot_position_samples_m": [
+    [
+      1.0766014342764665,
+      0.23210429115266934,
+      0.7930687936968179
+    ],
+    [
+      1.076601433961247,
+      0.23210429114707043,
+      0.7930687838203646
+    ],
+    [
+      1.0766014337185545,
+      0.23210429124678095,
+      0.793068666875892
+    ],
+    [
+      1.0766014335226992,
+      0.23210429144046718,
+      0.7930684412410588
+    ],
+    [
+      1.0766014333672118,
+      0.23210429172578267,
+      0.7930681100456574
+    ],
+    [
+      1.0766014332364748,
+      0.23210429194998938,
+      0.7930678465079363
+    ]
+  ],
+  "initial_release_opening_fraction": 0.205,
+  "maximum_monitored_grasp_finger_load_n": 35.87528524866302,
+  "result_sha256": "c14a1eca69ff2fdcc9425f53b84163297e0142ea638081ed883534a86952cd0d",
+  "full_service_qualified": false,
+  "physical_motion_allowed": false
+}

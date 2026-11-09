@@ -1,0 +1,20 @@
+{
+  "historical_trial": "service_lifecycle_staff_collection_clearance_v31_cycle_speed2_v58",
+  "historical_result_sha256": "3110c0d1235ef6aa06df19f0f6bfea3d90dfd66126dd00aad5a130c45d9db7a4",
+  "historical_runner_sha256": "75613e8c8369347c57ae2a0a61c0bcb276e149c35e687cd5c83f7f445d810c0f",
+  "historical_model_sha256": "990e7fff88bde142346b151a77f08bedc47f4b47c013c7339b735bbf17080917",
+  "original_model_xml_sha256": "990e7fff88bde142346b151a77f08bedc47f4b47c013c7339b735bbf17080917",
+  "portable_model_xml_sha256": "fbae2ccddb715ce020443972c8a80239fe5925af48b9b32cc20e83d493c3f0da",
+  "original_runner_timestamp": "2026-11-07 02:09:01 +0800",
+  "original_result_timestamp": "2026-11-07 10:00:24 +0800",
+  "experiment_success": true,
+  "error": null,
+  "last_stage": "standing_final_hold",
+  "simulation_seconds": 994.2800000611809,
+  "speed_policy_audit_passed": true,
+  "segments_checked": 48,
+  "independently_clear_segments": 12,
+  "contact_or_supported_segments": 36,
+  "historical_module_snapshot": "not captured in the archived v58 trial; the reproduction runner records a fresh snapshot for every new run",
+  "scene_relocation": "Only mesh asset URI strings were changed from /home/sawyer/aspire/... to relative paths. Geometry payloads and model structure are unchanged; XML byte hash therefore differs from the historical model hash."
+}

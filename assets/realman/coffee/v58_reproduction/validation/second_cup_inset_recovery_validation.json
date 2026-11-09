@@ -1,0 +1,16 @@
+{
+  "scope": "actual-state local recovery of secondcup inset before lowering; no fullservice qualification",
+  "checkpoint_checks_passed": true,
+  "time_s": 809.9999999893291,
+  "elapsed_from_failed_checkpoint_s": 1.4600000002974411,
+  "reacquisition_hold_s": 0.4,
+  "additional_control_s": 1.0600000002974412,
+  "target_unchanged": true,
+  "cup_position_error_m": 0.0005125147675792141,
+  "cup_tilt_deg": 0.05456195410345119,
+  "grasp_anchor_limits_and_payload_preserved": true,
+  "checkpoint_sha256": "eff470d53a33c8ab76a784ac2340a5ada02a80fb31cb8db14ec222df583f299a",
+  "source_checkpoint_sha256": "aa5166e162456d3a2f89419abc2e81aed8e669136bcd09c846266c45209acc37",
+  "full_service_qualified": false,
+  "physical_motion_allowed": false
+}

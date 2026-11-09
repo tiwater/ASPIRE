@@ -1,0 +1,19 @@
+{
+  "scope": "local restoration40 checkpoint after ramped feedback from actual failed state; no fresh fullservice qualification",
+  "time_s": 720.5999999816206,
+  "elapsed_from_failure_s": 3.499999999121428,
+  "position_error_m": 0.0013480578511558747,
+  "orientation_error_deg": 0.4355205987939101,
+  "relative_grasp_angle_deg": 7.433634478423917,
+  "handle_slip_m": 0.0025663911103397984,
+  "feedback_norm_deg": 6.99999999962347,
+  "grasp_anchor_and_limits_preserved": true,
+  "payload_preserved": true,
+  "checkpoint_pose_checks_passed": true,
+  "contact_forces_recomputed": false,
+  "checkpoint_sha256": "93b00f202228d0160c9edc7b7e9714d4ad6cc9fa84ec8b44bd87bc074dc833ad",
+  "source_checkpoint_sha256": "3cf7530f94547fc374ea7235cc7565a6f19ecb824a8e1e07297ae2f2d2a91704",
+  "model_sha256": "990e7fff88bde142346b151a77f08bedc47f4b47c013c7339b735bbf17080917",
+  "full_service_qualified": false,
+  "physical_motion_allowed": false
+}
